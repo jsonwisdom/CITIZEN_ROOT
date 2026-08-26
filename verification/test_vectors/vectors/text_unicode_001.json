@@ -1,0 +1,8 @@
+{
+  "expected_canonical_hex": "636166c3a920e697a5e69cace8aa9e0a",
+  "expected_sha256": "3101ce7f826a453b1300e2c5aa8feada523afb0c46ba7d2d48ac8d4d5ba5411a",
+  "format": "text",
+  "id": "text_unicode_001",
+  "input_file": "fixtures/text_unicode_001.input",
+  "locks": "UTF-8 (no NFC/NFD)"
+}

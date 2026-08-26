@@ -22,7 +22,10 @@ verification/
 ├── merkle.py
 ├── merkle.mjs
 └── test_vectors/
-    ├── canonicalization.json
+    ├── VECTOR_MANIFEST_V0_1.json
+    ├── fixtures/<id>.input
+    ├── vectors/<id>.json
+    ├── run_canonicalization_cross.py
     ├── run_canonicalization_py.py
     ├── run_canonicalization_mjs.mjs
     └── README.md
@@ -36,6 +39,8 @@ Two equivalent, deterministic implementations of the locked specification.
 |------|----------|
 | `canonicalize.py` | Python 3 |
 | `canonicalize.mjs` | Node.js (ESM) |
+
+Do not edit these files to make a vector pass. Canonicalization v0.1.0 is a compatibility boundary.
 
 ### Contract
 
@@ -56,6 +61,18 @@ emit canonical representation
    ↓
 SHA-256(canonical_bytes)
 ```
+
+Canonical **bytes** are the primary assertion. The digest is secondary.
+
+```
+Python canonical bytes
+        ==
+Node canonical bytes
+        ==
+expected canonical bytes
+```
+
+The suite fails if one byte differs — even if a later digest implementation still matches.
 
 ### Text rules
 
@@ -91,6 +108,12 @@ node canonicalize.mjs
 node canonicalize.mjs path/to/file.md
 ```
 
+Self-test sample (`{\"b\":2,\"a\":1}` → `{\"a\":1,\"b\":2}\\n`):
+
+```
+e8d38819d39f705646bfb643368eca78f7db476c16471dbc33b941b27326410d
+```
+
 ## Hash
 
 Thin SHA-256 helpers. Leaf construction = SHA-256(canonical_bytes).
@@ -102,16 +125,17 @@ Thin SHA-256 helpers. Leaf construction = SHA-256(canonical_bytes).
 
 ## Test vectors
 
-Frozen cross-language vectors. Primary check is **byte equality**, not only digests.
+Frozen cross-language vectors. Primary check is **byte equality** against `expected_canonical_hex`. SHA-256 is secondary. See `test_vectors/README.md`.
 
 ```bash
+python3 test_vectors/run_canonicalization_cross.py
 python3 test_vectors/run_canonicalization_py.py
 node test_vectors/run_canonicalization_mjs.mjs
 ```
 
-Both must report every vector PASS and exit 0.
+All three must report every vector PASS and exit 0. The cross runner is the freeze gate.
 
-Coverage: CRLF→LF, trailing spaces/tabs, BOM, Unicode (no NFC/NFD), empty files, already-canonical input, final newline behavior, Markdown as opaque text, nested JSON, arrays, escaped characters.
+Coverage: CRLF→LF, trailing spaces/tabs, mixed whitespace, BOM, Unicode (no NFC/NFD), empty files, already-canonical input, final newline behavior, Markdown as opaque text, nested JSON, arrays, escaped characters.
 
 ## Merkle implementation
 
@@ -136,18 +160,15 @@ python3 merkle.py
 node merkle.mjs
 python3 canonicalize.py
 node canonicalize.mjs
-python3 test_vectors/run_canonicalization_py.py
-node test_vectors/run_canonicalization_mjs.mjs
+python3 test_vectors/run_canonicalization_cross.py
 ```
 
-All must pass.
+Self-tests must print deterministic output and "self-test passed". The vector suite must report every vector PASS.
 
 ## Pipeline
 
 ```
 canonicalization tests
-        ↓
-Python canonical bytes == Node canonical bytes
         ↓
 hash tests
         ↓
@@ -158,9 +179,4 @@ real repository leaves
 first mapped freeze
 ```
 
-## Invariants
-
-- Same ordered set of (path, sha256) pairs always produces the identical root.
-- Inclusion proofs are compact and independently verifiable.
-- Canonicalization is pure: same bytes in → same bytes out, across Python and Node.
-- No central authority is required to recompute or check a proof.
+Wait I need to be careful - I accidentally truncated verification/README.md. Let me not send this incomplete payload.

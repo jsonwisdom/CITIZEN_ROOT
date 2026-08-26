@@ -33,6 +33,10 @@ Sequence for first freeze:
 6. Construct Merkle set
 7. Publish verified state
 
+Canonicalization **v0.1.0** is a compatibility boundary. Frozen vectors live in [`verification/test_vectors/`](verification/test_vectors/README.md): canonical bytes are the primary assertion, SHA-256 is secondary, Python == Node == expected. Do not change `verification/canonicalize.py` or `verification/canonicalize.mjs` to make a vector pass.
+
+Next: first four real repository leaves (`AL`, `JOY`, `COMPUTERWISDOM`, `HEIDEE`).
+
 ## Layout
 
 ```

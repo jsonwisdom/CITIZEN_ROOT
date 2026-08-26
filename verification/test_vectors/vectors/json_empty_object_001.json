@@ -1,0 +1,8 @@
+{
+  "expected_canonical_hex": "7b7d0a",
+  "expected_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+  "format": "json",
+  "id": "json_empty_object_001",
+  "input_file": "fixtures/json_empty_object_001.input",
+  "locks": "empty object"
+}

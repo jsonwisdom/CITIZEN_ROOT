@@ -1,38 +1,10 @@
 {
-  "schema_id": "CITIZEN_ROOT_CANONICALIZATION_VECTORS_V0_1",
-  "protocol_version": "0.1.0",
-  "protocol": "CITIZEN_ROOT_INDEX_V0_1",
-  "canonicalization": "UTF-8, LF, sorted object keys, no trailing whitespace",
-  "hash_algorithm": "SHA-256",
-  "authority": false,
+  "schema_id": "CITIZEN_ROOT_VECTOR_SUITE_V0_1",
   "suite": "nested",
   "vectors": [
-    {
-      "id": "json_key_reorder",
-      "format": "json",
-      "description": "Object keys sorted; compact form",
-      "input": "{\"b\": 2, \"a\": 1}\n",
-      "expected_canonical": "{\"a\":1,\"b\":2}\n",
-      "expected_sha256": "e8d38819d39f705646bfb643368eca78f7db476c16471dbc33b941b27326410d",
-      "expected_size": 14
-    },
-    {
-      "id": "json_nested_keys",
-      "format": "json",
-      "description": "Nested objects recursively sorted; array order preserved",
-      "input": "{\"z\": {\"b\": 1, \"a\": 2}, \"y\": [3, 1]}\n",
-      "expected_canonical": "{\"y\":[3,1],\"z\":{\"a\":2,\"b\":1}}\n",
-      "expected_sha256": "58dcd960f1663649f054145326450bf06000435ddecf5c9ad58104909bbee02f",
-      "expected_size": 30
-    },
-    {
-      "id": "json_escaped_chars",
-      "format": "json",
-      "description": "Escaped characters round-trip via json.dumps/JSON.stringify",
-      "input": "{\"msg\": \"line\\nbreak\\tand\\\"quote\"}\n",
-      "expected_canonical": "{\"msg\":\"line\\nbreak\\tand\\\"quote\"}\n",
-      "expected_sha256": "50d0d2d6cae1c5d6e80b3801074f9d65dfdde67e9f42b2bf9ed6941a227ea598",
-      "expected_size": 34
-    }
+    "json_nested_001",
+    "json_arrays_001",
+    "json_escaped_001",
+    "json_key_reorder_001"
   ]
 }

@@ -1,38 +1,9 @@
 {
-  "schema_id": "CITIZEN_ROOT_CANONICALIZATION_VECTORS_V0_1",
-  "protocol_version": "0.1.0",
-  "protocol": "CITIZEN_ROOT_INDEX_V0_1",
-  "canonicalization": "UTF-8, LF, sorted object keys, no trailing whitespace",
-  "hash_algorithm": "SHA-256",
-  "authority": false,
+  "schema_id": "CITIZEN_ROOT_VECTOR_SUITE_V0_1",
   "suite": "unicode",
   "vectors": [
-    {
-      "id": "text_unicode_utf8",
-      "format": "text",
-      "description": "Unicode UTF-8 preserved (no NFC/NFD normalization)",
-      "input": "caf\u00e9 \u65e5\u672c\u8a9e\n",
-      "expected_canonical": "caf\u00e9 \u65e5\u672c\u8a9e\n",
-      "expected_sha256": "3101ce7f826a453b1300e2c5aa8feada523afb0c46ba7d2d48ac8d4d5ba5411a",
-      "expected_size": 16
-    },
-    {
-      "id": "json_unicode",
-      "format": "json",
-      "description": "Unicode in JSON values preserved (ensure_ascii=False)",
-      "input": "{\"name\": \"\u65e5\u672c\u8a9e\"}\n",
-      "expected_canonical": "{\"name\":\"\u65e5\u672c\u8a9e\"}\n",
-      "expected_sha256": "41dcf2359cbeb9bfb4aff621affae8dd0e789ac8ad6b9e156aeaee389b402ba6",
-      "expected_size": 21
-    },
-    {
-      "id": "text_markdown_prose",
-      "format": "text",
-      "description": "Markdown treated as opaque text; internal spaces and structure preserved",
-      "input": "# Title\n\n- item one  \n- item two\n\nParagraph with  double spaces.\n",
-      "expected_canonical": "# Title\n\n- item one\n- item two\n\nParagraph with  double spaces.\n",
-      "expected_sha256": "d46ce671f9dc2be6f57c99268368b5608507017af4e9fd658799c645e6a19486",
-      "expected_size": 63
-    }
+    "text_unicode_001",
+    "text_markdown_001",
+    "json_unicode_001"
   ]
 }

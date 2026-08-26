@@ -1,0 +1,8 @@
+{
+  "expected_canonical_hex": "7b2261223a5b312c322c335d2c227a223a5b332c312c325d7d0a",
+  "expected_sha256": "68fb5d9a360d6a899a6fb9822ab833d4dc605970b430ba0522f332f02f1db110",
+  "format": "json",
+  "id": "json_arrays_001",
+  "input_file": "fixtures/json_arrays_001.input",
+  "locks": "array ordering preserved"
+}

@@ -108,7 +108,7 @@ node canonicalize.mjs
 node canonicalize.mjs path/to/file.md
 ```
 
-Self-test sample (`{\"b\":2,\"a\":1}` → `{\"a\":1,\"b\":2}\\n`):
+Self-test sample (`{"b":2,"a":1}` → `{"a":1,"b":2}\n`):
 
 ```
 e8d38819d39f705646bfb643368eca78f7db476c16471dbc33b941b27326410d
@@ -170,6 +170,8 @@ Self-tests must print deterministic output and "self-test passed". The vector su
 ```
 canonicalization tests
         ↓
+Python canonical bytes == Node canonical bytes == expected bytes
+        ↓
 hash tests
         ↓
 Merkle tests
@@ -179,4 +181,9 @@ real repository leaves
 first mapped freeze
 ```
 
-Wait I need to be careful - I accidentally truncated verification/README.md. Let me not send this incomplete payload.
+## Invariants
+
+- Same ordered set of (path, sha256) pairs always produces the identical root.
+- Inclusion proofs are compact and independently verifiable.
+- Canonicalization is pure: same bytes in → same bytes out, across Python and Node.
+- No central authority is required to recompute or check a proof.

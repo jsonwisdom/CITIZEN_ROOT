@@ -1,0 +1,24 @@
+{
+  "schema_id": "CITIZEN_ROOT_CANONICALIZATION_VECTORS_V0_1",
+  "protocol_version": "0.1.0",
+  "canonicalization": "UTF-8, LF, sorted object keys, no trailing whitespace",
+  "hash_algorithm": "SHA-256",
+  "authority": false,
+  "invariants": [
+    "Python canonical bytes == Node canonical bytes for every vector",
+    "Python SHA-256 == Node SHA-256 for every vector",
+    "No Markdown, Unicode NFC/NFD, prose, or line-wrap normalization",
+    "Transformations limited to the locked protocol only"
+  ],
+  "vectors": [
+    {
+      "id": "text_crlf_trailing_spaces",
+      "format": "text",
+      "description": "CRLF line endings + trailing spaces and tabs stripped",
+      "input": "hello  \r\nworld\t\r\n",
+      "expected_canonical": "hello\nworld\n",
+      "expected_sha256": "4a1e67f2fe1d1cc7c4d5c9e8a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9",
+      "expected_size": 12
+    }
+  ]
+}

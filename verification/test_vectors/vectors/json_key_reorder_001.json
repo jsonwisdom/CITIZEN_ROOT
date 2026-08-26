@@ -1,0 +1,8 @@
+{
+  "expected_canonical_hex": "7b2261223a312c2262223a327d0a",
+  "expected_sha256": "e8d38819d39f705646bfb643368eca78f7db476c16471dbc33b941b27326410d",
+  "format": "json",
+  "id": "json_key_reorder_001",
+  "input_file": "fixtures/json_key_reorder_001.input",
+  "locks": "object key sort + compact form"
+}

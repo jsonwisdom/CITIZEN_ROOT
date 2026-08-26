@@ -1,0 +1,8 @@
+{
+  "expected_canonical_hex": "6c696e65206f6e650a6c696e652074776f0a",
+  "expected_sha256": "e9024f1a07d29d52ad3aa5e1a18e94db1f3a9fd32b89e39d47c472cd99071e13",
+  "format": "text",
+  "id": "text_already_canonical_001",
+  "input_file": "fixtures/text_already_canonical_001.input",
+  "locks": "identity"
+}

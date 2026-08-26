@@ -1,0 +1,60 @@
+{
+  "protocol_version": "0.1.0",
+  "schema_id": "CITIZEN_ROOT_INDEX_V0_1",
+  "authority": false,
+  "root_receipt": {
+    "path": "receipts/CITIZEN_ROOT_INDEX_ROOT_RECEIPT_V0_1.json",
+    "sha256": null,
+    "timestamp": null,
+    "signer": null
+  },
+  "verification_rules": {
+    "canonicalization": "UTF-8, LF, sorted object keys, no trailing whitespace",
+    "hash_algorithm": "SHA-256",
+    "leaf_construction": "SHA-256(canonical_bytes)",
+    "merkle_construction": "ordered binary tree by path",
+    "rewrite_forbidden": true,
+    "authority": false
+  },
+  "artifact_registry": {
+    "description": "Pointers only. Actual artifacts live in AL / JOY / COMPUTERWISDOM / HEIDEE.",
+    "entries": []
+  },
+  "merkle_roots": {
+    "current": null,
+    "historical": []
+  },
+  "jurisdiction_packs": {
+    "description": "Overlays only. Never rewrite source bytes.",
+    "rule": "SOURCE_ARTIFACT.sha256 stays primary; jurisdiction metadata is a separate leaf that references source_sha256",
+    "packs": []
+  },
+  "language_packs": {
+    "description": "Translations are derived artifacts with their own hash + source_sha256 pointer.",
+    "rule": "SOURCE_ARTIFACT.sha256 = A; TRANSLATION.sha256 = B; TRANSLATION.source_sha256 = A",
+    "packs": []
+  },
+  "mirror_endpoints": {
+    "primary": "https://github.com/jsonwisdom/",
+    "static_mirrors": [],
+    "cdn_hints": []
+  },
+  "agent_discovery": {
+    "protocol_leaf": "AL/AGENT_WISDOM.md",
+    "query_surface": "agent_discovery/index.json"
+  },
+  "revocation_and_withdrawal_log": {
+    "description": "Append-only status changes. Original claim leaf never deleted.",
+    "path": "claim_status/CLAIM_STATUS_CHANGE_LOG.jsonl"
+  },
+  "provenance": {
+    "builder": "jsonwisdom",
+    "repos": [
+      "AL",
+      "JOY",
+      "COMPUTERWISDOM",
+      "HEIDEE"
+    ],
+    "authority": false
+  }
+}

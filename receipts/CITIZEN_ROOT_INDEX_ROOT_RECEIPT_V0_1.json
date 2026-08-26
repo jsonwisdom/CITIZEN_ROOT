@@ -1,0 +1,8 @@
+{
+  "receipt_version": "0.1.0",
+  "artifact_path": "CITIZEN_ROOT_INDEX.json",
+  "artifact_sha256": null,
+  "canonicalization": "UTF-8, LF, sorted object keys, no trailing whitespace",
+  "hash_algorithm": "SHA-256",
+  "status": "PENDING_ROOT_HASH"
+}

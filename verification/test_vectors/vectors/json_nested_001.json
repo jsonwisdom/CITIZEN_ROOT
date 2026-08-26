@@ -1,0 +1,8 @@
+{
+  "expected_canonical_hex": "7b2279223a5b332c315d2c227a223a7b2261223a322c2262223a317d7d0a",
+  "expected_sha256": "58dcd960f1663649f054145326450bf06000435ddecf5c9ad58104909bbee02f",
+  "format": "json",
+  "id": "json_nested_001",
+  "input_file": "fixtures/json_nested_001.input",
+  "locks": "recursive key ordering"
+}

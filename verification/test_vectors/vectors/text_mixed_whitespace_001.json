@@ -1,0 +1,8 @@
+{
+  "expected_canonical_hex": "202068656c6c6f0a09776f726c640a6b65657020206d6964646c650a",
+  "expected_sha256": "6eafc4db9f2bd5c1cbb4b3c966fae19057361be639f741bb653ffe24096802ac",
+  "format": "text",
+  "id": "text_mixed_whitespace_001",
+  "input_file": "fixtures/text_mixed_whitespace_001.input",
+  "locks": "byte-level normalization"
+}

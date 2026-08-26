@@ -1,0 +1,8 @@
+{
+  "expected_canonical_hex": "616c7068610a",
+  "expected_sha256": "b6a98d9ce9a2d9149288fa3df42d377c3e42737afdcdaf714e33c0a100b51060",
+  "format": "text",
+  "id": "text_bom_001",
+  "input_file": "fixtures/text_bom_001.input",
+  "locks": "UTF-8 BOM stripped"
+}

@@ -1,0 +1,8 @@
+{
+  "expected_canonical_hex": "6109620a630a",
+  "expected_sha256": "546614062a18008e08b563073424c00f45c808b93228142eebd3dcf2ac9f63e2",
+  "format": "text",
+  "id": "text_trailing_tabs_001",
+  "input_file": "fixtures/text_trailing_tabs_001.input",
+  "locks": "whitespace rule (trailing tabs)"
+}

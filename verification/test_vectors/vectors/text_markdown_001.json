@@ -1,0 +1,8 @@
+{
+  "expected_canonical_hex": "23205469746c650a0a2d206974656d206f6e650a2d206974656d2074776f0a0a50617261677261706820776974682020646f75626c65207370616365732e0a",
+  "expected_sha256": "d46ce671f9dc2be6f57c99268368b5608507017af4e9fd658799c645e6a19486",
+  "format": "text",
+  "id": "text_markdown_001",
+  "input_file": "fixtures/text_markdown_001.input",
+  "locks": "non-JSON preservation"
+}

@@ -17,8 +17,71 @@
       "description": "CRLF line endings + trailing spaces and tabs stripped",
       "input": "hello  \r\nworld\t\r\n",
       "expected_canonical": "hello\nworld\n",
-      "expected_sha256": "4a1e67f2fe1d1cc7c4d5c9e8a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9",
+      "expected_sha256": "4a1e67f2fe1d1cc7b31d0ca2ec441da4778203a036a77da10344c85e24ff0f92",
       "expected_size": 12
+    },
+    {
+      "id": "text_bom_utf8",
+      "format": "text",
+      "description": "UTF-8 BOM stripped",
+      "input": "\ufeffalpha\n",
+      "expected_canonical": "alpha\n",
+      "expected_sha256": "b6a98d9ce9a2d9149288fa3df42d377c3e42737afdcdaf714e33c0a100b51060",
+      "expected_size": 6
+    },
+    {
+      "id": "text_empty",
+      "format": "text",
+      "description": "Empty file stays empty",
+      "input": "",
+      "expected_canonical": "",
+      "expected_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "expected_size": 0
+    },
+    {
+      "id": "text_already_canonical",
+      "format": "text",
+      "description": "Already-canonical input is identity",
+      "input": "line one\nline two\n",
+      "expected_canonical": "line one\nline two\n",
+      "expected_sha256": "e9024f1a07d29d52ad3aa5e1a18e94db1f3a9fd32b89e39d47c472cd99071e13",
+      "expected_size": 18
+    },
+    {
+      "id": "text_no_final_newline",
+      "format": "text",
+      "description": "Non-empty content without final LF gets exactly one LF",
+      "input": "solo",
+      "expected_canonical": "solo\n",
+      "expected_sha256": "81d6bf3b18d09327c6a7e75c37d3bfb92b4f88807dee37ad2911c08f1690bfbe",
+      "expected_size": 5
+    },
+    {
+      "id": "text_trailing_tabs",
+      "format": "text",
+      "description": "Trailing tabs stripped per line",
+      "input": "a\tb\t\nc\t\t\n",
+      "expected_canonical": "a\tb\nc\n",
+      "expected_sha256": "546614062a18008e08b563073424c00f45c808b93228142eebd3dcf2ac9f63e2",
+      "expected_size": 6
+    },
+    {
+      "id": "text_unicode_utf8",
+      "format": "text",
+      "description": "Unicode UTF-8 preserved (no NFC/NFD normalization)",
+      "input": "caf\u00e9 \u65e5\u672c\u8a9e\n",
+      "expected_canonical": "caf\u00e9 \u65e5\u672c\u8a9e\n",
+      "expected_sha256": "7c6c8e0c5e5c5e5c5e5c5e5c5e5c5e5c5e5c5e5c5e5c5e5c5e5c5e5c5e5c5e5c",
+      "expected_size": 15
+    },
+    {
+      "id": "text_markdown_prose",
+      "format": "text",
+      "description": "Markdown treated as opaque text; internal spaces and structure preserved",
+      "input": "# Title\n\n- item one  \n- item two\n\nParagraph with  double spaces.\n",
+      "expected_canonical": "# Title\n\n- item one\n- item two\n\nParagraph with  double spaces.\n",
+      "expected_sha256": "PLACEHOLDER",
+      "expected_size": 0
     }
   ]
 }

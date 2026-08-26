@@ -11,14 +11,51 @@ Canonicalization, hashing, Merkle construction, and replay helpers.
 - **rewrite_forbidden**: true
 - **authority**: false
 
+## Layout
+
+```
+verification/
+├── canonicalize.py
+├── canonicalize.mjs
+├── hash.py
+├── hash.mjs
+├── merkle.py
+├── merkle.mjs
+└── test_vectors/
+    ├── canonicalization.json
+    ├── run_canonicalization_py.py
+    ├── run_canonicalization_mjs.mjs
+    └── README.md
+```
+
 ## Canonicalization
 
-Two equivalent, deterministic implementations:
+Two equivalent, deterministic implementations of the locked specification.
 
 | File | Language |
 |------|----------|
 | `canonicalize.py` | Python 3 |
 | `canonicalize.mjs` | Node.js (ESM) |
+
+### Contract
+
+```
+raw artifact
+   ↓
+UTF-8 bytes
+   ↓
+LF line endings
+   ↓
+remove trailing whitespace
+   ↓
+parse structured formats where applicable (JSON only)
+   ↓
+sort object keys recursively
+   ↓
+emit canonical representation
+   ↓
+SHA-256(canonical_bytes)
+```
 
 ### Text rules
 
@@ -35,54 +72,48 @@ Two equivalent, deterministic implementations:
 3. Serialize compact: `separators=(',', ':')`, `ensure_ascii=False`.
 4. Single trailing LF. No trailing whitespace.
 
-### Usage (Python)
+### Explicitly prohibited
 
-```python
-from canonicalize import canonicalize, hash_canonical, canonicalize_file
+- Markdown structural rewrite
+- Unicode normalization (NFC/NFD)
+- Whitespace changes inside prose (beyond trailing-ws strip)
+- Line wrapping or reflow
+- Any transformation not named in the locked protocol
 
-raw = open("artifact.json", "rb").read()
-canonical = canonicalize(raw, path="artifact.json")
-record = hash_canonical(raw, path="artifact.json")
-print(record["sha256"])
-```
+The verifier determines identity. It does not decide what the artifact ought to say.
+
+### Usage
 
 ```bash
 python3 canonicalize.py                          # self-test
-python3 canonicalize.py path/to/file.json        # print path + sha256
-python3 canonicalize.py --json path/to/file
-python3 canonicalize.py --text path/to/file.md
+python3 canonicalize.py path/to/file.json
+node canonicalize.mjs
+node canonicalize.mjs path/to/file.md
 ```
 
-### Usage (Node)
+## Hash
 
-```js
-import { canonicalize, hashCanonical, canonicalizeFile } from "./canonicalize.mjs";
+Thin SHA-256 helpers. Leaf construction = SHA-256(canonical_bytes).
 
-const raw = fs.readFileSync("artifact.json");
-const canonical = canonicalize(raw, "artifact.json");
-const record = hashCanonical(raw, "artifact.json");
-console.log(record.sha256);
-```
+| File | Language |
+|------|----------|
+| `hash.py` | Python 3 |
+| `hash.mjs` | Node.js (ESM) |
+
+## Test vectors
+
+Frozen cross-language vectors. Primary check is **byte equality**, not only digests.
 
 ```bash
-node canonicalize.mjs                            # self-test
-node canonicalize.mjs path/to/file.json
-node canonicalize.mjs --json path/to/file
-node canonicalize.mjs --text path/to/file.md
+python3 test_vectors/run_canonicalization_py.py
+node test_vectors/run_canonicalization_mjs.mjs
 ```
 
-### Cross-implementation invariant
+Both must report every vector PASS and exit 0.
 
-Both implementations must produce the identical digest for the same input.
-Self-test sample (`{"b":2,"a":1}` → `{"a":1,"b":2}\n`):
-
-```
-e8d38819d39f705646bfb643368eca78f7db476c16471dbc33b941b27326410d
-```
+Coverage: CRLF→LF, trailing spaces/tabs, BOM, Unicode (no NFC/NFD), empty files, already-canonical input, final newline behavior, Markdown as opaque text, nested JSON, arrays, escaped characters.
 
 ## Merkle implementation
-
-Two equivalent, deterministic implementations:
 
 | File | Language |
 |------|----------|
@@ -98,40 +129,6 @@ Two equivalent, deterministic implementations:
 4. When a level has an odd number of nodes, the final unpaired node is **promoted** (not duplicated).
 5. The single remaining hash is the Merkle root.
 
-### Usage (Python)
-
-```python
-from merkle import build_merkle_tree, generate_inclusion_proof, verify_inclusion
-
-leaves = [
-    {"path": "AL/AGENT_WISDOM.md", "sha256": "..."},
-    {"path": "JOY/leaves.sha256", "sha256": "..."},
-]
-
-tree = build_merkle_tree(leaves)
-print(tree["root"])
-
-proof = generate_inclusion_proof(leaves, "AL/AGENT_WISDOM.md")
-assert verify_inclusion(proof["path"], proof["leaf_sha256"], proof["proof"], proof["root"])
-```
-
-### Usage (Node)
-
-```js
-import { buildMerkleTree, generateInclusionProof, verifyInclusion } from "./merkle.mjs";
-
-const leaves = [
-  { path: "AL/AGENT_WISDOM.md", sha256: "..." },
-  { path: "JOY/leaves.sha256", sha256: "..." },
-];
-
-const tree = buildMerkleTree(leaves);
-console.log(tree.root);
-
-const proof = generateInclusionProof(leaves, "AL/AGENT_WISDOM.md");
-console.assert(verifyInclusion(proof.path, proof.leaf_sha256, proof.proof, proof.root));
-```
-
 ### Self-test
 
 ```bash
@@ -139,22 +136,26 @@ python3 merkle.py
 node merkle.mjs
 python3 canonicalize.py
 node canonicalize.mjs
+python3 test_vectors/run_canonicalization_py.py
+node test_vectors/run_canonicalization_mjs.mjs
 ```
 
-All four must print deterministic output and "self-test passed".
+All must pass.
 
 ## Pipeline
 
 ```
-artifact bytes
-      ↓
-canonicalize (UTF-8, LF, sorted keys, no trailing ws)
-      ↓
-SHA-256 → leaf digest
-      ↓
-ordered Merkle tree (by path)
-      ↓
-root + inclusion proofs
+canonicalization tests
+        ↓
+Python canonical bytes == Node canonical bytes
+        ↓
+hash tests
+        ↓
+Merkle tests
+        ↓
+real repository leaves
+        ↓
+first mapped freeze
 ```
 
 ## Invariants

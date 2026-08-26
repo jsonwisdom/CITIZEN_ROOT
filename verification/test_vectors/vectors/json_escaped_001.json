@@ -1,0 +1,8 @@
+{
+  "expected_canonical_hex": "7b226d7367223a226c696e655c6e627265616b5c74616e645c2271756f7465227d0a",
+  "expected_sha256": "50d0d2d6cae1c5d6e80b3801074f9d65dfdde67e9f42b2bf9ed6941a227ea598",
+  "format": "json",
+  "id": "json_escaped_001",
+  "input_file": "fixtures/json_escaped_001.input",
+  "locks": "serialization determinism"
+}

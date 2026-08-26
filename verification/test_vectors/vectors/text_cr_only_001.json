@@ -1,0 +1,8 @@
+{
+  "expected_canonical_hex": "6f6e650a74776f0a",
+  "expected_sha256": "c3f9c8c283a2b1f2f1896f27a01cbe3cddc0c9d93f752e4639035a0f5b36f6e8",
+  "format": "text",
+  "id": "text_cr_only_001",
+  "input_file": "fixtures/text_cr_only_001.input",
+  "locks": "bare CR to LF"
+}

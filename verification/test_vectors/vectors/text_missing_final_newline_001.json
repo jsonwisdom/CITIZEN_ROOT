@@ -1,0 +1,8 @@
+{
+  "expected_canonical_hex": "736f6c6f0a",
+  "expected_sha256": "81d6bf3b18d09327c6a7e75c37d3bfb92b4f88807dee37ad2911c08f1690bfbe",
+  "format": "text",
+  "id": "text_missing_final_newline_001",
+  "input_file": "fixtures/text_missing_final_newline_001.input",
+  "locks": "EOF behavior"
+}

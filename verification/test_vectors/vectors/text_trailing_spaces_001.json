@@ -1,0 +1,8 @@
+{
+  "expected_canonical_hex": "68656c6c6f0a776f726c640a",
+  "expected_sha256": "4a1e67f2fe1d1cc7b31d0ca2ec441da4778203a036a77da10344c85e24ff0f92",
+  "format": "text",
+  "id": "text_trailing_spaces_001",
+  "input_file": "fixtures/text_trailing_spaces_001.input",
+  "locks": "whitespace rule (trailing spaces)"
+}

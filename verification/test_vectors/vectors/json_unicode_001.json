@@ -1,0 +1,8 @@
+{
+  "expected_canonical_hex": "7b226e616d65223a22e697a5e69cace8aa9e227d0a",
+  "expected_sha256": "41dcf2359cbeb9bfb4aff621affae8dd0e789ac8ad6b9e156aeaee389b402ba6",
+  "format": "json",
+  "id": "json_unicode_001",
+  "input_file": "fixtures/json_unicode_001.input",
+  "locks": "Unicode in JSON values (ensure_ascii=False)"
+}

@@ -1,35 +1,50 @@
 #!/usr/bin/env node
-/** Run frozen canonicalization vectors against canonicalize.mjs. Byte-level equality. */
-import { readFileSync } from "node:fs";
+/**
+ * Run frozen vectors against canonicalize.mjs.
+ *
+ * Primary assertion: canonical bytes == unhex(expected_canonical_hex)
+ * Secondary assertion: SHA-256(canonical bytes) == expected_sha256
+ */
+import { readFileSync, readdirSync } from "node:fs";
 import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { canonicalize } from "../canonicalize.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const VECTORS = join(__dirname, "canonicalization.json");
+const VECTORS_DIR = __dirname;
 
 function sha256Hex(buf) {
   return createHash("sha256").update(buf).digest("hex");
 }
 
-const doc = JSON.parse(readFileSync(VECTORS, "utf8"));
-const vectors = doc.vectors;
+function loadVectors() {
+  const dir = join(VECTORS_DIR, "vectors");
+  return readdirSync(dir)
+    .filter((name) => name.endsWith(".json"))
+    .sort()
+    .map((name) => {
+      const path = join(dir, name);
+      return JSON.parse(readFileSync(path, "utf8"));
+    });
+}
+
+const vectors = loadVectors();
 let failed = 0;
 
 for (const v of vectors) {
-  const raw = Buffer.from(v.input, "utf8");
-  const forceJson = v.format === "json" ? true : false;
+  const raw = readFileSync(join(VECTORS_DIR, v.input_file));
+  const forceJson = v.format === "json";
   const got = canonicalize(raw, null, forceJson);
-  const expected = Buffer.from(v.expected_canonical, "utf8");
-  const gotHash = sha256Hex(got);
+  const expected = Buffer.from(v.expected_canonical_hex, "hex");
   if (!got.equals(expected)) {
     console.log(`FAIL bytes ${v.id}`);
-    console.log(`  expected: ${JSON.stringify(expected.toString("utf8"))}`);
-    console.log(`  got:      ${JSON.stringify(got.toString("utf8"))}`);
+    console.log(`  expected_hex: ${expected.toString("hex")}`);
+    console.log(`  got_hex:      ${got.toString("hex")}`);
     failed++;
     continue;
   }
+  const gotHash = sha256Hex(got);
   if (gotHash !== v.expected_sha256) {
     console.log(`FAIL hash  ${v.id}: ${gotHash} != ${v.expected_sha256}`);
     failed++;

@@ -1,56 +1,108 @@
 # test_vectors
 
-Frozen cross-language vectors for the verification pipeline.
+Frozen cross-language vectors for canonicalization v0.1.0.
 
-## Invariant
+**Compatibility boundary.** These bytes are the protocol. The canonicalizers are not.
 
-For every vector:
+## Contract
 
+Canonical **bytes** are the primary assertion. The digest is secondary.
+
+```text
+Python canonical bytes
+        ==
+Node canonical bytes
+        ==
+expected canonical bytes
+
+Python SHA-256
+        ==
+Node SHA-256
+        ==
+expected SHA-256
 ```
-Python canonical bytes == Node canonical bytes
-Python SHA-256         == Node SHA-256
+
+The suite fails if **one byte** differs — even if a later digest implementation still matches.
+
+A digest tells us two byte strings match. The frozen canonical-byte expectation tells us what bytes the protocol actually requires.
+
+## Layout
+
+```text
+test_vectors/
+    VECTOR_MANIFEST_V0_1.json
+    fixtures/<id>.input          # raw input bytes (git: -text)
+    vectors/<id>.json            # frozen expectation
+    run_canonicalization_cross.py
+    run_canonicalization_py.py
+    run_canonicalization_mjs.mjs
 ```
 
-Compare the **canonical bytes**, not only the digest. Matching digests with disagreeing serialization is a silent failure mode.
+Each vector file:
 
-## Files
+```json
+{
+  "id": "json_nested_001",
+  "input_file": "fixtures/json_nested_001.input",
+  "format": "json",
+  "expected_canonical_hex": "...",
+  "expected_sha256": "..."
+}
+```
 
-| File | Role |
-|------|------|
-| `canonicalization.json` | Frozen vectors (schema `CITIZEN_ROOT_CANONICALIZATION_VECTORS_V0_1`) |
-| `run_canonicalization_py.py` | Python runner (byte equality) |
-| `run_canonicalization_mjs.mjs` | Node runner (byte equality) |
+Hex keeps the expected canonical bytes unambiguous.
+
+`VECTOR_MANIFEST_V0_1.json` records, for each vector:
+
+- `vector_id`
+- `input_sha256`
+- `expected_canonical_sha256`
+- `expected_canonical_length`
+
+The vector suite is itself an independently verifiable artifact.
 
 ## Run
 
 From `verification/`:
 
 ```bash
+python3 test_vectors/run_canonicalization_cross.py
 python3 test_vectors/run_canonicalization_py.py
 node test_vectors/run_canonicalization_mjs.mjs
 ```
 
-Both must report every vector PASS and exit 0.
+All three must exit 0. The cross runner is the freeze gate.
 
 ## Coverage
 
-- CRLF → LF
-- trailing spaces / tabs
-- UTF-8 BOM
-- Unicode (no NFC/NFD)
-- empty files
-- already-canonical input
-- final newline behavior
-- Markdown / plain text (opaque; no prose rewriting)
-- nested JSON, arrays, escaped characters
-- empty object / empty array
+| Vector | What it locks |
+| --- | --- |
+| `text_crlf_001` | LF conversion |
+| `text_trailing_spaces_001` | whitespace rule |
+| `text_trailing_tabs_001` | whitespace rule |
+| `text_missing_final_newline_001` | EOF behavior |
+| `text_unicode_001` | UTF-8 |
+| `json_nested_001` | recursive key ordering |
+| `json_arrays_001` | array ordering preserved |
+| `json_escaped_001` | serialization determinism |
+| `text_empty_001` | zero-byte behavior |
+| `text_markdown_001` | non-JSON preservation |
+| `text_mixed_whitespace_001` | byte-level normalization |
+| `text_already_canonical_001` | identity |
+| `json_already_canonical_001` | identity |
+
+Additional locked cases: UTF-8 BOM, bare CR, pretty JSON, empty object/array, JSON Unicode.
 
 ## Explicitly prohibited
 
+- Editing `canonicalize.py` or `canonicalize.mjs` to make a vector pass
 - Markdown structural rewrite
-- Unicode normalization (NFC/NFD)
+- Unicode NFC/NFD
 - Whitespace changes inside prose (beyond trailing-ws strip)
-- Line wrapping or reflow
-- Any transformation not named in the locked protocol
+- Regenerating expected hex because a digest implementation changed
 
-The verifier determines identity. It does not decide what the artifact ought to say.
+`freeze_from_implementations.py` records what the locked implementations already produce. It is not a license to rewrite the protocol.
+
+## Git
+
+Fixture `.input` files are marked `-text` in `.gitattributes` so CRLF and BOM bytes are not rewritten.

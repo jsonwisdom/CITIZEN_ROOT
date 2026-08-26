@@ -1,0 +1,56 @@
+{
+  "schema_id": "CITIZEN_ROOT_CANONICALIZATION_VECTORS_V0_1",
+  "protocol_version": "0.1.0",
+  "protocol": "CITIZEN_ROOT_INDEX_V0_1",
+  "canonicalization": "UTF-8, LF, sorted object keys, no trailing whitespace",
+  "hash_algorithm": "SHA-256",
+  "authority": false,
+  "suite": "whitespace",
+  "vectors": [
+    {
+      "id": "text_crlf_trailing_spaces",
+      "format": "text",
+      "description": "CRLF line endings + trailing spaces and tabs stripped",
+      "input": "hello  \r\nworld\t\r\n",
+      "expected_canonical": "hello\nworld\n",
+      "expected_sha256": "4a1e67f2fe1d1cc7b31d0ca2ec441da4778203a036a77da10344c85e24ff0f92",
+      "expected_size": 12
+    },
+    {
+      "id": "text_trailing_tabs",
+      "format": "text",
+      "description": "Trailing tabs stripped per line",
+      "input": "a\tb\t\nc\t\t\n",
+      "expected_canonical": "a\tb\nc\n",
+      "expected_sha256": "546614062a18008e08b563073424c00f45c808b93228142eebd3dcf2ac9f63e2",
+      "expected_size": 6
+    },
+    {
+      "id": "text_cr_only",
+      "format": "text",
+      "description": "Bare CR normalized to LF",
+      "input": "one\rtwo\r",
+      "expected_canonical": "one\ntwo\n",
+      "expected_sha256": "c3f9c8c283a2b1f2f1896f27a01cbe3cddc0c9d93f752e4639035a0f5b36f6e8",
+      "expected_size": 8
+    },
+    {
+      "id": "text_bom_utf8",
+      "format": "text",
+      "description": "UTF-8 BOM stripped",
+      "input": "\ufeffalpha\n",
+      "expected_canonical": "alpha\n",
+      "expected_sha256": "b6a98d9ce9a2d9149288fa3df42d377c3e42737afdcdaf714e33c0a100b51060",
+      "expected_size": 6
+    },
+    {
+      "id": "json_pretty_to_compact",
+      "format": "json",
+      "description": "Pretty-printed JSON collapses to same compact form",
+      "input": "{\n  \"a\": 1,\n  \"b\": 2\n}\n",
+      "expected_canonical": "{\"a\":1,\"b\":2}\n",
+      "expected_sha256": "e8d38819d39f705646bfb643368eca78f7db476c16471dbc33b941b27326410d",
+      "expected_size": 14
+    }
+  ]
+}

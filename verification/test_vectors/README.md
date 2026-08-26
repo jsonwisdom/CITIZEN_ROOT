@@ -2,55 +2,43 @@
 
 Frozen cross-language vectors for the verification pipeline.
 
-## Invariant
+## Suites
 
-For every vector:
+| File | Focus |
+|------|--------|
+| `basic.json` | empty, already-canonical, simple structures |
+| `whitespace.json` | CRLF, trailing spaces/tabs, BOM, pretty JSON |
+| `unicode.json` | UTF-8, Markdown as opaque text |
+| `nested.json` | key reorder, nested objects, escaped characters |
+
+## Invariant
 
 ```
 Python canonical bytes == Node canonical bytes
 Python SHA-256         == Node SHA-256
 ```
 
-Compare the **canonical bytes**, not only the digest. Matching digests with disagreeing serialization is a silent failure mode.
-
-## Files
-
-| File | Role |
-|------|------|
-| `canonicalization.json` | Frozen vectors (schema `CITIZEN_ROOT_CANONICALIZATION_VECTORS_V0_1`) |
-| `run_canonicalization_py.py` | Python runner (byte equality) |
-| `run_canonicalization_mjs.mjs` | Node runner (byte equality) |
+Compare **bytes**, not only digests.
 
 ## Run
 
 From `verification/`:
 
 ```bash
-python3 test_vectors/run_canonicalization_py.py
-node test_vectors/run_canonicalization_mjs.mjs
+python3 selftest_canonicalize.py
+node selftest_canonicalize.mjs
 ```
 
-Both must report every vector PASS and exit 0.
+Machine-readable result (stdout):
 
-## Coverage
+```json
+{
+  "protocol": "CITIZEN_ROOT_INDEX_V0_1",
+  "python_node_equivalence": true,
+  "vectors_passed": 17,
+  "vectors_failed": 0,
+  "status": "PASS"
+}
+```
 
-- CRLF → LF
-- trailing spaces / tabs
-- UTF-8 BOM
-- Unicode (no NFC/NFD)
-- empty files
-- already-canonical input
-- final newline behavior
-- Markdown / plain text (opaque; no prose rewriting)
-- nested JSON, arrays, escaped characters
-- empty object / empty array
-
-## Explicitly prohibited
-
-- Markdown structural rewrite
-- Unicode normalization (NFC/NFD)
-- Whitespace changes inside prose (beyond trailing-ws strip)
-- Line wrapping or reflow
-- Any transformation not named in the locked protocol
-
-The verifier determines identity. It does not decide what the artifact ought to say.
+Fail closed: non-zero exit on any mismatch. No fallback canonicalizer.

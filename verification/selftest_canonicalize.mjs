@@ -3,8 +3,9 @@
  * CITIZEN_ROOT canonicalization self-test (Node).
  *
  * Fail closed. Machine-readable result on stdout.
- * Proves Node results against frozen vectors, and when Python is available,
- * proves Node canonical bytes == Python canonical bytes for every vector.
+ * Primary assertion: canonical bytes == unhex(expected_canonical_hex).
+ * Secondary assertion: SHA-256.
+ * Cross-language: Node bytes == Python bytes == expected bytes.
  */
 import { readFileSync, existsSync } from "node:fs";
 import { createHash } from "node:crypto";
@@ -30,21 +31,26 @@ function loadVectors() {
       throw new Error(`missing vector suite: ${path}`);
     }
     const doc = JSON.parse(readFileSync(path, "utf8"));
-    for (const v of doc.vectors) {
-      vectors.push({ ...v, _suite: name });
+    for (const vectorId of doc.vectors) {
+      const recordPath = join(VECTOR_DIR, "vectors", `${vectorId}.json`);
+      const v = JSON.parse(readFileSync(recordPath, "utf8"));
+      v._suite = name;
+      v._raw = readFileSync(join(VECTOR_DIR, v.input_file));
+      v._expectedBytes = Buffer.from(v.expected_canonical_hex, "hex");
+      vectors.push(v);
     }
   }
   return vectors;
 }
 
 function runNode(v) {
-  const raw = Buffer.from(v.input, "utf8");
   const forceJson = v.format === "json";
-  const got = canonicalize(raw, null, forceJson);
+  const got = canonicalize(v._raw, null, forceJson);
   return { bytes: got, sha256: sha256Hex(got) };
 }
 
 function runPython(v) {
+  const force = v.format === "json" ? "json" : "text";
   const py = spawnSync("python3", ["-c", `
 import sys, json, base64
 sys.path.insert(0, ${JSON.stringify(__dirname)})
@@ -53,9 +59,9 @@ raw = sys.stdin.buffer.read()
 force = sys.argv[1] == "json"
 got = canonicalize(raw, path=None, force_json=force)
 print(json.dumps({"bytes_b64": base64.b64encode(got).decode(), "sha256": sha256_hex(got)}))
-`, v.format === "json" ? "json" : "text"], {
+`, force], {
     cwd: __dirname,
-    input: Buffer.from(v.input, "utf8"),
+    input: v._raw,
     encoding: "buffer",
   });
   if (py.status !== 0) {
@@ -98,7 +104,7 @@ let equivalenceChecked = 0;
 let equivalenceOk = true;
 
 for (const v of vectors) {
-  const expectedBytes = Buffer.from(v.expected_canonical, "utf8");
+  const expectedBytes = v._expectedBytes;
   const expectedHash = v.expected_sha256;
   let got;
   try {
@@ -109,12 +115,23 @@ for (const v of vectors) {
     continue;
   }
 
-  if (!got.bytes.equals(expectedBytes) || got.sha256 !== expectedHash) {
+  if (!got.bytes.equals(expectedBytes)) {
     result.vectors_failed += 1;
     result.failures.push({
       id: v.id,
       suite: v._suite,
-      error: "node mismatch vs frozen vector",
+      error: "node canonical bytes mismatch (primary)",
+      expected_canonical_hex: expectedBytes.toString("hex"),
+      got_canonical_hex: got.bytes.toString("hex"),
+    });
+    continue;
+  }
+  if (got.sha256 !== expectedHash) {
+    result.vectors_failed += 1;
+    result.failures.push({
+      id: v.id,
+      suite: v._suite,
+      error: "node sha256 mismatch (secondary)",
       expected_sha256: expectedHash,
       got_sha256: got.sha256,
     });

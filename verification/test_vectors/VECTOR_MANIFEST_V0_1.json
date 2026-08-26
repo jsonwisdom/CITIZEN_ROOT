@@ -1,0 +1,131 @@
+{
+  "authority": false,
+  "canonicalization": "UTF-8, LF, sorted object keys, no trailing whitespace",
+  "compatibility_boundary": "canonicalization v0.1.0",
+  "hash_algorithm": "SHA-256",
+  "principle": "A digest tells us two byte strings match. The frozen canonical-byte expectation tells us what bytes the protocol actually requires.",
+  "protocol_version": "0.1.0",
+  "schema_id": "CITIZEN_ROOT_VECTOR_MANIFEST_V0_1",
+  "vectors": [
+    {
+      "expected_canonical_length": 12,
+      "expected_canonical_sha256": "4a1e67f2fe1d1cc7b31d0ca2ec441da4778203a036a77da10344c85e24ff0f92",
+      "input_sha256": "8f9e99332aa14be2fd8e6e7052c0a42ecedf771020a3293170dfefa344da59ac",
+      "vector_id": "text_crlf_001"
+    },
+    {
+      "expected_canonical_length": 12,
+      "expected_canonical_sha256": "4a1e67f2fe1d1cc7b31d0ca2ec441da4778203a036a77da10344c85e24ff0f92",
+      "input_sha256": "7d7454613152f2da72cceb2ae6de48d74ea7de5b3998db7e7832c4f40992bc1a",
+      "vector_id": "text_trailing_spaces_001"
+    },
+    {
+      "expected_canonical_length": 6,
+      "expected_canonical_sha256": "546614062a18008e08b563073424c00f45c808b93228142eebd3dcf2ac9f63e2",
+      "input_sha256": "84b146de3d442d9c0fe558c664115d9289cda85172dc092608e96aaec4c9605a",
+      "vector_id": "text_trailing_tabs_001"
+    },
+    {
+      "expected_canonical_length": 5,
+      "expected_canonical_sha256": "81d6bf3b18d09327c6a7e75c37d3bfb92b4f88807dee37ad2911c08f1690bfbe",
+      "input_sha256": "5364f2f2fc4f54e9d47ad29cfb08ef430c8153394bf2a0dff5cbe77a0ffef861",
+      "vector_id": "text_missing_final_newline_001"
+    },
+    {
+      "expected_canonical_length": 16,
+      "expected_canonical_sha256": "3101ce7f826a453b1300e2c5aa8feada523afb0c46ba7d2d48ac8d4d5ba5411a",
+      "input_sha256": "3101ce7f826a453b1300e2c5aa8feada523afb0c46ba7d2d48ac8d4d5ba5411a",
+      "vector_id": "text_unicode_001"
+    },
+    {
+      "expected_canonical_length": 30,
+      "expected_canonical_sha256": "58dcd960f1663649f054145326450bf06000435ddecf5c9ad58104909bbee02f",
+      "input_sha256": "d54295390d68fe3ae9e85930d0e35140f6e540e967a9cc42df13236b99af3f77",
+      "vector_id": "json_nested_001"
+    },
+    {
+      "expected_canonical_length": 26,
+      "expected_canonical_sha256": "68fb5d9a360d6a899a6fb9822ab833d4dc605970b430ba0522f332f02f1db110",
+      "input_sha256": "9249a33ec2e7f2bb3e235ea1078683aabb4acdd4e5016a3e07cf6af1f60746ee",
+      "vector_id": "json_arrays_001"
+    },
+    {
+      "expected_canonical_length": 34,
+      "expected_canonical_sha256": "50d0d2d6cae1c5d6e80b3801074f9d65dfdde67e9f42b2bf9ed6941a227ea598",
+      "input_sha256": "969aac5778f13546930f0a3e8e16fb4d0033f7d432e843f831487d9d5d660f6c",
+      "vector_id": "json_escaped_001"
+    },
+    {
+      "expected_canonical_length": 0,
+      "expected_canonical_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "input_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "vector_id": "text_empty_001"
+    },
+    {
+      "expected_canonical_length": 63,
+      "expected_canonical_sha256": "d46ce671f9dc2be6f57c99268368b5608507017af4e9fd658799c645e6a19486",
+      "input_sha256": "4a5004940e511a821ddcd81f2610003a2819fc73b9572f0107156d04fc2cc364",
+      "vector_id": "text_markdown_001"
+    },
+    {
+      "expected_canonical_length": 28,
+      "expected_canonical_sha256": "6eafc4db9f2bd5c1cbb4b3c966fae19057361be639f741bb653ffe24096802ac",
+      "input_sha256": "cd35e9050db28e0fbcd08f404c7a92286a762d7383f6c670c79983f9dbc6a9c0",
+      "vector_id": "text_mixed_whitespace_001"
+    },
+    {
+      "expected_canonical_length": 18,
+      "expected_canonical_sha256": "e9024f1a07d29d52ad3aa5e1a18e94db1f3a9fd32b89e39d47c472cd99071e13",
+      "input_sha256": "e9024f1a07d29d52ad3aa5e1a18e94db1f3a9fd32b89e39d47c472cd99071e13",
+      "vector_id": "text_already_canonical_001"
+    },
+    {
+      "expected_canonical_length": 14,
+      "expected_canonical_sha256": "e8d38819d39f705646bfb643368eca78f7db476c16471dbc33b941b27326410d",
+      "input_sha256": "e8d38819d39f705646bfb643368eca78f7db476c16471dbc33b941b27326410d",
+      "vector_id": "json_already_canonical_001"
+    },
+    {
+      "expected_canonical_length": 6,
+      "expected_canonical_sha256": "b6a98d9ce9a2d9149288fa3df42d377c3e42737afdcdaf714e33c0a100b51060",
+      "input_sha256": "9eff3bdb19b9bef9372b96a1244c0f0f939acdb8f539551e0a099a5b20a3862e",
+      "vector_id": "text_bom_001"
+    },
+    {
+      "expected_canonical_length": 8,
+      "expected_canonical_sha256": "c3f9c8c283a2b1f2f1896f27a01cbe3cddc0c9d93f752e4639035a0f5b36f6e8",
+      "input_sha256": "bccbc54e5d50f2a59ed94b37795c3614d186c251e67ee2c058c5e2df79d3ab02",
+      "vector_id": "text_cr_only_001"
+    },
+    {
+      "expected_canonical_length": 14,
+      "expected_canonical_sha256": "e8d38819d39f705646bfb643368eca78f7db476c16471dbc33b941b27326410d",
+      "input_sha256": "76dd7bd8db01cd533f684ccaacdbc144d08146d6aaa023212f90df348acb3877",
+      "vector_id": "json_key_reorder_001"
+    },
+    {
+      "expected_canonical_length": 14,
+      "expected_canonical_sha256": "e8d38819d39f705646bfb643368eca78f7db476c16471dbc33b941b27326410d",
+      "input_sha256": "080d51f49b27c73d17f51f3b808515a425d16218aa40021eed2ca1d204e59224",
+      "vector_id": "json_pretty_001"
+    },
+    {
+      "expected_canonical_length": 3,
+      "expected_canonical_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "input_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "vector_id": "json_empty_object_001"
+    },
+    {
+      "expected_canonical_length": 3,
+      "expected_canonical_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "input_sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "vector_id": "json_empty_array_001"
+    },
+    {
+      "expected_canonical_length": 21,
+      "expected_canonical_sha256": "41dcf2359cbeb9bfb4aff621affae8dd0e789ac8ad6b9e156aeaee389b402ba6",
+      "input_sha256": "bdf5b600a308c8d4cdf21698476f3fde9ec9b1ef34779b04feae1ff675038e33",
+      "vector_id": "json_unicode_001"
+    }
+  ]
+}

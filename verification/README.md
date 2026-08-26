@@ -24,6 +24,9 @@ verification/
 ├── merkle.py
 ├── merkle.mjs
 └── test_vectors/
+    ├── VECTOR_MANIFEST_V0_1.json
+    ├── fixtures/<id>.input
+    ├── vectors/<id>.json
     ├── basic.json
     ├── whitespace.json
     ├── unicode.json
@@ -31,7 +34,13 @@ verification/
     └── README.md
 ```
 
+`canonicalize.py` and `canonicalize.mjs` are a **v0.1.0 compatibility boundary**. Do not edit them to make a vector pass. Change the protocol version instead.
+
 ## Canonicalization contract
+
+A digest tells us two byte strings match. The frozen canonical-byte expectation tells us what bytes the protocol actually requires.
+
+Primary assertion: canonical bytes. Secondary assertion: SHA-256.
 
 ### JSON
 
@@ -72,6 +81,7 @@ Fail closed. The verifier determines identity; it does not decide what the artif
 ```bash
 python3 selftest_canonicalize.py
 node selftest_canonicalize.mjs
+python3 test_vectors/run_canonicalization_cross.py
 ```
 
 Machine-readable result:
@@ -80,13 +90,29 @@ Machine-readable result:
 {
   "protocol": "CITIZEN_ROOT_INDEX_V0_1",
   "python_node_equivalence": true,
-  "vectors_passed": 17,
+  "vectors_passed": 20,
   "vectors_failed": 0,
   "status": "PASS"
 }
 ```
 
-Both implementations must report `python_node_equivalence: true` and `status: "PASS"`.
+For every vector:
+
+```
+Python canonical bytes
+        ==
+Node canonical bytes
+        ==
+expected canonical bytes
+
+Python SHA-256
+        ==
+Node SHA-256
+        ==
+expected SHA-256
+```
+
+The test fails if one byte differs — even if a later digest implementation still matches.
 
 ## Hash / Merkle
 
@@ -101,9 +127,9 @@ node merkle.mjs
 ## Pipeline
 
 ```
-canonicalization self-test
+canonicalization self-test (frozen bytes + SHA-256)
         ↓
-Python canonical bytes == Node canonical bytes
+Python canonical bytes == Node canonical bytes == expected bytes
         ↓
 SHA-256
         ↓
@@ -111,5 +137,5 @@ Merkle
         ↓
 inclusion proof
         ↓
-four real repository leaves
+four real repository leaves (AL, JOY, COMPUTERWISDOM, HEIDEE)
 ```

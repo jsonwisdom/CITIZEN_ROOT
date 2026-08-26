@@ -23,15 +23,18 @@ Actual evidence and protocol artifacts remain in:
 
 Skeleton only. No artifacts populated. Root hash pending.
 
-Sequence for first freeze:
+**Canonicalization v0.1.0 is a compatibility boundary.** Frozen vectors in `verification/test_vectors/` assert canonical **bytes** first and SHA-256 second, across Python and Node. Do not edit the canonicalizers to make a vector pass.
 
-1. Write / finalize CITIZEN_ROOT_INDEX.json
-2. Canonicalize
-3. SHA-256 the root
-4. Populate the root receipt
-5. Canonicalize + hash the receipt
-6. Construct Merkle set
-7. Publish verified state
+Sequence after the vector freeze:
+
+1. First four real repository leaves: AL, JOY, COMPUTERWISDOM, HEIDEE
+2. Write / finalize CITIZEN_ROOT_INDEX.json
+3. Canonicalize
+4. SHA-256 the root
+5. Populate the root receipt
+6. Canonicalize + hash the receipt
+7. Construct Merkle set
+8. Publish verified state
 
 ## Layout
 

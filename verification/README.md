@@ -17,60 +17,43 @@ Canonicalization, hashing, Merkle construction, and replay helpers.
 verification/
 ├── canonicalize.py
 ├── canonicalize.mjs
+├── selftest_canonicalize.py
+├── selftest_canonicalize.mjs
 ├── hash.py
 ├── hash.mjs
 ├── merkle.py
 ├── merkle.mjs
 └── test_vectors/
-    ├── canonicalization.json
-    ├── run_canonicalization_py.py
-    ├── run_canonicalization_mjs.mjs
+    ├── basic.json
+    ├── whitespace.json
+    ├── unicode.json
+    ├── nested.json
     └── README.md
 ```
 
-## Canonicalization
+## Canonicalization contract
 
-Two equivalent, deterministic implementations of the locked specification.
-
-| File | Language |
-|------|----------|
-| `canonicalize.py` | Python 3 |
-| `canonicalize.mjs` | Node.js (ESM) |
-
-### Contract
+### JSON
 
 ```
-raw artifact
-   ↓
-UTF-8 bytes
-   ↓
-LF line endings
-   ↓
-remove trailing whitespace
-   ↓
-parse structured formats where applicable (JSON only)
-   ↓
-sort object keys recursively
-   ↓
-emit canonical representation
-   ↓
-SHA-256(canonical_bytes)
+UTF-8
+→ LF
+→ remove trailing whitespace
+→ recursively sort object keys
+→ deterministic serialization
+→ UTF-8 bytes
+→ SHA-256
 ```
 
-### Text rules
+### Non-JSON
 
-1. Decode as UTF-8 (strict). Strip BOM if present.
-2. Normalize all line endings to LF (`\r\n` / `\r` → `\n`).
-3. Strip trailing whitespace on every line.
-4. Non-empty result ends with exactly one LF.
-5. Empty input stays empty.
-
-### JSON rules
-
-1. Parse JSON.
-2. Recursively sort object keys (array order preserved).
-3. Serialize compact: `separators=(',', ':')`, `ensure_ascii=False`.
-4. Single trailing LF. No trailing whitespace.
+```
+UTF-8
+→ LF
+→ remove trailing whitespace
+→ otherwise preserve content exactly
+→ SHA-256
+```
 
 ### Explicitly prohibited
 
@@ -78,89 +61,55 @@ SHA-256(canonical_bytes)
 - Unicode normalization (NFC/NFD)
 - Whitespace changes inside prose (beyond trailing-ws strip)
 - Line wrapping or reflow
-- Any transformation not named in the locked protocol
+- Fallback canonicalizer on explicit JSON
+- Locale-dependent sorting
+- Platform-dependent newlines
 
-The verifier determines identity. It does not decide what the artifact ought to say.
+Fail closed. The verifier determines identity; it does not decide what the artifact ought to say.
 
-### Usage
-
-```bash
-python3 canonicalize.py                          # self-test
-python3 canonicalize.py path/to/file.json
-node canonicalize.mjs
-node canonicalize.mjs path/to/file.md
-```
-
-## Hash
-
-Thin SHA-256 helpers. Leaf construction = SHA-256(canonical_bytes).
-
-| File | Language |
-|------|----------|
-| `hash.py` | Python 3 |
-| `hash.mjs` | Node.js (ESM) |
-
-## Test vectors
-
-Frozen cross-language vectors. Primary check is **byte equality**, not only digests.
+## Self-test
 
 ```bash
-python3 test_vectors/run_canonicalization_py.py
-node test_vectors/run_canonicalization_mjs.mjs
+python3 selftest_canonicalize.py
+node selftest_canonicalize.mjs
 ```
 
-Both must report every vector PASS and exit 0.
+Machine-readable result:
 
-Coverage: CRLF→LF, trailing spaces/tabs, BOM, Unicode (no NFC/NFD), empty files, already-canonical input, final newline behavior, Markdown as opaque text, nested JSON, arrays, escaped characters.
+```json
+{
+  "protocol": "CITIZEN_ROOT_INDEX_V0_1",
+  "python_node_equivalence": true,
+  "vectors_passed": 17,
+  "vectors_failed": 0,
+  "status": "PASS"
+}
+```
 
-## Merkle implementation
+Both implementations must report `python_node_equivalence: true` and `status: "PASS"`.
 
-| File | Language |
-|------|----------|
-| `merkle.py` | Python 3 |
-| `merkle.mjs` | Node.js (ESM) |
+## Hash / Merkle
 
-### Construction rules
-
-1. Collect leaves as `{path, sha256}` where `sha256` is already the digest of the canonical bytes of the artifact.
-2. Sort leaves strictly by `path` (lexicographic).
-3. Build levels bottom-up by pairing consecutive hashes:
-   - parent = SHA-256( left_raw_32_bytes + right_raw_32_bytes )
-4. When a level has an odd number of nodes, the final unpaired node is **promoted** (not duplicated).
-5. The single remaining hash is the Merkle root.
-
-### Self-test
+Thin SHA-256 helpers in `hash.py` / `hash.mjs`.
+Ordered binary Merkle in `merkle.py` / `merkle.mjs`.
 
 ```bash
 python3 merkle.py
 node merkle.mjs
-python3 canonicalize.py
-node canonicalize.mjs
-python3 test_vectors/run_canonicalization_py.py
-node test_vectors/run_canonicalization_mjs.mjs
 ```
-
-All must pass.
 
 ## Pipeline
 
 ```
-canonicalization tests
+canonicalization self-test
         ↓
 Python canonical bytes == Node canonical bytes
         ↓
-hash tests
+SHA-256
         ↓
-Merkle tests
+Merkle
         ↓
-real repository leaves
+inclusion proof
         ↓
-first mapped freeze
+four real repository leaves
 ```
-
-## Invariants
-
-- Same ordered set of (path, sha256) pairs always produces the identical root.
-- Inclusion proofs are compact and independently verifiable.
-- Canonicalization is pure: same bytes in → same bytes out, across Python and Node.
-- No central authority is required to recompute or check a proof.

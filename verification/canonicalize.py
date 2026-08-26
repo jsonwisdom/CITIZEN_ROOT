@@ -9,7 +9,7 @@ Rules (from CITIZEN_ROOT_INDEX verification_rules):
   rewrite_forbidden: true
   authority: false
 
-Deterministic. No randomness. No authority.
+Deterministic. No randomness. No authority. Fail closed.
 """
 
 from __future__ import annotations
@@ -119,15 +119,22 @@ def canonicalize(
     Apply the locked canonicalization rules.
 
     force_json:
-      True  → always treat as JSON
+      True  → always treat as JSON (fail closed on parse error)
       False → always treat as text
-      None  → auto-detect
+      None  → auto-detect (JSON path falls back to text only on auto-detect)
+
+    Fail closed: no platform-dependent newlines, no locale sorting,
+    no best-effort recovery when format is explicit.
     """
     use_json = force_json if force_json is not None else detect_json(path, raw)
     if use_json:
+        if force_json is True:
+            # Explicit JSON: fail closed, never fall back
+            return canonicalize_json(raw)
         try:
             return canonicalize_json(raw)
-        except (json.JSONDecodeError, UnicodeDecodeError):
+        except (json.JSONDecodeError, UnicodeDecodeError, ValueError):
+            # Auto-detect only: treat as text
             return canonicalize_text(raw)
     return canonicalize_text(raw)
 

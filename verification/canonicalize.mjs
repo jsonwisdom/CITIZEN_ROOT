@@ -9,7 +9,7 @@
  *   rewrite_forbidden: true
  *   authority: false
  *
- * Deterministic. No randomness. No authority.
+ * Deterministic. No randomness. No authority. Fail closed.
  */
 
 import { createHash } from "node:crypto";
@@ -93,9 +93,14 @@ export function canonicalize(raw, path = null, forceJson = null) {
   const buf = Buffer.isBuffer(raw) ? raw : Buffer.from(raw);
   const useJson = forceJson !== null ? forceJson : detectJson(path, buf);
   if (useJson) {
+    if (forceJson === true) {
+      // Explicit JSON: fail closed, never fall back
+      return canonicalizeJson(buf);
+    }
     try {
       return canonicalizeJson(buf);
     } catch {
+      // Auto-detect only: treat as text
       return canonicalizeText(buf);
     }
   }

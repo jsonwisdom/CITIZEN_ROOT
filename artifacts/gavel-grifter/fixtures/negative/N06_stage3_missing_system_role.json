@@ -1,0 +1,26 @@
+{
+  "tile_type": "GAVEL_GRIFTER",
+  "official_name_as_published": "FIXTURE.MUST.FAIL.PMACS.NO.ROLE",
+  "bjs_public_hit": false,
+  "replay_note": "Must fail: pipeline_stage 3 requires system_role APPELLATE_CASE_RECORD_SYSTEM.",
+  "wrongdoing_inference": false,
+  "existence_state": "EXIST_PUBLIC",
+  "access_state": "REMOTE_PARTIAL",
+  "cause_state": "PARTIALLY_REPLAYABLE",
+  "full_replay_checklist": {
+    "case_number": true,
+    "parties": true,
+    "charges": false,
+    "procedural_history": true,
+    "disposition": true,
+    "judge_name": false,
+    "written_opinion": true,
+    "final_order": true
+  },
+  "promotion_receipt": {
+    "source_url": "https://example.invalid/fixture",
+    "quoted_phrase": "negative fixture"
+  },
+  "pipeline_stage": 3,
+  "source_system": "P-MACS"
+}

@@ -1,0 +1,26 @@
+{
+  "tile_type": "GAVEL_GRIFTER",
+  "official_name_as_published": "FIXTURE.MUST.FAIL.PUBLIC.HIT.IS.NOT.FULL.REPLAY",
+  "bjs_public_hit": true,
+  "replay_note": "Must fail: public hit with incomplete checklist cannot stay PUBLICLY_REPLAYABLE; schema requires PARTIALLY_REPLAYABLE.",
+  "wrongdoing_inference": false,
+  "existence_state": "EXIST_PUBLIC",
+  "access_state": "REMOTE_PARTIAL",
+  "cause_state": "CAUSE_UNKNOWN",
+  "full_replay_checklist": {
+    "case_number": true,
+    "parties": false,
+    "charges": false,
+    "procedural_history": false,
+    "disposition": true,
+    "judge_name": true,
+    "written_opinion": false,
+    "final_order": false
+  },
+  "promotion_receipt": {
+    "source_url": "https://example.invalid/fixture",
+    "quoted_phrase": "negative fixture"
+  },
+  "pipeline_stage": 1,
+  "source_system": "BJS_PUBLIC"
+}

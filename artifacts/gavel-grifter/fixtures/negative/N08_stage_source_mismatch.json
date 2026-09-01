@@ -1,0 +1,26 @@
+{
+  "tile_type": "GAVEL_GRIFTER",
+  "official_name_as_published": "FIXTURE.MUST.FAIL.INGEST.ORDER",
+  "bjs_public_hit": false,
+  "replay_note": "Must fail: pipeline_stage 1 requires source_system BJS_PUBLIC.",
+  "wrongdoing_inference": false,
+  "existence_state": "EXIST_PUBLIC",
+  "access_state": "REMOTE_YES",
+  "cause_state": "PARTIALLY_REPLAYABLE",
+  "full_replay_checklist": {
+    "case_number": true,
+    "parties": false,
+    "charges": false,
+    "procedural_history": false,
+    "disposition": true,
+    "judge_name": true,
+    "written_opinion": false,
+    "final_order": true
+  },
+  "promotion_receipt": {
+    "source_url": "https://example.invalid/fixture",
+    "quoted_phrase": "negative fixture"
+  },
+  "pipeline_stage": 1,
+  "source_system": "MCRO"
+}

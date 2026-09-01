@@ -1,0 +1,23 @@
+{
+  "validation_version": "0.1",
+  "schema": "jay_onchain_reputation_ledger_v0.schema.json",
+  "instance": "JAY_ONCHAIN_REPUTATION_LEDGER_V0_EMPTY.json",
+  "declared_public_subject_reference": "jaywisdom.base.eth",
+  "event_semantics": "FROZEN_V0",
+  "checks": {
+    "empty_valid": true,
+    "event_count": 0,
+    "authority_true": "REJECTED",
+    "score_87": "REJECTED",
+    "good_actor_role": "REJECTED",
+    "zora_export_snapshot_false": "REJECTED",
+    "queries": "UNCOMPUTED",
+    "ingest": "NOT_STARTED",
+    "live_chain_query": false,
+    "authority_created": false,
+    "identity_equals_legal_person": false,
+    "wrongdoing_inference": false
+  },
+  "skeleton_suite": "PASS",
+  "persistence_note": "This receipt records the frozen schema/empty-instance semantics bundle only. It does not authorize or represent live ingest or computation."
+}

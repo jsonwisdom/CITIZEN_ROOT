@@ -1,0 +1,26 @@
+{
+  "tile_type": "GAVEL_GRIFTER",
+  "official_name_as_published": "FIXTURE.FULL.REPLAY.PLACEHOLDER",
+  "bjs_public_hit": true,
+  "replay_note": "All eight checklist items true. PUBLICLY_REPLAYABLE is reconstructability, not guilt.",
+  "wrongdoing_inference": false,
+  "existence_state": "EXIST_PUBLIC",
+  "access_state": "REMOTE_YES",
+  "cause_state": "PUBLICLY_REPLAYABLE",
+  "full_replay_checklist": {
+    "case_number": true,
+    "parties": true,
+    "charges": true,
+    "procedural_history": true,
+    "disposition": true,
+    "judge_name": true,
+    "written_opinion": true,
+    "final_order": true
+  },
+  "promotion_receipt": {
+    "source_url": "https://www.bjs.state.mn.us/discipline",
+    "quoted_phrase": "The decisions of the Court and panels are public documents."
+  },
+  "pipeline_stage": 1,
+  "source_system": "BJS_PUBLIC"
+}

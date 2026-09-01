@@ -1,0 +1,26 @@
+{
+  "tile_type": "GAVEL_GRIFTER",
+  "official_name_as_published": "FIXTURE.RETENTION.SCHEDULE.CONFIRMED",
+  "bjs_public_hit": false,
+  "replay_note": "Official retention language confirmed destruction for this class. Lawful destruction is still a replay hole, not concealment.",
+  "wrongdoing_inference": false,
+  "existence_state": "EXIST_NEGATED_BY_OFFICIAL",
+  "access_state": "REMOTE_NO",
+  "cause_state": "RETENTION_DESTROYED_CONFIRMED",
+  "full_replay_checklist": {
+    "case_number": false,
+    "parties": false,
+    "charges": false,
+    "procedural_history": false,
+    "disposition": false,
+    "judge_name": false,
+    "written_opinion": false,
+    "final_order": false
+  },
+  "promotion_receipt": {
+    "source_url": "https://mncourts.gov/access-case-records/mcro/faqs",
+    "quoted_phrase": "The case may have been destroyed per the District Court Record Retention Schedule."
+  },
+  "pipeline_stage": 6,
+  "source_system": "RETENTION_EXPUNGEMENT"
+}

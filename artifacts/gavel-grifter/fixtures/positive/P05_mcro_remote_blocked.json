@@ -1,0 +1,26 @@
+{
+  "tile_type": "GAVEL_GRIFTER",
+  "official_name_as_published": "FIXTURE.MCRO.FAMILY.ORDER.ONLY",
+  "bjs_public_hit": false,
+  "replay_note": "Remote search failed; courthouse availability not yet checked. REMOTE_NO != RECORD_NO.",
+  "wrongdoing_inference": false,
+  "existence_state": "EXIST_UNKNOWN",
+  "access_state": "REMOTE_NO",
+  "cause_state": "REMOTE_BLOCKED",
+  "full_replay_checklist": {
+    "case_number": true,
+    "parties": false,
+    "charges": false,
+    "procedural_history": false,
+    "disposition": false,
+    "judge_name": false,
+    "written_opinion": false,
+    "final_order": false
+  },
+  "promotion_receipt": {
+    "source_url": "https://www.mncourts.gov/Access-Case-Records/MCRO.aspx",
+    "quoted_phrase": "Only orders, appellate opinions, and notices prepared by the court in All Family case types."
+  },
+  "pipeline_stage": 4,
+  "source_system": "MCRO"
+}

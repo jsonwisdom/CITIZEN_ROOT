@@ -1,0 +1,26 @@
+{
+  "tile_type": "GAVEL_GRIFTER",
+  "official_name_as_published": "FIXTURE.COURTHOUSE.TERMINAL.CHECK",
+  "bjs_public_hit": false,
+  "replay_note": "Courthouse terminal provides more complete electronic access than remote MCRO. File found at terminal; not a destruction finding.",
+  "wrongdoing_inference": false,
+  "existence_state": "EXIST_PUBLIC",
+  "access_state": "COURTHOUSE_ONLY",
+  "cause_state": "PARTIALLY_REPLAYABLE",
+  "full_replay_checklist": {
+    "case_number": true,
+    "parties": true,
+    "charges": false,
+    "procedural_history": true,
+    "disposition": true,
+    "judge_name": true,
+    "written_opinion": false,
+    "final_order": true
+  },
+  "promotion_receipt": {
+    "source_url": "https://publicaccess.courts.state.mn.us/Home/Terms",
+    "quoted_phrase": "Public case records and documents available at the public access terminals in Minnesota courthouses are not all accessible through MCRO."
+  },
+  "pipeline_stage": 5,
+  "source_system": "COURTHOUSE"
+}

@@ -1,0 +1,27 @@
+{
+  "tile_type": "GAVEL_GRIFTER",
+  "official_name_as_published": "FIXTURE.PMACS.APPELLATE.CAPTION",
+  "bjs_public_hit": false,
+  "replay_note": "P-MACS is the Minnesota Appellate Courts Case Management System. system_role required only at pipeline_stage 3.",
+  "wrongdoing_inference": false,
+  "existence_state": "EXIST_PUBLIC",
+  "access_state": "REMOTE_PARTIAL",
+  "cause_state": "PARTIALLY_REPLAYABLE",
+  "full_replay_checklist": {
+    "case_number": true,
+    "parties": true,
+    "charges": false,
+    "procedural_history": true,
+    "disposition": true,
+    "judge_name": false,
+    "written_opinion": true,
+    "final_order": true
+  },
+  "promotion_receipt": {
+    "source_url": "https://macsnc.courts.state.mn.us/ctrack/publicLogin.do",
+    "quoted_phrase": "This is the public access site for the Minnesota Appellate Courts Case Management System."
+  },
+  "pipeline_stage": 3,
+  "source_system": "P-MACS",
+  "system_role": "APPELLATE_CASE_RECORD_SYSTEM"
+}

@@ -15,10 +15,13 @@ from jsonschema import Draft202012Validator
 from jsonschema.exceptions import ValidationError
 
 ROOT = Path(__file__).resolve().parent
-SCHEMA_PATH = ROOT / "gavel-grifter-tile-v1.0.schema.json"
+# ROOT = <repo>/artifacts/gavel-grifter → canonical schema at <repo>/schemas/
+SCHEMA_PATH = ROOT.parent.parent / "schemas" / "gavel-grifter-tile-v1.0.schema.json"
+SCHEMA_PATH_REPO = "schemas/gavel-grifter-tile-v1.0.schema.json"
 POS = ROOT / "fixtures" / "positive"
 NEG = ROOT / "fixtures" / "negative"
 OUT = ROOT / "receipts" / "validator_receipt_v1.json"
+SOURCE_COMMIT = "9f0054327dae62abc8efa708b3e35efed1477789"
 
 
 def sha256(path: Path) -> str:
@@ -45,6 +48,11 @@ def validate_one(validator: Draft202012Validator, path: Path) -> dict:
 
 
 def main() -> int:
+    if not SCHEMA_PATH.is_file():
+        raise FileNotFoundError(
+            f"canonical schema not found at {SCHEMA_PATH} "
+            f"(expected repo-relative {SCHEMA_PATH_REPO})"
+        )
     schema = json.loads(SCHEMA_PATH.read_text())
     Draft202012Validator.check_schema(schema)
     validator = Draft202012Validator(schema)
@@ -60,9 +68,10 @@ def main() -> int:
         "receipt_type": "SCHEMA_VALIDATOR_RECEIPT",
         "schema_id": schema.get("$id"),
         "schema_draft": schema.get("$schema"),
-        "schema_path": str(SCHEMA_PATH),
+        "schema_path": SCHEMA_PATH_REPO,
+        "schema_path_resolved": str(SCHEMA_PATH),
         "schema_sha256": sha256(SCHEMA_PATH),
-        "source_commit": "7f020457aa27c121454e4737ce3a424a54c65f8c",
+        "source_commit": SOURCE_COMMIT,
         "source_repo": "jsonwisdom/CITIZEN_ROOT",
         "validator": "jsonschema.Draft202012Validator",
         "run_at": datetime.now(timezone.utc).isoformat(),

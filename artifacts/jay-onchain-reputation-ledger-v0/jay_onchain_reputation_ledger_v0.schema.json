@@ -4,77 +4,90 @@
   "title": "JAY_ONCHAIN_REPUTATION_LEDGER_V0",
   "type": "object",
   "additionalProperties": false,
-  "required": [
-    "ledger_version",
-    "authority",
-    "universal_reputation_score",
-    "identity_equals_legal_person",
-    "wrongdoing_inference",
-    "ingest_status",
-    "event_count",
-    "events",
-    "queries",
-    "invariants",
-    "surfaces"
-  ],
+  "required": ["ledger_version","authority","universal_reputation_score","identity_equals_legal_person","wrongdoing_inference","ingest_status","event_count","events","queries","invariants","surfaces"],
   "properties": {
-    "ledger_version": { "const": "0.1" },
-    "authority": { "const": false },
-    "universal_reputation_score": { "type": "null" },
-    "identity_equals_legal_person": { "const": false },
-    "wrongdoing_inference": { "const": false },
-    "ingest_status": { "const": "NOT_STARTED" },
-    "event_count": { "type": "integer", "minimum": 0 },
-    "events": { "type": "array" },
+    "ledger_version": {"const":"0.1"},
+    "authority": {"const":false},
+    "universal_reputation_score": {"type":"null"},
+    "identity_equals_legal_person": {"const":false},
+    "wrongdoing_inference": {"const":false},
+    "ingest_status": {"const":"NOT_STARTED"},
+    "event_count": {"type":"integer","minimum":0},
+    "events": {"type":"array","items":{"$ref":"#/$defs/event"}},
     "queries": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "Q1_first_identity_event",
-        "Q2_continuity_years",
-        "Q3_creator_object_count",
-        "Q4_distinct_counterparties",
-        "Q5_repeat_collectors",
-        "Q6_activity_streak",
-        "Q7_cross_surface_agreement"
-      ],
+      "type":"object","additionalProperties":false,
+      "required":["Q1_first_identity_event","Q2_continuity_years","Q3_creator_object_count","Q4_distinct_counterparties","Q5_repeat_collectors","Q6_activity_streak","Q7_cross_surface_agreement"],
       "properties": {
-        "Q1_first_identity_event": { "const": "UNCOMPUTED" },
-        "Q2_continuity_years": { "const": "UNCOMPUTED" },
-        "Q3_creator_object_count": { "const": "UNCOMPUTED" },
-        "Q4_distinct_counterparties": { "const": "UNCOMPUTED" },
-        "Q5_repeat_collectors": { "const": "UNCOMPUTED" },
-        "Q6_activity_streak": { "const": "UNCOMPUTED" },
-        "Q7_cross_surface_agreement": { "const": "UNCOMPUTED" }
+        "Q1_first_identity_event":{"const":"UNCOMPUTED"},
+        "Q2_continuity_years":{"const":"UNCOMPUTED"},
+        "Q3_creator_object_count":{"const":"UNCOMPUTED"},
+        "Q4_distinct_counterparties":{"const":"UNCOMPUTED"},
+        "Q5_repeat_collectors":{"const":"UNCOMPUTED"},
+        "Q6_activity_streak":{"const":"UNCOMPUTED"},
+        "Q7_cross_surface_agreement":{"const":"UNCOMPUTED"}
       }
     },
     "invariants": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": [
-        "no_edge_without_receipt_ref",
-        "conflicts_first_class",
-        "export_counts_are_snapshots",
-        "chronology_is_timestamp_ordered",
-        "continuity_only_no_scalar"
-      ],
+      "type":"object","additionalProperties":false,
+      "required":["no_edge_without_receipt_ref","conflicts_first_class","export_counts_are_snapshots","chronology_is_timestamp_ordered","continuity_only_no_scalar"],
       "properties": {
-        "no_edge_without_receipt_ref": { "const": true },
-        "conflicts_first_class": { "const": true },
-        "export_counts_are_snapshots": { "const": true },
-        "chronology_is_timestamp_ordered": { "const": true },
-        "continuity_only_no_scalar": { "const": true }
+        "no_edge_without_receipt_ref":{"const":true},
+        "conflicts_first_class":{"const":true},
+        "export_counts_are_snapshots":{"const":true},
+        "chronology_is_timestamp_ordered":{"const":true},
+        "continuity_only_no_scalar":{"const":true}
       }
     },
     "surfaces": {
-      "type": "object",
-      "additionalProperties": false,
-      "required": ["github_write", "live_chain_query", "authority_created"],
+      "type":"object","additionalProperties":false,
+      "required":["github_write","live_chain_query","authority_created"],
       "properties": {
-        "github_write": { "type": "boolean" },
-        "live_chain_query": { "const": false },
-        "authority_created": { "const": false }
+        "github_write":{"type":"boolean"},
+        "live_chain_query":{"const":false},
+        "authority_created":{"const":false}
       }
+    }
+  },
+  "$defs": {
+    "event": {"oneOf":[{"$ref":"#/$defs/identity_event"},{"$ref":"#/$defs/base_activity_event"},{"$ref":"#/$defs/zora_creation_event"},{"$ref":"#/$defs/zora_export_receipt_event"},{"$ref":"#/$defs/github_history_event"},{"$ref":"#/$defs/conflict_event"}]},
+    "envelope": {
+      "type":"object",
+      "required":["event_id","event_class","timestamp","timestamp_precision","surface","subject_ref","receipt_ref","source_uri","source_hash","observed_value","snapshot","conflict_ref","authority","identity_equals_legal_person","wrongdoing_inference"],
+      "properties": {
+        "event_id":{"type":"string","minLength":1},
+        "event_class":{"enum":["IDENTITY_EVENT","BASE_ACTIVITY_EVENT","ZORA_CREATION_EVENT","ZORA_EXPORT_RECEIPT_EVENT","GITHUB_HISTORY_EVENT","CONFLICT_EVENT"]},
+        "timestamp":{"type":["string","null"]},
+        "timestamp_precision":{"type":["string","null"]},
+        "surface":{"type":"string","minLength":1},
+        "subject_ref":{"type":"string","minLength":1},
+        "receipt_ref":{"type":"string","minLength":1},
+        "source_uri":{"type":["string","null"]},
+        "source_hash":{"type":["string","null"]},
+        "observed_value":{},
+        "snapshot":{"type":"boolean"},
+        "conflict_ref":{"type":["string","null"]},
+        "authority":{"const":false},
+        "identity_equals_legal_person":{"const":false},
+        "wrongdoing_inference":{"const":false}
+      }
+    },
+    "identity_event": {
+      "allOf":[{"$ref":"#/$defs/envelope"},{"type":"object","additionalProperties":false,"required":["identifier","identifier_type","resolved_to","resolution_type"],"properties":{"event_id":true,"event_class":{"const":"IDENTITY_EVENT"},"timestamp":true,"timestamp_precision":true,"surface":true,"subject_ref":true,"receipt_ref":true,"source_uri":true,"source_hash":true,"observed_value":true,"snapshot":true,"conflict_ref":true,"authority":{"const":false},"identity_equals_legal_person":{"const":false},"wrongdoing_inference":{"const":false},"identifier":{"type":"string","minLength":1},"identifier_type":{"type":"string","minLength":1},"resolved_to":{"type":["string","null"]},"resolution_type":{"type":"string","minLength":1}}}]
+    },
+    "base_activity_event": {
+      "allOf":[{"$ref":"#/$defs/envelope"},{"type":"object","additionalProperties":false,"required":["chain_id","block_number","tx_hash","address_role","event_signature"],"properties":{"event_id":true,"event_class":{"const":"BASE_ACTIVITY_EVENT"},"timestamp":true,"timestamp_precision":true,"surface":true,"subject_ref":true,"receipt_ref":true,"source_uri":true,"source_hash":true,"observed_value":true,"snapshot":true,"conflict_ref":true,"authority":{"const":false},"identity_equals_legal_person":{"const":false},"wrongdoing_inference":{"const":false},"chain_id":{"const":8453},"block_number":{"type":["integer","null"],"minimum":0},"tx_hash":{"type":"string","minLength":1},"address_role":{"enum":["creator","holder","counterparty","contract","ens","basename","github","portal"]},"event_signature":{"type":["string","null"]}}}]
+    },
+    "zora_creation_event": {
+      "allOf":[{"$ref":"#/$defs/envelope"},{"type":"object","additionalProperties":false,"required":["creator_address","contract_address","token_id","tx_hash","zora_surface_ref"],"properties":{"event_id":true,"event_class":{"const":"ZORA_CREATION_EVENT"},"timestamp":true,"timestamp_precision":true,"surface":true,"subject_ref":true,"receipt_ref":true,"source_uri":true,"source_hash":true,"observed_value":true,"snapshot":true,"conflict_ref":true,"authority":{"const":false},"identity_equals_legal_person":{"const":false},"wrongdoing_inference":{"const":false},"creator_address":{"type":"string","minLength":1},"contract_address":{"type":"string","minLength":1},"token_id":{"type":["string","integer"]},"tx_hash":{"type":"string","minLength":1},"zora_surface_ref":{"type":"string","minLength":1}}}]
+    },
+    "zora_export_receipt_event": {
+      "allOf":[{"$ref":"#/$defs/envelope"},{"type":"object","additionalProperties":false,"required":["export_timestamp","export_count","pagination_count","export_artifact_hash","query_subject"],"properties":{"event_id":true,"event_class":{"const":"ZORA_EXPORT_RECEIPT_EVENT"},"timestamp":true,"timestamp_precision":true,"surface":true,"subject_ref":true,"receipt_ref":true,"source_uri":true,"source_hash":true,"observed_value":true,"snapshot":{"const":true},"conflict_ref":true,"authority":{"const":false},"identity_equals_legal_person":{"const":false},"wrongdoing_inference":{"const":false},"export_timestamp":{"type":"string","minLength":1},"export_count":{"type":"integer","minimum":0},"pagination_count":{"type":["integer","null"],"minimum":0},"export_artifact_hash":{"type":["string","null"]},"query_subject":{"type":"string","minLength":1}}}]
+    },
+    "github_history_event": {
+      "allOf":[{"$ref":"#/$defs/envelope"},{"type":"object","additionalProperties":false,"required":["repository","commit_sha","path","observation_type"],"properties":{"event_id":true,"event_class":{"const":"GITHUB_HISTORY_EVENT"},"timestamp":true,"timestamp_precision":true,"surface":true,"subject_ref":true,"receipt_ref":true,"source_uri":true,"source_hash":true,"observed_value":true,"snapshot":true,"conflict_ref":true,"authority":{"const":false},"identity_equals_legal_person":{"const":false},"wrongdoing_inference":{"const":false},"repository":{"type":"string","minLength":1},"commit_sha":{"type":"string","minLength":1},"path":{"type":"string","minLength":1},"observation_type":{"enum":["IDENTITY_REFERENCE","CHAIN_RECEIPT","CREATOR_INDEX","DIRECTORY_ENTRY","EXPORT_RECEIPT","CONTINUITY_RECEIPT"]}}}]
+    },
+    "conflict_event": {
+      "allOf":[{"$ref":"#/$defs/envelope"},{"type":"object","additionalProperties":false,"required":["claim_a_event_id","claim_b_event_id","conflict_type","resolution_status","resolution_receipt_ref"],"properties":{"event_id":true,"event_class":{"const":"CONFLICT_EVENT"},"timestamp":true,"timestamp_precision":true,"surface":true,"subject_ref":true,"receipt_ref":true,"source_uri":true,"source_hash":true,"observed_value":true,"snapshot":true,"conflict_ref":true,"authority":{"const":false},"identity_equals_legal_person":{"const":false},"wrongdoing_inference":{"const":false},"claim_a_event_id":{"type":"string","minLength":1},"claim_b_event_id":{"type":"string","minLength":1},"conflict_type":{"enum":["ADDRESS_MISMATCH","TIMESTAMP_MISMATCH","COUNT_MISMATCH","IDENTIFIER_MISMATCH","CREATOR_MISMATCH","CHAIN_MISMATCH","SOURCE_DISAGREEMENT"]},"resolution_status":{"enum":["UNRESOLVED","RESOLVED_A","RESOLVED_B","BOTH_VALID_DIFFERENT_SCOPE","SUPERSEDED_BY_LATER_RECEIPT"]},"resolution_receipt_ref":{"type":["string","null"]}}}]
     }
   }
 }

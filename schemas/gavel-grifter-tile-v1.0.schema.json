@@ -1,0 +1,251 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:goblin-court:gavel-grifter:tile:v1.0",
+  "title": "GavelGrifter Tile — Build-Time Invariants v1.0",
+  "description": "Replay-only judicial accountability tile. Red means the replay chain stopped; it does not imply wrongdoing.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "tile_type": {
+      "type": "string",
+      "enum": ["GAVEL_GRIFTER", "BJS_PRIVATE_AGGREGATE"]
+    },
+    "official_name_as_published": {
+      "type": ["string", "null"],
+      "description": "Exact name from an official public source. Null for aggregate tiles only."
+    },
+    "bjs_public_hit": {
+      "type": "boolean"
+    },
+    "replay_note": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Operational note only. It cannot promote cause_state."
+    },
+    "wrongdoing_inference": {
+      "type": "boolean",
+      "const": false,
+      "description": "Invariant 6: replay/access state never creates a wrongdoing inference."
+    },
+    "existence_state": {
+      "type": "string",
+      "enum": [
+        "EXIST_PUBLIC",
+        "EXIST_CONFIDENTIAL",
+        "EXIST_UNKNOWN",
+        "EXIST_NEGATED_BY_OFFICIAL"
+      ]
+    },
+    "access_state": {
+      "type": "string",
+      "enum": [
+        "REMOTE_YES",
+        "REMOTE_PARTIAL",
+        "REMOTE_NO",
+        "COURTHOUSE_ONLY",
+        "UNCHECKED"
+      ]
+    },
+    "cause_state": {
+      "type": "string",
+      "enum": [
+        "PUBLICLY_REPLAYABLE",
+        "PARTIALLY_REPLAYABLE",
+        "CONFIDENTIAL_BY_RULE",
+        "REMOTE_BLOCKED",
+        "NON_ELECTRONIC",
+        "EXPUNGED_CONFIRMED",
+        "RETENTION_DESTROYED_CONFIRMED",
+        "CAUSE_UNKNOWN"
+      ]
+    },
+    "full_replay_checklist": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "case_number": { "type": "boolean" },
+        "parties": { "type": "boolean" },
+        "charges": { "type": "boolean" },
+        "procedural_history": { "type": "boolean" },
+        "disposition": { "type": "boolean" },
+        "judge_name": { "type": "boolean" },
+        "written_opinion": { "type": "boolean" },
+        "final_order": { "type": "boolean" }
+      },
+      "required": [
+        "case_number",
+        "parties",
+        "charges",
+        "procedural_history",
+        "disposition",
+        "judge_name",
+        "written_opinion",
+        "final_order"
+      ]
+    },
+    "promotion_receipt": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "source_url": { "type": "string", "format": "uri" },
+        "quoted_phrase": { "type": "string", "minLength": 1 }
+      },
+      "required": ["source_url", "quoted_phrase"]
+    },
+    "pipeline_stage": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 6
+    },
+    "source_system": {
+      "type": "string",
+      "enum": [
+        "BJS_PUBLIC",
+        "BJS_PRIVATE_AGGREGATE",
+        "P-MACS",
+        "MCRO",
+        "COURTHOUSE",
+        "RETENTION_EXPUNGEMENT"
+      ]
+    },
+    "system_role": {
+      "type": "string",
+      "const": "APPELLATE_CASE_RECORD_SYSTEM"
+    }
+  },
+  "required": [
+    "tile_type",
+    "official_name_as_published",
+    "bjs_public_hit",
+    "replay_note",
+    "wrongdoing_inference",
+    "existence_state",
+    "access_state",
+    "cause_state",
+    "full_replay_checklist",
+    "promotion_receipt",
+    "pipeline_stage",
+    "source_system"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": { "pipeline_stage": { "const": 3 } },
+        "required": ["pipeline_stage"]
+      },
+      "then": {
+        "properties": {
+          "source_system": { "const": "P-MACS" },
+          "system_role": { "const": "APPELLATE_CASE_RECORD_SYSTEM" }
+        },
+        "required": ["system_role"]
+      },
+      "else": {
+        "not": { "required": ["system_role"] }
+      }
+    },
+    {
+      "if": {
+        "properties": { "tile_type": { "const": "BJS_PRIVATE_AGGREGATE" } },
+        "required": ["tile_type"]
+      },
+      "then": {
+        "properties": {
+          "official_name_as_published": { "const": null },
+          "bjs_public_hit": { "const": false },
+          "existence_state": { "const": "EXIST_CONFIDENTIAL" },
+          "cause_state": { "const": "CONFIDENTIAL_BY_RULE" },
+          "pipeline_stage": { "const": 2 },
+          "source_system": { "const": "BJS_PRIVATE_AGGREGATE" }
+        }
+      },
+      "else": {
+        "properties": {
+          "official_name_as_published": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "bjs_public_hit": { "const": true } },
+        "required": ["bjs_public_hit"]
+      },
+      "then": {
+        "properties": { "existence_state": { "const": "EXIST_PUBLIC" } }
+      }
+    },
+    {
+      "if": {
+        "properties": { "cause_state": { "const": "PUBLICLY_REPLAYABLE" } },
+        "required": ["cause_state"]
+      },
+      "then": {
+        "properties": {
+          "full_replay_checklist": {
+            "properties": {
+              "case_number": { "const": true },
+              "parties": { "const": true },
+              "charges": { "const": true },
+              "procedural_history": { "const": true },
+              "disposition": { "const": true },
+              "judge_name": { "const": true },
+              "written_opinion": { "const": true },
+              "final_order": { "const": true }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "allOf": [
+          {
+            "properties": { "bjs_public_hit": { "const": true } },
+            "required": ["bjs_public_hit"]
+          },
+          {
+            "not": {
+              "properties": {
+                "full_replay_checklist": {
+                  "properties": {
+                    "case_number": { "const": true },
+                    "parties": { "const": true },
+                    "charges": { "const": true },
+                    "procedural_history": { "const": true },
+                    "disposition": { "const": true },
+                    "judge_name": { "const": true },
+                    "written_opinion": { "const": true },
+                    "final_order": { "const": true }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      "then": {
+        "properties": { "cause_state": { "const": "PARTIALLY_REPLAYABLE" } }
+      }
+    },
+    {
+      "if": { "properties": { "pipeline_stage": { "const": 1 } } },
+      "then": { "properties": { "source_system": { "const": "BJS_PUBLIC" } } }
+    },
+    {
+      "if": { "properties": { "pipeline_stage": { "const": 2 } } },
+      "then": { "properties": { "source_system": { "const": "BJS_PRIVATE_AGGREGATE" } } }
+    },
+    {
+      "if": { "properties": { "pipeline_stage": { "const": 4 } } },
+      "then": { "properties": { "source_system": { "const": "MCRO" } } }
+    },
+    {
+      "if": { "properties": { "pipeline_stage": { "const": 5 } } },
+      "then": { "properties": { "source_system": { "const": "COURTHOUSE" } } }
+    },
+    {
+      "if": { "properties": { "pipeline_stage": { "const": 6 } } },
+      "then": { "properties": { "source_system": { "const": "RETENTION_EXPUNGEMENT" } } }
+    }
+  ]
+}

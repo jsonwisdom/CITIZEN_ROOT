@@ -1,1 +1,31 @@
-see-next
+{
+  "receipt_type": "SCHEMA_VALIDATOR_RECEIPT",
+  "schema_id": "urn:goblin-court:gavel-grifter:tile:v1.0",
+  "schema_draft": "https://json-schema.org/draft/2020-12/schema",
+  "schema_path": "/home/workdir/artifacts/gavel-grifter/gavel-grifter-tile-v1.0.schema.json",
+  "schema_sha256": "d4cab54a87343558f09cb36f4d299244562de97155eec0b73671021a097fa170",
+  "source_commit": "7f020457aa27c121454e4737ce3a424a54c65f8c",
+  "source_repo": "jsonwisdom/CITIZEN_ROOT",
+  "validator": "jsonschema.Draft202012Validator",
+  "run_at": "2026-09-01T09:37:41.501982+00:00",
+  "wrongdoing_inference": false,
+  "authority_created": false,
+  "judges_scored": 0,
+  "live_ingest": false,
+  "positive": {
+    "count": 7,
+    "all_valid": true
+  },
+  "negative": {
+    "count": 10,
+    "all_invalid": true
+  },
+  "suite_status": "PASS",
+  "notes": [
+    "RED != GUILT is enforced by additionalProperties:false plus wrongdoing_inference const false.",
+    "system_role is required only at pipeline_stage 3 and forbidden otherwise.",
+    "A public BJS hit is not PUBLICLY_REPLAYABLE unless the full checklist is true.",
+    "No identity bind: fixture names are placeholders.",
+    "Full per-fixture error detail remains in the local receipt until fixture bytes are committed."
+  ]
+}

@@ -2,23 +2,45 @@
   "receipt_type": "SCHEMA_VALIDATOR_RECEIPT",
   "schema_id": "urn:goblin-court:gavel-grifter:tile:v1.0",
   "schema_draft": "https://json-schema.org/draft/2020-12/schema",
-  "schema_path": "/home/workdir/artifacts/gavel-grifter/gavel-grifter-tile-v1.0.schema.json",
+  "schema_path": "schemas/gavel-grifter-tile-v1.0.schema.json",
+  "schema_path_resolved": "<repo>/schemas/gavel-grifter-tile-v1.0.schema.json",
   "schema_sha256": "d4cab54a87343558f09cb36f4d299244562de97155eec0b73671021a097fa170",
-  "source_commit": "7f020457aa27c121454e4737ce3a424a54c65f8c",
+  "source_commit": "9f0054327dae62abc8efa708b3e35efed1477789",
   "source_repo": "jsonwisdom/CITIZEN_ROOT",
   "validator": "jsonschema.Draft202012Validator",
-  "run_at": "2026-09-01T09:37:41.501982+00:00",
+  "run_at": "2026-09-01T09:49:55.594026+00:00",
   "wrongdoing_inference": false,
   "authority_created": false,
   "judges_scored": 0,
   "live_ingest": false,
   "positive": {
     "count": 7,
-    "all_valid": true
+    "all_valid": true,
+    "results": [
+      {"file": "P01_bjs_public_partial.json", "valid": true, "error_count": 0, "errors": []},
+      {"file": "P02_bjs_private_aggregate.json", "valid": true, "error_count": 0, "errors": []},
+      {"file": "P03_pmacs_stage3.json", "valid": true, "error_count": 0, "errors": []},
+      {"file": "P04_full_replay.json", "valid": true, "error_count": 0, "errors": []},
+      {"file": "P05_mcro_remote_blocked.json", "valid": true, "error_count": 0, "errors": []},
+      {"file": "P06_courthouse_check.json", "valid": true, "error_count": 0, "errors": []},
+      {"file": "P07_retention_confirmed.json", "valid": true, "error_count": 0, "errors": []}
+    ]
   },
   "negative": {
     "count": 10,
-    "all_invalid": true
+    "all_invalid": true,
+    "results": [
+      {"file": "N01_wrongdoing_inference_true.json", "valid": false, "error_count": 1, "errors": [{"message": "False was expected", "path": ["wrongdoing_inference"], "schema_path": ["properties", "wrongdoing_inference", "const"], "validator": "const"}]},
+      {"file": "N02_guilt_score_field.json", "valid": false, "error_count": 1, "errors": [{"message": "Additional properties are not allowed ('guilt_score' was unexpected)", "path": [], "schema_path": ["additionalProperties"], "validator": "additionalProperties"}]},
+      {"file": "N03_private_aggregate_named.json", "valid": false, "error_count": 1, "errors": [{"message": "None was expected", "path": ["official_name_as_published"], "schema_path": ["allOf", 1, "then", "properties", "official_name_as_published", "const"], "validator": "const"}]},
+      {"file": "N04_full_replay_incomplete_checklist.json", "valid": false, "error_count": 3, "errors": [{"message": "'PARTIALLY_REPLAYABLE' was expected", "path": ["cause_state"], "schema_path": ["allOf", 4, "then", "properties", "cause_state", "const"], "validator": "const"}, {"message": "True was expected", "path": ["full_replay_checklist", "charges"], "schema_path": ["allOf", 3, "then", "properties", "full_replay_checklist", "properties", "charges", "const"], "validator": "const"}, {"message": "True was expected", "path": ["full_replay_checklist", "written_opinion"], "schema_path": ["allOf", 3, "then", "properties", "full_replay_checklist", "properties", "written_opinion", "const"], "validator": "const"}]},
+      {"file": "N05_public_hit_wrong_existence.json", "valid": false, "error_count": 1, "errors": [{"message": "'EXIST_PUBLIC' was expected", "path": ["existence_state"], "schema_path": ["allOf", 2, "then", "properties", "existence_state", "const"], "validator": "const"}]},
+      {"file": "N06_stage3_missing_system_role.json", "valid": false, "error_count": 1, "errors": [{"message": "'system_role' is a required property", "path": [], "schema_path": ["allOf", 0, "then", "required"], "validator": "required"}]},
+      {"file": "N07_stage1_has_system_role.json", "valid": false, "error_count": 1, "errors": [{"message": "system_role forbidden outside pipeline_stage 3", "path": [], "schema_path": ["allOf", 0, "else", "not"], "validator": "not"}]},
+      {"file": "N08_stage_source_mismatch.json", "valid": false, "error_count": 1, "errors": [{"message": "'BJS_PUBLIC' was expected", "path": ["source_system"], "schema_path": ["allOf", 5, "then", "properties", "source_system", "const"], "validator": "const"}]},
+      {"file": "N09_red_equals_guilt.json", "valid": false, "error_count": 1, "errors": [{"message": "Additional properties are not allowed ('red_equals_guilt' was unexpected)", "path": [], "schema_path": ["additionalProperties"], "validator": "additionalProperties"}]},
+      {"file": "N10_public_hit_auto_full_replay.json", "valid": false, "error_count": 1, "errors": [{"message": "'PARTIALLY_REPLAYABLE' was expected", "path": ["cause_state"], "schema_path": ["allOf", 4, "then", "properties", "cause_state", "const"], "validator": "const"}]}
+    ]
   },
   "suite_status": "PASS",
   "notes": [
@@ -26,6 +48,6 @@
     "system_role is required only at pipeline_stage 3 and forbidden otherwise.",
     "A public BJS hit is not PUBLICLY_REPLAYABLE unless the full checklist is true.",
     "No identity bind: fixture names are placeholders.",
-    "Full per-fixture error detail remains in the local receipt until fixture bytes are committed."
+    "Validator consumes canonical schemas/gavel-grifter-tile-v1.0.schema.json. No schema duplicate."
   ]
 }

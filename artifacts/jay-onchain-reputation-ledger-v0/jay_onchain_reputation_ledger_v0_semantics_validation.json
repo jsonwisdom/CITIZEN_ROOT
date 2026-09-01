@@ -1,7 +1,9 @@
 {
   "validation_version": "0.1",
   "schema": "jay_onchain_reputation_ledger_v0.schema.json",
+  "schema_blob_sha": "e3d5425f469c326928f64cf5b298b3e247b1aeef",
   "instance": "JAY_ONCHAIN_REPUTATION_LEDGER_V0_EMPTY.json",
+  "instance_blob_sha": "a015d1bc2399b3fe33855c89cc5981cc2e698620",
   "declared_public_subject_reference": "jaywisdom.base.eth",
   "event_semantics": "FROZEN_V0",
   "checks": {
@@ -13,11 +15,14 @@
     "zora_export_snapshot_false": "REJECTED",
     "queries": "UNCOMPUTED",
     "ingest": "NOT_STARTED",
+    "github_write": true,
+    "persistence": true,
     "live_chain_query": false,
     "authority_created": false,
     "identity_equals_legal_person": false,
     "wrongdoing_inference": false
   },
   "skeleton_suite": "PASS",
-  "persistence_note": "This receipt records the frozen schema/empty-instance semantics bundle only. It does not authorize or represent live ingest or computation."
+  "schema_semantics_verified": true,
+  "persistence_note": "Persistence-only receipt for the frozen V0 schema, empty instance, invariants, and semantics validation. No live ingest, computation, scalar reputation, legal-person inference, wrongdoing inference, or authority creation is authorized."
 }

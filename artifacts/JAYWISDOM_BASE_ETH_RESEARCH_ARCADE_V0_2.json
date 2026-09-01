@@ -1,0 +1,57 @@
+{
+  "artifact": "JAYWISDOM_BASE_ETH_RESEARCH_ARCADE_V0_2",
+  "version": "0.2",
+  "project": "Citizen Jay Arcade — Minnesota Mode",
+  "identity": {
+    "operator": "jaywisdom.eth",
+    "basename": "jaywisdom.base.eth"
+  },
+  "state": {
+    "level": 3,
+    "level_status": "PUBLIC_RECORD_AVAILABLE",
+    "score": 1,
+    "score_reason": "UNRESOLVED",
+    "public_record": {
+      "citation": "Minnesota Statutes § 15.17",
+      "url": "https://www.revisor.mn.gov/statutes/cite/15.17",
+      "status": "AVAILABLE",
+      "source_hash": "HOLD_NOT_COMPUTED"
+    },
+    "zora_object": {
+      "name": "GIRTH",
+      "classification": "TEST_ARTIFACT",
+      "person_bind": null,
+      "position_id": null,
+      "wrongdoing_bind": null
+    },
+    "identity_status": "UNRESOLVED",
+    "contradiction": false,
+    "authority_created": false
+  },
+  "invariants": [
+    "ZORA_POST != FACT",
+    "COIN != ENDORSEMENT",
+    "DISPLAY_NAME != EVIDENCE_IDENTITY",
+    "UNRESOLVED_IS_VALID_STATE",
+    "INFERENCE_LOSES_THE_ROUND",
+    "EXPORT_RECEIPT != CURRENT_INDEX != POLITICAL_FACT",
+    "LOCAL_ARTIFACT != PERSISTENT_RECEIPT_UNTIL_INDEPENDENTLY_OPENABLE"
+  ],
+  "replay_chain": [
+    "RECOVER",
+    "VERIFY",
+    "CONTINUE"
+  ],
+  "holds": {
+    "decoder_engine_v2": "LOCKED",
+    "identity_resolution": "HOLD",
+    "level_4": "HOLD",
+    "automatic_scoring_changes": "HOLD",
+    "openai_api_key_required": false
+  },
+  "write_scope": {
+    "purpose": "Persist frozen Level 3 board only",
+    "advances_rail": false,
+    "creates_authority": false
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "ledger_version": "0.1",
+  "authority": false,
+  "universal_reputation_score": null,
+  "identity_equals_legal_person": false,
+  "wrongdoing_inference": false,
+  "ingest_status": "NOT_STARTED",
+  "event_count": 0,
+  "events": [],
+  "queries": {
+    "Q1_first_identity_event": "UNCOMPUTED",
+    "Q2_continuity_years": "UNCOMPUTED",
+    "Q3_creator_object_count": "UNCOMPUTED",
+    "Q4_distinct_counterparties": "UNCOMPUTED",
+    "Q5_repeat_collectors": "UNCOMPUTED",
+    "Q6_activity_streak": "UNCOMPUTED",
+    "Q7_cross_surface_agreement": "UNCOMPUTED"
+  },
+  "invariants": {
+    "no_edge_without_receipt_ref": true,
+    "conflicts_first_class": true,
+    "export_counts_are_snapshots": true,
+    "chronology_is_timestamp_ordered": true,
+    "continuity_only_no_scalar": true
+  },
+  "surfaces": {
+    "github_write": true,
+    "live_chain_query": false,
+    "authority_created": false
+  }
+}

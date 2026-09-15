@@ -1,0 +1,1 @@
+{"authority":false,"capabilities":["canonical_input_preservation","deterministic_branch_expansion","ordered_rule_application","gap_receipts","provenance_linked_outputs"],"machine_id":"IMA-0001","query_surface":"agent_discovery/deterministic_idea_machine.json","registry_leaf":"registry/IMA-0001.json","spec_path":"DETERMINISTIC_IDEA_MACHINE.md","status":"INITIALIZED"}

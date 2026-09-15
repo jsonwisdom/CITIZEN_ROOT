@@ -1,0 +1,418 @@
+{
+  "schema": "JAYS_ZERO_DAY_CREATION_MACHINE_V0_1",
+  "version": "0.1.0",
+  "name": "Jays ZeroDayCreationMachine",
+  "domain": {
+    "declared_domain": "ZeroTrustZeroDayByPaydayForJay.com",
+    "deployment_status": "NOT_VERIFIED",
+    "dns_status": "UNVERIFIED",
+    "tls_status": "UNVERIFIED",
+    "authority_inferred_from_dns": false,
+    "root_objects": {
+      "A_RECORD": {
+        "value": null,
+        "status": "HOLD",
+        "receipt_required": true
+      },
+      "TLS_CERT": {
+        "issuer": null,
+        "expires_at": null,
+        "san": [],
+        "status": "HOLD",
+        "receipt_required": true
+      },
+      "DNS_METADATA": {
+        "FIRST_OBSERVED_AT": null,
+        "LAST_OBSERVED_AT": null,
+        "ARCHIVED_COPY": null,
+        "status": "HOLD"
+      }
+    }
+  },
+  "kernel": {
+    "MODE": "PUBLIC_REPLAY-KERNEL",
+    "TRUST_MODEL": "ZERO_TRUST",
+    "AUTHORITY_CREATED": false,
+    "WRITE_POSTURE": "APPEND_ONLY_WHERE_PRACTICAL",
+    "DEFAULT_CLAIM_STATE": "HOLD",
+    "DEFAULT_PLAYER_TRUST": "UNTRUSTED",
+    "DEFAULT_SOURCE_AUTHORITY": "NOT_INFERRED"
+  },
+  "purpose": {
+    "AUDIT_KERNEL": "Host public, receipt-indexed replay of monetary and contract systems touching households, workers, savers, and taxpayers.",
+    "PROTOCOL_LAB": "Formalize and publish Zero-Trust replay law, flow matrices, and disposition rules.",
+    "DISCLOSURE_SURFACE": "Expose versioned artifacts such as filings, contracts, reserve reports, dockets, and on-chain records with hash and clock metadata.",
+    "EDUCATION_LANE": "Explain the math and governance effects in full-population terms including women, men, girls, boys, households, workers, savers, taxpayers, and non-wallet users."
+  },
+  "logic": {
+    "root_rule": "NO_PLAYER_OR_INSTITUTION_IS_TRUSTED_BY_STATUS; ONLY BOUNDED EDGES MAY BE PROMOTED BY RECEIPTS.",
+    "quad_onion": {
+      "Q1_RECORD": "What record exists and what bytes, URL, hash, and clock identify it?",
+      "Q2_AUTHORITY": "What authority attaches to that exact record or actor for that exact act?",
+      "Q3_FLOW": "What moved, from whom, to whom, in what asset, amount, clock, and receipt context?",
+      "Q4_EFFECT": "What objectively changed in ownership, voting power, debt, custody, reserve balance, yield, public exposure, regulatory status, or redemption rights?"
+    },
+    "disposition_engine": {
+      "PASS": "Required receipt edges close for the bounded claim.",
+      "DELTA": "Preserved surfaces or versions differ and the relationship is identified.",
+      "HOLD": "A required source, join key, clock, authority edge, or primary record is missing.",
+      "CONFLICT": "Controlling or primary receipts materially disagree.",
+      "REJECT": "A controlling receipt contradicts the bounded claim."
+    },
+    "invariants": [
+      "INSTITUTION != TRUTH",
+      "CITIZEN != FALSE",
+      "OFFICIAL != INFALLIBLE",
+      "MEDIA != COURT",
+      "FILING != ADJUDICATION",
+      "RECEIPT != AUTHORITY",
+      "REPORT != ADJUDICATION",
+      "DNS != AUTHORITY",
+      "A_RECORD != OWNERSHIP",
+      "TLS_CERT != ENDORSEMENT",
+      "PUBLICATION_TIME != EVENT_TIME",
+      "CAPTURE_TIME != PUBLICATION_TIME",
+      "HASH_DELTA != INTENT",
+      "URL_404 != INTENTIONAL_DELETION",
+      "MISSING_PAGE != DID_NOT_EXIST",
+      "SIMULATION != HISTORICAL_FACT",
+      "MONTE_CARLO_RESULT != VERDICT",
+      "NO_WALLET != NO_ECONOMIC_EFFECT",
+      "MINOR != IRRELEVANT_TO_PUBLIC_POLICY",
+      "OBSERVER != ASSET",
+      "ROLE != TRUST_LEVEL"
+    ]
+  },
+  "function": {
+    "ingest": [
+      "PRESERVE_SOURCE_POINTER",
+      "CAPTURE_BYTES_WHEN_LAWFUL_AND_AVAILABLE",
+      "COMPUTE_CONTENT_HASH",
+      "CAPTURE_PUBLICATION_AND_MODIFICATION_CLOCKS",
+      "CLASSIFY_AUTHORITY_SURFACE",
+      "BIND_ENTITY_AND_ROLE",
+      "BIND_FLOW_AND_EFFECT",
+      "BIND_POPULATION_EFFECT",
+      "EMIT_DISPOSITION"
+    ],
+    "replay": [
+      "FREEZE_INPUT_SET",
+      "RECOMPUTE_HASHES",
+      "RECHECK_ENTITY_ROLE_AND_CLOCK_IDENTITY",
+      "RERUN_QUAD_ONION",
+      "COMPARE_PREVIOUS_AND_CURRENT_RECEIPTS",
+      "EMIT_PASS_DELTA_HOLD_CONFLICT_OR_REJECT"
+    ],
+    "outputs": [
+      "MACHINE_READABLE_JSON",
+      "HUMAN_READABLE_PUBLIC_REPLAY",
+      "VERSION_WALKBACK",
+      "FLOW_MATRIX",
+      "POPULATION_EFFECT_MATRIX",
+      "OBSERVER_INDEXED_RECEIPT"
+    ],
+    "non_functions": [
+      "NO_WALLET",
+      "NO_TRADING",
+      "NO_FINANCIAL_ENDORSEMENT",
+      "NO_LEGAL_VERDICT_CREATION",
+      "NO_IDENTITY_MERGE",
+      "NO_UNRECEIPTED_INTENT_INFERENCE"
+    ]
+  },
+  "repeatability": {
+    "same_inputs_same_version_same_result_required": true,
+    "content_hash_algorithm": "SHA-256",
+    "canonical_json_policy": {
+      "encoding": "UTF-8",
+      "sort_keys_for_hashing": true,
+      "whitespace_significant_for_source_bytes": true,
+      "normalized_receipt_hash_separate_from_source_hash": true
+    },
+    "clock_policy": [
+      "EVENT_TIME",
+      "SIGNED_AT",
+      "FILED_AT",
+      "PUBLISHED_AT",
+      "MODIFIED_AT",
+      "FIRST_OBSERVED_AT",
+      "LAST_OBSERVED_AT",
+      "CAPTURED_AT",
+      "REPLAYED_AT"
+    ],
+    "clock_invariant": "NO_CLOCK_MAY_BE SILENTLY BACKFILLED FROM ANOTHER CLOCK."
+  },
+  "trustworthy": {
+    "principles": [
+      "PRESERVE_ORIGINAL_BEFORE_INTERPRETATION",
+      "SEPARATE_SOURCE_FROM_INTERPRETATION",
+      "SEPARATE_ROLE_FROM_AUTHORITY",
+      "SEPARATE_RECORD_FROM_EFFECT",
+      "SEPARATE_CORRELATION_FROM_CAUSATION",
+      "SEPARATE_PUBLICATION_FROM_EVENT",
+      "REQUIRE_JOIN_KEYS_FOR_CROSS_SYSTEM_LINKS",
+      "PUBLISH_MISSING_EDGES_AS_HOLD",
+      "PUBLISH_CONTRADICTIONS_AS_CONFLICT",
+      "ALLOW_COUNTER_RECEIPTS"
+    ],
+    "public_player_symmetry": true,
+    "institutional_immunity": false,
+    "citizen_disadvantage_by_status": false
+  },
+  "honest": {
+    "unknown_values_remain_null": true,
+    "unverified_values_remain_hold": true,
+    "absence_not_promoted_to_nonexistence": true,
+    "loaded_labels_not_promoted_to_findings": true,
+    "ethnicity_not_used_as_join_key": true,
+    "political_family_name_not_used_as_evidence": true,
+    "intent_requires_receipt": true,
+    "scam_label_policy": "QUERY_LABEL_ONLY_UNLESS_A_CONTROLLING_LEGAL_OR_FACTUAL_RECEIPT_SUPPORTS_A_BOUNDED_FINDING"
+  },
+  "routes": {
+    "/": {
+      "route_enum": "LANDING_ROOT",
+      "objects": [
+        "TRUST_MODEL_EXPLAINER",
+        "QUAD_ONION_OVERVIEW",
+        "POPULATION_EFFECT_MATRIX_INTRO"
+      ]
+    },
+    "/protocol": {
+      "route_enum": "REPLAY_LAW_SPEC",
+      "sections": {
+        "ENTITY_LAYER": [
+          "ENTITY",
+          "ROLE",
+          "CONTRACT",
+          "SECURITY",
+          "LOAN",
+          "COLLATERAL",
+          "RESERVE",
+          "COUNTERPARTY",
+          "JURISDICTION",
+          "CLOCK",
+          "PUBLIC_EFFECT"
+        ],
+        "QUAD_ONION": [
+          "Q1_RECORD",
+          "Q2_AUTHORITY",
+          "Q3_FLOW",
+          "Q4_EFFECT"
+        ],
+        "DISPOSITION_ENGINE": [
+          "PASS",
+          "DELTA",
+          "HOLD",
+          "CONFLICT",
+          "REJECT"
+        ]
+      }
+    },
+    "/usd1": {
+      "route_enum": "USD1_WLF_CASE_STUDY",
+      "case_status": "SCHEMA_DEFINED_RECEIPTS_NOT_YET_BOUND",
+      "chains": {
+        "DISPLAY_CHAIN": [
+          "AMERICAN_USER",
+          "DISPLAYED_USD1_VALUE",
+          "18_DECIMAL_LEDGER"
+        ],
+        "RESERVE_CHAIN": [
+          "USD1",
+          "BITGO",
+          "RESERVE_ASSETS",
+          "TREASURIES_OR_MMF_OR_DEPOSITS"
+        ],
+        "CORPORATE_CHAIN": [
+          "WORLD_LIBERTY_INC_DELAWARE",
+          "WORLD_LIBERTY_LLC_FLORIDA",
+          "ALT5_ENTITIES"
+        ]
+      },
+      "edge_fields": [
+        "RECORD_URL",
+        "AUTHORITY_TYPE",
+        "CONTENT_HASH",
+        "PUBLISHED_AT",
+        "MODIFIED_AT",
+        "FIRST_OBSERVED_AT",
+        "LAST_OBSERVED_AT",
+        "STATUS"
+      ],
+      "default_edge_status": "HOLD",
+      "records": []
+    },
+    "/population": {
+      "route_enum": "WOMEN_GIRLS_FULL_MATH_LANE",
+      "POPULATION_EFFECT": [
+        "adult_women",
+        "adult_men",
+        "girls",
+        "boys",
+        "households",
+        "workers",
+        "savers",
+        "taxpayers",
+        "non_token_holders"
+      ],
+      "questions_per_change": [
+        "WHO_CAN_USE_IT?",
+        "WHO_CAN_REDEEM?",
+        "WHO_CAN_FREEZE?",
+        "WHO_EARNS_YIELD?",
+        "WHO_PAYS_FEES?",
+        "WHO_BEARS_FAILURE?",
+        "WHO_IS_EXCLUDED?",
+        "WHO_HAS_GOVERNANCE_VOICE?",
+        "WHO_RECEIVES_DISCLOSURE?"
+      ]
+    },
+    "/versions": {
+      "route_enum": "FILE_DELETION_VERSION_WALKBACK",
+      "per_artifact": [
+        "URL",
+        "FIRST_OBSERVED_AT",
+        "LAST_OBSERVED_AT",
+        "HTTP_STATE",
+        "CONTENT_HASH",
+        "FILE_SIZE",
+        "PUBLISHED_AT",
+        "MODIFIED_AT",
+        "ARCHIVED_COPY",
+        "PREVIOUS_HASH",
+        "CURRENT_HASH"
+      ],
+      "logic": {
+        "HASH_A_NE_HASH_B": "CONTENT_DELTA",
+        "URL_404": "ACCESS_DELTA",
+        "MISSING_PAGE": "HOLD",
+        "DELETION_INTENT": "RECEIPT_REQUIRED"
+      }
+    },
+    "/jay": {
+      "route_enum": "OBSERVER_INDEXED_LANE",
+      "OBSERVER_ENUM": [
+        "CONGRESS",
+        "SEC",
+        "DOJ",
+        "COURTS",
+        "WHITE_HOUSE",
+        "TREASURY",
+        "STATE_REGULATORS",
+        "COMPANIES",
+        "MEDIA",
+        "CITIZENS",
+        "JASON"
+      ],
+      "invariants": [
+        "INSTITUTION != TRUTH",
+        "CITIZEN != FALSE",
+        "OFFICIAL != INFALLIBLE",
+        "MEDIA != COURT",
+        "FILING != ADJUDICATION"
+      ]
+    },
+    "/jay/replay-law": {
+      "route_enum": "JAY_REPLAY_LAW",
+      "purpose": "Formal definition of observer-indexed rungs, non-transferable membranes, and receipt-standard invariants.",
+      "observer_rule": "EVERY_EXAMPLE_IS_TAGGED_OBSERVER_JASON_WHEN_JASON_IS_THE_ANALYST_NOT_THE_ASSET.",
+      "observer": "JASON"
+    }
+  },
+  "data_model": {
+    "entity": {
+      "primary_key": "entity_id",
+      "fields": {
+        "entity_id": "string",
+        "name": "string",
+        "jurisdiction": "string|null",
+        "type": "corp|llc|gov|fund|protocol|person_role|other",
+        "verification_status": "PASS|DELTA|HOLD|CONFLICT|REJECT"
+      }
+    },
+    "record": {
+      "primary_key": "record_id",
+      "fields": {
+        "record_id": "string",
+        "entity_id": "string",
+        "record_type": "10-K|8-K|contract|docket|reserve_report|on_chain_tx|corporate_registry|other",
+        "url": "string",
+        "authority_class": "string",
+        "content_hash": "sha256|null",
+        "published_at": "timestamp|null",
+        "modified_at": "timestamp|null",
+        "first_observed_at": "timestamp|null",
+        "last_observed_at": "timestamp|null"
+      }
+    },
+    "flow": {
+      "primary_key": "flow_id",
+      "fields": {
+        "flow_id": "string",
+        "from_entity_id": "string",
+        "to_entity_id": "string",
+        "asset": "USD|USD1|WLFI|SHARES|COLLATERAL|FEES|YIELD|OTHER",
+        "amount": "decimal|string|null",
+        "clock": "timestamp|null",
+        "authority_record_id": "string|null"
+      }
+    },
+    "effect": {
+      "primary_key": "effect_id",
+      "fields": {
+        "effect_id": "string",
+        "flow_id": "string|null",
+        "dimension": "ownership|voting_power|debt|collateral_custody|reserve_balance|yield_recipient|public_exposure|regulatory_status|redemption_rights|other",
+        "delta_description": "string"
+      }
+    },
+    "population_effect": {
+      "primary_key": "population_effect_id",
+      "fields": {
+        "population_effect_id": "string",
+        "effect_id": "string",
+        "population_segment": "adult_women|adult_men|girls|boys|households|workers|savers|taxpayers|non_token_holders",
+        "impact_description": "string",
+        "status": "PASS|DELTA|HOLD|CONFLICT|REJECT"
+      }
+    },
+    "disposition": {
+      "primary_key": "claim_id",
+      "fields": {
+        "claim_id": "string",
+        "status": "PASS|DELTA|HOLD|CONFLICT|REJECT",
+        "controlling_record_id": "string|null",
+        "note": "string|null"
+      }
+    }
+  },
+  "implementation_posture": {
+    "FRONTEND": "STATIC_SITE_OR_SSG_WITH_EXPLICIT_ROUTE_MAP",
+    "BACKEND": "READ_ONLY_PUBLIC_API_FOR_RECORDS_FLOWS_EFFECTS_AND_DISPOSITIONS",
+    "STORAGE": "APPEND_ONLY_DATABASE_PLUS_CONTENT_ADDRESSED_ARCHIVE",
+    "ARCHIVE": "PUBLIC_WEB_ARCHIVE_INTEGRATION_FOR_URL_AND_HASH_REPLAY",
+    "NO_WALLET": true,
+    "NO_TRADING": true,
+    "NO_ENDORSEMENT": true
+  },
+  "bootstrap": {
+    "github": {
+      "repository": "jsonwisdom/CITIZEN_ROOT",
+      "path": "docs/ZERO_DAY_CREATION_MACHINE_V0_1.json",
+      "branch": "main",
+      "canonical": true,
+      "write_receipt": "OUT_OF_BAND_GITHUB_COMMIT"
+    },
+    "google_drive": {
+      "title": "Jays ZeroDayCreationMachine V0.1",
+      "mirror_policy": "TEXTUAL_JSON_MIRROR",
+      "byte_identity": "NOT_ASSUMED",
+      "write_receipt": "OUT_OF_BAND_DRIVE_FILE_ID"
+    },
+    "public_domain": {
+      "domain": "ZeroTrustZeroDayByPaydayForJay.com",
+      "status": "NOT_DEPLOYED_OR_VERIFIED"
+    }
+  }
+}

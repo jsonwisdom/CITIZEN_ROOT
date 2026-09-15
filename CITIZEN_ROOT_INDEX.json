@@ -58,6 +58,33 @@
         "public_details": "REDACTED",
         "secret_values_indexed": false,
         "authority": false
+      },
+      {
+        "id": "JASONS_LIVING_LEDGER_ARTIFACT_V0_1",
+        "repository": "jsonwisdom/CITIZEN_ROOT",
+        "path": "docs/JASONS_LIVING_LEDGER_ARTIFACT_V0_1.md",
+        "commit_sha": "1ea88cf165259988edee2b42ccfc98a8b0542015",
+        "git_blob_sha": "db1c82eb85d480964b96e102f91d296c2e03cd91",
+        "visibility": "PUBLIC",
+        "authority": false
+      },
+      {
+        "id": "KID_KOURT_REPLAY_GATE_V0",
+        "repository": "jsonwisdom/CITIZEN_ROOT",
+        "path": "docs/KID_KOURT_REPLAY_GATE_V0.md",
+        "commit_sha": "fbfbb5d9a7e5e05a16c77a0383d8bddc3f70f07b",
+        "git_blob_sha": "3c1fe1757785b210e27023636936ac03a2db8dcc",
+        "visibility": "PUBLIC",
+        "authority": false
+      },
+      {
+        "id": "FAMILY_INDEX_FRONT_DOOR_V0",
+        "repository": "jsonwisdom/CITIZEN_ROOT",
+        "path": "docs/FAMILY_INDEX_FRONT_DOOR_V0.md",
+        "commit_sha": "039ccb034be9d8f1b9d268a9acd780f90ce5b2af",
+        "git_blob_sha": "a26d0619329494aca5ea54c05bb089fd3b80b576",
+        "visibility": "PUBLIC",
+        "authority": false
       }
     ]
   },

@@ -17,8 +17,64 @@
     "authority": false
   },
   "artifact_registry": {
-    "description": "Pointers only. Actual artifacts live in AL / JOY / COMPUTERWISDOM / HEIDEE.",
-    "entries": []
+    "description": "Pointers only. Actual artifacts remain in their source repositories or protected storage surfaces.",
+    "entries": [
+      {
+        "id": "JAYS_GITHUB_AS_A_SERVICE_V0_1",
+        "class": "PUBLIC_SERVICE_CONTRACT",
+        "repository": "jsonwisdom/CITIZEN_ROOT",
+        "path": "docs/JAYS_GITHUB_AS_A_SERVICE_V0_1.md",
+        "visibility": "PUBLIC",
+        "authority": false
+      },
+      {
+        "id": "REPOSITORY_SERVICE_INDEX_V0_1",
+        "class": "PUBLIC_DISCOVERY_INDEX",
+        "repository": "jsonwisdom/CITIZEN_ROOT",
+        "path": "registry/REPOSITORY_SERVICE_INDEX_V0_1.json",
+        "visibility": "PUBLIC",
+        "inventory": {
+          "total": 87,
+          "public": 80,
+          "private": 7,
+          "secret_values": 0
+        },
+        "authority": false
+      },
+      {
+        "id": "DUAL_PURPOSE_SUPER_SECRET_BRIDGE",
+        "class": "FAMILY_ROUTING_RECEIPT",
+        "repository": "jsonwisdom/JOY",
+        "path": "FAMILY/receipts/DUAL_PURPOSE_SUPER_SECRET_BRIDGE_DAD_HEIDEE_JAYCEE_V0_1.md",
+        "git_blob_sha": "3f0adfaf4bae1fa3f88c7bc06aaa5e1da1d73078",
+        "visibility": "PUBLIC_SOURCE_RECEIPT",
+        "boundary": "routing only; no inherited identity, consent, custody, ownership, or authority",
+        "authority": false
+      },
+      {
+        "id": "PRIVATE_CONTROL_PLANE_INDEX",
+        "class": "PRIVATE_POINTER_INDEX",
+        "visibility": "PRIVATE",
+        "public_details": "REDACTED",
+        "secret_values_indexed": false,
+        "authority": false
+      }
+    ]
+  },
+  "service_boundary": {
+    "public_repositories": 80,
+    "private_repositories": 7,
+    "private_repository_names_publicly_redacted": true,
+    "family_pointer_only": true,
+    "secret_values_forbidden": true,
+    "proof_receipts_preferred": [
+      "commit_sha",
+      "git_blob_sha",
+      "sha256",
+      "primary_source_url",
+      "page_or_finding_anchor",
+      "timestamp"
+    ]
   },
   "merkle_roots": {
     "current": null,

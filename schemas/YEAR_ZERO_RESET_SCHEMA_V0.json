@@ -3,107 +3,53 @@
   "$id": "https://jsonwisdom.github.io/schemas/YEAR_ZERO_RESET_SCHEMA_V0.json",
   "title": "YEAR_ZERO_RESET_SCHEMA_V0",
   "type": "object",
-  "required": ["version", "terms", "graduation_test", "tally_verifier", "propagation_rule", "rendering", "invariants"],
   "properties": {
-    "version": {"type": "string", "const": "V0"},
-    "terms": {
-      "type": "array",
-      "minItems": 3,
-      "maxItems": 3,
-      "prefixItems": [
-        {
-          "type": "object",
-          "required": ["term", "rails"],
-          "properties": {
-            "term": {"const": 1},
-            "rails": {"const": ["ASK", "SOURCE", "CHALLENGE"]}
-          },
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "required": ["term", "rails"],
-          "properties": {
-            "term": {"const": 2},
-            "rails": {"const": ["GAP", "HOLD_CLOSE", "REVERSAL"]}
-          },
-          "additionalProperties": false
-        },
-        {
-          "type": "object",
-          "required": ["term", "rails"],
-          "properties": {
-            "term": {"const": 3},
-            "rails": {"const": ["DEFENSE", "RECEIPT", "RENDER"]}
-          },
-          "additionalProperties": false
-        }
-      ],
-      "items": false
-    },
-    "graduation_test": {
-      "type": "object",
-      "required": ["required_artifacts", "completion_rule"],
-      "properties": {
-        "required_artifacts": {
-          "const": [
-            "exact_claim",
-            "primary_source",
-            "date_clock",
-            "responsible_authority",
-            "strongest_support",
-            "strongest_challenge",
-            "unknowns",
-            "reversal_fact",
-            "public_receipt",
-            "kindergarten_rendering"
-          ]
-        },
-        "completion_rule": {"type": "string", "const": "BEHAVIORAL_COMPLETENESS_ONLY"}
-      },
-      "additionalProperties": false
-    },
-    "tally_verifier": {
-      "type": "object",
-      "required": ["protocol", "statuses", "truth_adjudication", "authority"],
-      "properties": {
-        "protocol": {"type": "string", "const": "TALLY_VERIFIER_PROTOCOL_V0"},
-        "statuses": {"const": ["YES", "NO", "HOLD"]},
-        "truth_adjudication": {"type": "boolean", "const": false},
-        "authority": {"type": "boolean", "const": false}
-      },
-      "additionalProperties": false
-    },
-    "propagation_rule": {
+    "version": {
       "type": "string",
-      "const": "CONGRESS_GRADUATES_YEAR_ZERO -> FIRST_GRADE_PUBLIC_MODEL_UNLOCKED"
+      "const": "V0"
     },
-    "rendering": {
+    "authority": {
+      "type": "boolean",
+      "const": false
+    },
+    "rails_reference": {
+      "$ref": "https://jsonwisdom.github.io/schemas/JASONS_369_RAILS_V0.json"
+    },
+    "adult_first_term_structure": {
       "type": "object",
-      "required": ["kindergarten", "elementary", "middle", "high_school", "adult", "machine"],
       "properties": {
-        "kindergarten": {"const": "picture + simplest words"},
-        "elementary": {"const": "tally + source pointer"},
-        "middle": {"const": "fractions + disagreement + denominator"},
-        "high_school": {"const": "challenge + uncertainty + reversal"},
-        "adult": {"const": "complete replay"},
-        "machine": {"const": "JSON + cryptographic hashes"}
+        "mode": {
+          "type": "string",
+          "const": "ADULT_FIRST_RIGOR"
+        },
+        "description": {
+          "type": "string"
+        }
       },
+      "required": ["mode", "description"],
       "additionalProperties": false
     },
-    "invariants": {
+    "graduation_rule": {
       "type": "object",
-      "required": ["THREE_CHALLENGES_CLAIM", "SIX_CHALLENGES_CONCLUSION", "NINE_CHALLENGES_EXPLANATION", "SAME_PACKET_SAME_RECEIPT_MULTIPLE_RENDERINGS", "RENDER_STATE_NEQ_EVIDENCE_STATE", "AUTHORITY_GRANTED"],
       "properties": {
-        "THREE_CHALLENGES_CLAIM": {"type": "boolean", "const": true},
-        "SIX_CHALLENGES_CONCLUSION": {"type": "boolean", "const": true},
-        "NINE_CHALLENGES_EXPLANATION": {"type": "boolean", "const": true},
-        "SAME_PACKET_SAME_RECEIPT_MULTIPLE_RENDERINGS": {"type": "boolean", "const": true},
-        "RENDER_STATE_NEQ_EVIDENCE_STATE": {"type": "boolean", "const": true},
-        "AUTHORITY_GRANTED": {"type": "boolean", "const": false}
+        "condition": {
+          "type": "string"
+        },
+        "enforced": {
+          "type": "boolean",
+          "const": true
+        }
       },
+      "required": ["condition", "enforced"],
       "additionalProperties": false
     }
   },
+  "required": [
+    "version",
+    "authority",
+    "rails_reference",
+    "adult_first_term_structure",
+    "graduation_rule"
+  ],
   "additionalProperties": false
 }

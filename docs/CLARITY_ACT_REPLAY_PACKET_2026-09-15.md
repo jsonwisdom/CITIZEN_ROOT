@@ -98,6 +98,14 @@ PROOF = underlying receipts only
 RENDER = completion signal only
 ```
 
+## Render artifact
+
+Parody completion image mirrored in Google Drive:
+
+https://drive.google.com/file/d/1m1FpnCA4tzCfVAo2N_YhpyfXhQcBwAin/view
+
+The parody render is the visible completion signal for the closed procedural subclaim. Its rhetorical content is not itself evidence and does not promote CLAIM_B out of HOLD.
+
 ## Render rule
 
 **No receipt, no render.**

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jsonwisdom.github.io/schemas/JASONS_369_ACCOUNTABILITY_STACK_V0.json",
+  "title": "JASONS_369_ACCOUNTABILITY_STACK_V0",
+  "type": "object",
+  "properties": {
+    "stack_version": {
+      "type": "string",
+      "const": "V0"
+    },
+    "authority": {
+      "type": "boolean",
+      "const": false
+    },
+    "components": {
+      "type": "object",
+      "properties": {
+        "rails": {
+          "$ref": "https://jsonwisdom.github.io/schemas/JASONS_369_RAILS_V0.json"
+        },
+        "tally_verifier_protocol": {
+          "$ref": "https://jsonwisdom.github.io/schemas/TALLY_VERIFIER_PROTOCOL_V0.json"
+        },
+        "year_zero_reset": {
+          "$ref": "https://jsonwisdom.github.io/schemas/YEAR_ZERO_RESET_SCHEMA_V0.json"
+        },
+        "test_packet": {
+          "$ref": "https://jsonwisdom.github.io/schemas/ONE_PUBLIC_CLAIM_TEST_PACKET_V0.json"
+        },
+        "run_log": {
+          "$ref": "https://jsonwisdom.github.io/schemas/RUN_LOG_V0.json"
+        }
+      },
+      "required": [
+        "rails",
+        "tally_verifier_protocol",
+        "year_zero_reset",
+        "test_packet",
+        "run_log"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": ["stack_version", "authority", "components"],
+  "additionalProperties": false
+}

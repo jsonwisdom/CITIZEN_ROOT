@@ -111,3 +111,53 @@ The parody render is the visible completion signal for the closed procedural sub
 **No receipt, no render.**
 
 A packet may contain a renderable proven subclaim while refusing to render a broader unresolved political or regulatory explanation.
+
+## Square 7 — Text-Delta Working State — 2026-09-16
+
+This section seats the current causal-testing posture without promoting it into a verified causal finding.
+
+```text
+D_CANDIDATE = LOCATED / WORKING_DEFINITION
+DEMANDERS = IDENTIFIED / HISTORY_ONLY
+SEARCHED_CAUSAL_STATEMENTS = 8 / WORKING_COUNT
+BOUND_CAUSAL_RECEIPTS = 0 / PACKET_COUNT
+B1_THRESHOLD = >=11 TO SAME EXACT D
+B1_THRESHOLD_STATUS = NOT_MET
+SQUARE_7 = ACTIVE_SPIN
+SQUARE_8 = BLOCKED
+SQUARE_9 = BLOCKED
+AUTHORITY = false
+RENDER = false
+```
+
+### Classification guard
+
+The procedural rail is independently receipt-bound by Senate Vote 234. The causal rail is not.
+
+```text
+SEARCHED_CAUSAL_STATEMENT != BOUND_CAUSAL_RECEIPT
+DEMAND_HISTORY != VOTE_CAUSATION
+TEXT_CANDIDATE != TEXT_BIND
+MULTI_ISSUE_STATEMENT != SINGLE_D_BIND
+WORKING_COUNT != VERIFIED_BLOC
+```
+
+The current `8 searched / 0 bound` state is a Square-7 packet state, not a claim that no future primary source can bind a senator to the narrowed text delta. Promotion requires senator-by-senator primary receipts and an exact-D tally.
+
+### Movement rule
+
+```text
+6 -> 7  REQUIRES narrowed causal candidate
+7 -> 8  REQUIRES primary causal receipt(s) satisfying the candidate's binding rule
+8 -> 9  REQUIRES receipt(s) survive reversal + defense
+```
+
+### Current flywheel
+
+```text
+PROCEDURAL_AXIS = LOCKED / CLAIM_A_PROVEN
+CAUSAL_RIM = SPINNING / CLAIM_B_HOLD
+GAME_PIECE = SQUARE_7
+NEXT_PROMOTION_GATE = PRIMARY_CAUSAL_RECEIPT
+NO_RECEIPT -> NO_RENDER
+```

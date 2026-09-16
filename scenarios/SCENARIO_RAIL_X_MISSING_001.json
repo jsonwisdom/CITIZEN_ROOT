@@ -1,0 +1,77 @@
+{
+  "scenario_id": "SCENARIO-RAIL-X-MISSING-001",
+  "scenario_version": "1.0.0",
+  "rail": "HYPOTHETICAL_GAME_LAYER",
+  "governing_model": "RULER_V0",
+  "governing_model_state": "FROZEN",
+  "scenario_state": "REPLAYABLE",
+  "replay_receipt": "ISSUABLE",
+  "input": {
+    "unresolved_assertions": [
+      "RAIL_X_MISSING"
+    ]
+  },
+  "available_choices": [
+    "CHOICE_HOLD",
+    "CHOICE_VERIFIED_RECEIPT",
+    "CHOICE_UNKNOWN",
+    "CHOICE_AUTHORITY_TRUE"
+  ],
+  "expected_replay": {
+    "CHOICE_HOLD": {
+      "matched_rule_id": "GAME-RULE-001",
+      "outcome": "SAFE_PATH",
+      "assertions_touched": [
+        "RA-UNRESOLVED-HOLD"
+      ]
+    },
+    "CHOICE_VERIFIED_RECEIPT": {
+      "matched_rule_id": "GAME-RULE-002",
+      "outcome": "ASSERTION_VIOLATION",
+      "assertions_touched": [
+        "RA-UNRESOLVED-HOLD",
+        "RA-VERIFIED-UNRESOLVED-EMPTY"
+      ]
+    },
+    "CHOICE_UNKNOWN": {
+      "matched_rule_id": "GAME-RULE-003",
+      "outcome": "PLAYER_UNCERTAINTY",
+      "assertions_touched": []
+    },
+    "CHOICE_AUTHORITY_TRUE": {
+      "matched_rule_id": "GAME-RULE-004",
+      "outcome": "MEMBRANE_BREAK",
+      "assertions_touched": [
+        "RA-AUTHORITY-FALSE",
+        "RA-RECEIPT-NOT-AUTHORITY"
+      ]
+    }
+  },
+  "coverage": {
+    "game_rules_exercised": [
+      "GAME-RULE-001",
+      "GAME-RULE-002",
+      "GAME-RULE-003",
+      "GAME-RULE-004"
+    ],
+    "ruler_assertions_exercised": [
+      "RA-UNRESOLVED-HOLD",
+      "RA-VERIFIED-UNRESOLVED-EMPTY",
+      "RA-AUTHORITY-FALSE",
+      "RA-RECEIPT-NOT-AUTHORITY"
+    ],
+    "v1_appended_assertions_exercised": []
+  },
+  "rail_guards": {
+    "ruler_touch": false,
+    "validation_effect": "NONE",
+    "freeze_effect": "NONE",
+    "authority": false
+  },
+  "notes": {
+    "v1_dependency": "NONE",
+    "scenario_freeze_hash": null,
+    "scenario_freeze_receipt": "ABSENT",
+    "authority": false
+  }
+}

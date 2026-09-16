@@ -28,10 +28,13 @@ Public repositories are discoverable. Private repository names and protected Dri
 
 ## Current accountability / replay surfaces
 
+- `docs/RECEIPTS_MACHINE_OS_V0.md` — umbrella operating system with the Imagination Navigation Rail
 - `docs/JASONS_ACCOUNTABILITY_REPLAY_MACHINE_V0.md` — umbrella replay machine and Render Receipt Gate
 - `docs/JASONS_BURDEN_OF_PROOF_MACHINE_GARBAGE_GENERAL_OFFENSE_V0.md` — burden-of-proof / challenge engine
 - `docs/CLARITY_ACT_REPLAY_PACKET_2026-09-15.md` — split-claim CLARITY Act replay packet
 - `docs/WEEKLY_SYNC_BACKFILL_2026-09-09_TO_2026-09-16.md` — verified weekly GitHub/Drive backfill surface
+
+Receipts Machine OS recall phrase: **imagine freely, navigate openly, prove only with receipts.**
 
 House rule: **No receipt, no render.** A rendered image is a completion signal, not proof, authority, or a source.
 
@@ -54,6 +57,10 @@ House rule: **No receipt, no render.** A rendered image is a completion signal, 
 8. `SECRET_POINTER != SECRET_VALUE`.
 9. `RENDERED_IMAGE != PROOF`.
 10. `CLAIM_A_PASS != CLAIM_B_PASS`.
+11. `IMAGINATION != EVIDENCE`.
+12. `NAVIGATION != VERIFICATION`.
+13. `GITHUB_WRITE != READ_ONLY_SYNC`.
+14. `DRIVE_WRITE != READ_ONLY_SYNC`.
 
 ## Current state (v0.1.0)
 
@@ -74,6 +81,7 @@ CITIZEN_ROOT/
 ├── CITIZEN_ROOT_INDEX.json
 ├── docs/
 │   ├── JAYS_GITHUB_AS_A_SERVICE_V0_1.md
+│   ├── RECEIPTS_MACHINE_OS_V0.md
 │   ├── JASONS_ACCOUNTABILITY_REPLAY_MACHINE_V0.md
 │   ├── CLARITY_ACT_REPLAY_PACKET_2026-09-15.md
 │   └── WEEKLY_SYNC_BACKFILL_2026-09-09_TO_2026-09-16.md

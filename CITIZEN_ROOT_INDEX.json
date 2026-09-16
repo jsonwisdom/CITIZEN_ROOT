@@ -58,6 +58,17 @@
         "public_details": "REDACTED",
         "secret_values_indexed": false,
         "authority": false
+      },
+      {
+        "id": "RAIL_3_NEWS_SOURCE_V0_1",
+        "class": "NEWS_SOURCE_PROVENANCE_RAIL",
+        "repository": "jsonwisdom/CITIZEN_ROOT",
+        "path": "docs/RAIL_3_NEWS_SOURCE_V0_1.md",
+        "git_commit": "116b765e3b5a1bf1e9d91b5fc9b089722c520d17",
+        "visibility": "PUBLIC",
+        "prior_hold_receipt": "docs/RAIL_3_UNDEFINED_HOLD_RECEIPT_V0_1.md",
+        "boundary": "records what a news source published and attributed; does not prove the underlying event, legal effect, causation, or authority",
+        "authority": false
       }
     ]
   },

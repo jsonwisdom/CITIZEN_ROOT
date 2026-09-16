@@ -1,0 +1,11 @@
+{
+  "resolver_mode": "FROZEN_LOCAL_CATALOG",
+  "mappings": {
+    "https://jsonwisdom.github.io/schemas/JASONS_369_RAILS_V0.json": "./schemas/JASONS_369_RAILS_V0.json",
+    "https://jsonwisdom.github.io/schemas/TALLY_VERIFIER_PROTOCOL_V0.json": "./schemas/TALLY_VERIFIER_PROTOCOL_V0.json",
+    "https://jsonwisdom.github.io/schemas/YEAR_ZERO_RESET_SCHEMA_V0.json": "./schemas/YEAR_ZERO_RESET_SCHEMA_V0.json",
+    "https://jsonwisdom.github.io/schemas/ONE_PUBLIC_CLAIM_TEST_PACKET_V0.json": "./schemas/ONE_PUBLIC_CLAIM_TEST_PACKET_V0.json",
+    "https://jsonwisdom.github.io/schemas/JASONS_369_ACCOUNTABILITY_STACK_V0.json": "./schemas/JASONS_369_ACCOUNTABILITY_STACK_V0.json",
+    "https://jsonwisdom.github.io/schemas/RUN_LOG_V0.json": "./schemas/RUN_LOG_V0.json"
+  }
+}

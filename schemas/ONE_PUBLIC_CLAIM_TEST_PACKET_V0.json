@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jsonwisdom.github.io/schemas/ONE_PUBLIC_CLAIM_TEST_PACKET_V0.json",
+  "title": "ONE_PUBLIC_CLAIM_TEST_PACKET_V0",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "V0"
+    },
+    "role": {
+      "type": "string",
+      "const": "Minimal executable Year Zero unit test"
+    },
+    "claim_id": {
+      "type": "string"
+    },
+    "exact_claim": {
+      "type": "string",
+      "description": "Rail 1 — ASK: the claim stated in plain language"
+    },
+    "artifacts": {
+      "type": "object",
+      "properties": {
+        "ASK": { "$ref": "#/$defs/artifact" },
+        "SOURCE": { "$ref": "#/$defs/artifact" },
+        "CHALLENGE": { "$ref": "#/$defs/artifact" },
+        "GAP": { "$ref": "#/$defs/artifact" },
+        "HOLD_CLOSE": { "$ref": "#/$defs/artifact" },
+        "REVERSAL": { "$ref": "#/$defs/artifact" },
+        "DEFENSE": { "$ref": "#/$defs/artifact" },
+        "RECEIPT": { "$ref": "#/$defs/artifact" },
+        "RENDER": { "$ref": "#/$defs/artifact" }
+      },
+      "required": [
+        "ASK", "SOURCE", "CHALLENGE",
+        "GAP", "HOLD_CLOSE", "REVERSAL",
+        "DEFENSE", "RECEIPT", "RENDER"
+      ],
+      "additionalProperties": false
+    },
+    "tally_marks": {
+      "type": "array",
+      "items": {
+        "$ref": "https://jsonwisdom.github.io/schemas/TALLY_VERIFIER_PROTOCOL_V0.json#/properties/mark_schema"
+      },
+      "minItems": 9,
+      "maxItems": 9
+    },
+    "anti_mob_invariants": {
+      "type": "object",
+      "properties": {
+        "TALLY_COUNT_NEQ_TRUTH": { "type": "boolean", "const": true },
+        "TALLY_MAJORITY_NEQ_AUTHORITY": { "type": "boolean", "const": true },
+        "TALLY_DISAGREEMENT_NEQ_FAILURE": { "type": "boolean", "const": true },
+        "TALLY_EQUALS_COUNT_OF_RECEIPTED_CHECK_RESULTS": { "type": "boolean", "const": true }
+      },
+      "required": [
+        "TALLY_COUNT_NEQ_TRUTH",
+        "TALLY_MAJORITY_NEQ_AUTHORITY",
+        "TALLY_DISAGREEMENT_NEQ_FAILURE",
+        "TALLY_EQUALS_COUNT_OF_RECEIPTED_CHECK_RESULTS"
+      ],
+      "additionalProperties": false
+    },
+    "render_last_invariant": {
+      "type": "object",
+      "properties": {
+        "RECEIPT_BEFORE_RENDER": { "type": "boolean", "const": true },
+        "RENDER_STATE_NEQ_EVIDENCE_STATE": { "type": "boolean", "const": true },
+        "SAME_PACKET_SAME_RECEIPT_MULTIPLE_RENDERINGS": { "type": "boolean", "const": true }
+      },
+      "required": [
+        "RECEIPT_BEFORE_RENDER",
+        "RENDER_STATE_NEQ_EVIDENCE_STATE",
+        "SAME_PACKET_SAME_RECEIPT_MULTIPLE_RENDERINGS"
+      ],
+      "additionalProperties": false
+    },
+    "packet_receipt_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  },
+  "required": [
+    "version",
+    "role",
+    "claim_id",
+    "exact_claim",
+    "artifacts",
+    "tally_marks",
+    "anti_mob_invariants",
+    "render_last_invariant",
+    "packet_receipt_hash"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "artifact": {
+      "type": "object",
+      "properties": {
+        "artifact_id": { "type": "string" },
+        "content": { "type": "string" },
+        "source_pointer": { "type": "string" },
+        "created_at": { "type": "string", "format": "date-time" },
+        "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      },
+      "required": ["artifact_id", "content", "source_pointer", "created_at", "hash"],
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jsonwisdom.github.io/schemas/JASONS_369_RAILS_V0.json",
+  "title": "JASONS_369_RAILS_V0",
+  "type": "object",
+  "description": "Canonical nine-rail accountability spine with fixed 3x3 machine mapping and authority-free invariants.",
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "V0"
+    },
+    "authority": {
+      "type": "boolean",
+      "const": false
+    },
+    "rails": {
+      "type": "array",
+      "minItems": 9,
+      "maxItems": 9,
+      "prefixItems": [
+        {
+          "type": "object",
+          "properties": {
+            "index": { "const": 1 },
+            "code": { "const": "ASK" },
+            "machine": { "const": "JASON_WISDOM_JOURNALISM" },
+            "description": { "type": "string", "const": "State the exact claim in plain language." }
+          },
+          "required": ["index", "code", "machine", "description"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "index": { "const": 2 },
+            "code": { "const": "SOURCE" },
+            "machine": { "const": "JASON_WISDOM_JOURNALISM" },
+            "description": { "type": "string", "const": "Bind the claim to its primary source, date or clock, and responsible authority." }
+          },
+          "required": ["index", "code", "machine", "description"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "index": { "const": 3 },
+            "code": { "const": "CHALLENGE" },
+            "machine": { "const": "JASON_WISDOM_JOURNALISM" },
+            "description": { "type": "string", "const": "Preserve the strongest opposing evidence-grounded case." }
+          },
+          "required": ["index", "code", "machine", "description"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "index": { "const": 4 },
+            "code": { "const": "GAP" },
+            "machine": { "const": "BURDEN_OF_PROOF_MACHINE" },
+            "description": { "type": "string", "const": "Identify explicit unknowns, missing structure, or unresolved evidence." }
+          },
+          "required": ["index", "code", "machine", "description"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "index": { "const": 5 },
+            "code": { "const": "HOLD_CLOSE" },
+            "machine": { "const": "BURDEN_OF_PROOF_MACHINE" },
+            "description": { "type": "string", "const": "Apply the failure-closed provisional state when required evidence is incomplete." }
+          },
+          "required": ["index", "code", "machine", "description"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "index": { "const": 6 },
+            "code": { "const": "REVERSAL" },
+            "machine": { "const": "BURDEN_OF_PROOF_MACHINE" },
+            "description": { "type": "string", "const": "Name the concrete fact or receipt that would require reconsideration." }
+          },
+          "required": ["index", "code", "machine", "description"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "index": { "const": 7 },
+            "code": { "const": "DEFENSE" },
+            "machine": { "const": "GARBAGE_GENERAL_OFFENSE" },
+            "description": { "type": "string", "const": "Present the strongest evidence-grounded affirmative case that survives challenge." }
+          },
+          "required": ["index", "code", "machine", "description"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "index": { "const": 8 },
+            "code": { "const": "RECEIPT" },
+            "machine": { "const": "GARBAGE_GENERAL_OFFENSE" },
+            "description": { "type": "string", "const": "Freeze the replayable public trail before any render is generated." }
+          },
+          "required": ["index", "code", "machine", "description"],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "index": { "const": 9 },
+            "code": { "const": "RENDER" },
+            "machine": { "const": "GARBAGE_GENERAL_OFFENSE" },
+            "description": { "type": "string", "const": "Generate an audience-appropriate explanation without altering evidence state." }
+          },
+          "required": ["index", "code", "machine", "description"],
+          "additionalProperties": false
+        }
+      ],
+      "items": false
+    },
+    "machines": {
+      "type": "object",
+      "properties": {
+        "JASON_WISDOM_JOURNALISM": {
+          "type": "array",
+          "prefixItems": [
+            { "const": 1 },
+            { "const": 2 },
+            { "const": 3 }
+          ],
+          "items": false,
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "BURDEN_OF_PROOF_MACHINE": {
+          "type": "array",
+          "prefixItems": [
+            { "const": 4 },
+            { "const": 5 },
+            { "const": 6 }
+          ],
+          "items": false,
+          "minItems": 3,
+          "maxItems": 3
+        },
+        "GARBAGE_GENERAL_OFFENSE": {
+          "type": "array",
+          "prefixItems": [
+            { "const": 7 },
+            { "const": 8 },
+            { "const": 9 }
+          ],
+          "items": false,
+          "minItems": 3,
+          "maxItems": 3
+        }
+      },
+      "required": [
+        "JASON_WISDOM_JOURNALISM",
+        "BURDEN_OF_PROOF_MACHINE",
+        "GARBAGE_GENERAL_OFFENSE"
+      ],
+      "additionalProperties": false
+    },
+    "invariants": {
+      "type": "object",
+      "properties": {
+        "CHALLENGE_INDEX": { "type": "integer", "const": 3 },
+        "REVERSAL_INDEX": { "type": "integer", "const": 6 },
+        "RENDER_INDEX": { "type": "integer", "const": 9 },
+        "RECEIPT_BEFORE_RENDER": { "type": "boolean", "const": true },
+        "RENDER_STATE_NEQ_EVIDENCE_STATE": { "type": "boolean", "const": true },
+        "RENDER_MAY_SIMPLIFY_LANGUAGE": { "type": "boolean", "const": true },
+        "RENDER_MAY_NOT_ALTER_STATUS": { "type": "boolean", "const": true },
+        "SAME_PACKET_SAME_RECEIPT_MULTIPLE_RENDERINGS": { "type": "boolean", "const": true },
+        "FREEZE_NEQ_FOREVER": { "type": "boolean", "const": true },
+        "AUTHORITY_GRANTED": { "type": "boolean", "const": false }
+      },
+      "required": [
+        "CHALLENGE_INDEX",
+        "REVERSAL_INDEX",
+        "RENDER_INDEX",
+        "RECEIPT_BEFORE_RENDER",
+        "RENDER_STATE_NEQ_EVIDENCE_STATE",
+        "RENDER_MAY_SIMPLIFY_LANGUAGE",
+        "RENDER_MAY_NOT_ALTER_STATUS",
+        "SAME_PACKET_SAME_RECEIPT_MULTIPLE_RENDERINGS",
+        "FREEZE_NEQ_FOREVER",
+        "AUTHORITY_GRANTED"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": ["version", "authority", "rails", "machines", "invariants"],
+  "additionalProperties": false
+}

@@ -1,0 +1,27 @@
+{
+  "release_id": "jasons-369-stack-v0-freeze",
+  "release_version": "V0",
+  "canonicalization": "RFC8785",
+  "hash_algorithm": "SHA-256",
+  "authority": false,
+  "release_lock": "YES",
+  "schema_snapshot_commit": "a0be97fbd33f96b53ba63b411ca9cb140658411a",
+  "schema_root_manifest_hash": "3e62a4a927b9485efcdf74fbdfee3f512343672d1d1618fff055bd68e2a51c8d",
+  "resolver": {
+    "mode": "FROZEN_LOCAL_CATALOG",
+    "catalog_path": "./releases/FROZEN_LOCAL_RESOLVER_V0.json",
+    "catalog_commit": "e76c3bebf6f881db27f0194cd49ab7e1c538a5a2",
+    "catalog_sha256_rfc8785": "ad24f0ede37e44f62ff47cd47e0cbcfa09ece133dc2981dc3d82cd0b4b45adfd",
+    "network_resolution_required": false
+  },
+  "release_root_hash": "02182b5f4c40866e633c0b72214dfa8b046154339aad0adc322883d66be254f4",
+  "release_root_hash_domain": {
+    "release_id": "jasons-369-stack-v0-freeze",
+    "release_version": "V0",
+    "schema_root_manifest_hash": "3e62a4a927b9485efcdf74fbdfee3f512343672d1d1618fff055bd68e2a51c8d",
+    "resolver_catalog_hash": "ad24f0ede37e44f62ff47cd47e0cbcfa09ece133dc2981dc3d82cd0b4b45adfd",
+    "schema_snapshot_commit": "a0be97fbd33f96b53ba63b411ca9cb140658411a",
+    "authority": false
+  },
+  "released_at_utc": "2026-09-16T11:14:26Z"
+}

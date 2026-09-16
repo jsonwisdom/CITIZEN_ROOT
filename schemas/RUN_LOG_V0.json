@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://jsonwisdom.github.io/schemas/RUN_LOG_V0.json",
+  "title": "RUN_LOG_V0",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "V0"
+    },
+    "stack_version": {
+      "type": "string",
+      "const": "JASONS_369_ACCOUNTABILITY_STACK_V0"
+    },
+    "claim_id": {
+      "type": "string"
+    },
+    "packet_id": {
+      "type": "string"
+    },
+    "tally_marks": {
+      "type": "array",
+      "items": {
+        "$ref": "https://jsonwisdom.github.io/schemas/TALLY_VERIFIER_PROTOCOL_V0.json#/properties/mark_schema"
+      },
+      "minItems": 9,
+      "maxItems": 9
+    },
+    "packet_receipt_hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "render_ladder_used": {
+      "type": "string",
+      "enum": [
+        "kindergarten",
+        "elementary",
+        "middle",
+        "high_school",
+        "adult",
+        "machine"
+      ]
+    },
+    "run_timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "authority": {
+      "type": "boolean",
+      "const": false
+    }
+  },
+  "required": [
+    "version",
+    "stack_version",
+    "claim_id",
+    "packet_id",
+    "tally_marks",
+    "packet_receipt_hash",
+    "render_ladder_used",
+    "run_timestamp",
+    "authority"
+  ],
+  "additionalProperties": false
+}

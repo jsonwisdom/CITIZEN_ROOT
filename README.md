@@ -26,6 +26,15 @@ AUTHORITY_CREATED         = FALSE
 
 Public repositories are discoverable. Private repository names and protected Drive pointers stay in the private control plane. Family routing is pointer-only and does not create identity, consent, custody, ownership, school status, or authority. Secret values never belong in this Git history.
 
+## Current accountability / replay surfaces
+
+- `docs/JASONS_ACCOUNTABILITY_REPLAY_MACHINE_V0.md` — umbrella replay machine and Render Receipt Gate
+- `docs/JASONS_BURDEN_OF_PROOF_MACHINE_GARBAGE_GENERAL_OFFENSE_V0.md` — burden-of-proof / challenge engine
+- `docs/CLARITY_ACT_REPLAY_PACKET_2026-09-15.md` — split-claim CLARITY Act replay packet
+- `docs/WEEKLY_SYNC_BACKFILL_2026-09-09_TO_2026-09-16.md` — verified weekly GitHub/Drive backfill surface
+
+House rule: **No receipt, no render.** A rendered image is a completion signal, not proof, authority, or a source.
+
 ## Core source surfaces
 
 - AL — protocol / agent / receipt foundation
@@ -43,6 +52,8 @@ Public repositories are discoverable. Private repository names and protected Dri
 6. `SEARCH_MISS != NO_WORK`.
 7. `REPO != PERSON`.
 8. `SECRET_POINTER != SECRET_VALUE`.
+9. `RENDERED_IMAGE != PROOF`.
+10. `CLAIM_A_PASS != CLAIM_B_PASS`.
 
 ## Current state (v0.1.0)
 
@@ -62,7 +73,10 @@ Sequence for a future freeze:
 CITIZEN_ROOT/
 ├── CITIZEN_ROOT_INDEX.json
 ├── docs/
-│   └── JAYS_GITHUB_AS_A_SERVICE_V0_1.md
+│   ├── JAYS_GITHUB_AS_A_SERVICE_V0_1.md
+│   ├── JASONS_ACCOUNTABILITY_REPLAY_MACHINE_V0.md
+│   ├── CLARITY_ACT_REPLAY_PACKET_2026-09-15.md
+│   └── WEEKLY_SYNC_BACKFILL_2026-09-09_TO_2026-09-16.md
 ├── registry/
 │   └── REPOSITORY_SERVICE_INDEX_V0_1.json
 ├── receipts/

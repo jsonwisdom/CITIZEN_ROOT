@@ -1,0 +1,130 @@
+# AUTHORITY_BOUNDARY_CLOSURE_V0
+
+PARENT: AUTHORITY_BOUNDARY_V0
+UPSTREAM: PROMOTION_PACKET_SCHEMA_V0 → TARGET_ACCEPTANCE_RECEIPT_SCHEMA_V0 → RUNG_GATE_PREDICATES_V0
+STATUS: DEFINED / EXTERNALIZED
+ROLE: FINAL O3½ → O4 NON-GRANT / AUTHORITY PREDICATE CLOSURE
+AUTHORITY: NONE_GRANTED_BY_THIS_ARTIFACT
+
+## Root invariant
+
+```text
+RECEIPT_PRESENT
+!= AUTHORITY
+
+COUNTER_RECEIPT_CLEARED
+!= AUTHORITY
+
+ACCEPT_AS_INPUT
+!= AUTHORIZED
+
+TARGET_VERIFIED
+!= AUTHORIZED
+
+AUTHORITY_REFERENCE_PRESENT
+!= AUTHORITY_VALID
+
+AUTHORITY_VALID
+!= EXECUTED
+
+EXECUTED
+!= RECEIVED
+
+RECEIVED
+!= LEGAL_EFFECT
+```
+
+## Transition membrane
+
+```text
+O3 RECEIPT
+→ O3½ PREDICATE / COUNTER-RECEIPT
+→ TARGET ACCEPTANCE
+→ O4 AUTHORITY EVALUATION
+
+NONE_OF_THE_PRECEDING
+→ AUTOMATIC_AUTHORITY
+```
+
+## Authority predicate closure
+
+An authority evaluation MUST independently bind and satisfy, at minimum:
+
+```text
+ACTOR
+AUTHORITY_SOURCE
+SOURCE_INTEGRITY
+SCOPE
+PERMITTED_ACTION
+TARGET_OR_DOMAIN
+EFFECTIVE_TIME
+DELEGATION_CHAIN_IF_REQUIRED
+```
+
+These predicates are evaluated against the supplied authority source and the relevant object/action. No earlier rung, receipt, title, relationship, publication, signature, token, possession, or acceptance event may substitute for them.
+
+## Failure-closed behavior
+
+```text
+MISSING_REQUIRED_AUTHORITY_INPUT
+→ HOLD
+
+UNRESOLVED_REQUIRED_AUTHORITY_INPUT
+→ HOLD
+
+AUTHORITY_IMPERSONATION
+→ REJECT_INVALID
+
+BOUNDARY_COLLAPSE
+→ REJECT_INVALID
+
+STRUCTURAL_CONTRADICTION
+→ REJECT_INVALID
+```
+
+A successful authority evaluation may emit only:
+
+```text
+AUTHORITY_PREDICATE_SATISFIED
+```
+
+It MUST NOT emit or imply:
+
+```text
+EXECUTED
+RECEIVED
+LEGAL_EFFECT
+```
+
+Those require their own downstream receipts and governing predicates.
+
+## Non-inheritance rule
+
+```text
+SOURCE_AUTHORITY_REFERENCE
+!= TARGET_AUTHORITY
+
+TARGET_ACCEPTANCE
+!= AUTHORITY
+
+TARGET_VERIFICATION
+!= AUTHORITY
+
+AUTHORITY_PREDICATE_SATISFIED
+!= EXECUTION
+```
+
+Authority is evaluated at the relevant boundary; it is never inherited merely because an upstream object was accepted, replayed, verified, signed, published, or promoted.
+
+## Seal
+
+```text
+AUTHORITY_IS_EVALUATED
+AUTHORITY_IS_NOT_INHERITED
+AUTHORITY_IS_NOT_TRANSPORTED
+AUTHORITY_IS_NOT_CREATED_BY_RECEIPT
+
+NONE_PROVE_THE_NEXT
+```
+
+AUTHORITY_GRANTED_BY_THIS_ARTIFACT: FALSE

@@ -1,0 +1,21 @@
+{
+  "version": "V0",
+  "stack_version": "JASONS_369_ACCOUNTABILITY_STACK_V0",
+  "claim_id": "JASON_QUAD_ONION_CLAIM_V0",
+  "packet_id": "JASON_QUAD_ONION_CLAIM_V0_PACKET_V0",
+  "tally_marks": [
+    {"rail":1,"code":"ASK","status":"YES","artifact_id":"JQO-V0-ASK","source_pointer":"github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9","checked_at":"2026-09-16T11:20:05Z","verifier_id":"JASONS_369_ACCOUNTABILITY_STACK_V0","receipt_hash":"9b6cf4da7b2234d6c6d89abf3488ed9d9f73a482874d7bb787fbdc039b4bb6e4","authority":false},
+    {"rail":2,"code":"SOURCE","status":"YES","artifact_id":"JQO-V0-SOURCE","source_pointer":"github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9","checked_at":"2026-09-16T11:20:05Z","verifier_id":"JASONS_369_ACCOUNTABILITY_STACK_V0","receipt_hash":"69987ddf4b0a11bf0b32bf431b859ea159fae26ccdf1d57853533922fd8d0432","authority":false},
+    {"rail":3,"code":"CHALLENGE","status":"YES","artifact_id":"JQO-V0-CHALLENGE","source_pointer":"github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9","checked_at":"2026-09-16T11:20:05Z","verifier_id":"JASONS_369_ACCOUNTABILITY_STACK_V0","receipt_hash":"7579677d4bfcc4fe8215ef10f75114ef6cdb430dca147d18b1d6d94ec6716190","authority":false},
+    {"rail":4,"code":"GAP","status":"YES","artifact_id":"JQO-V0-GAP","source_pointer":"github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9","checked_at":"2026-09-16T11:20:05Z","verifier_id":"JASONS_369_ACCOUNTABILITY_STACK_V0","receipt_hash":"018065d7b624407053ca43a9a20bfb165def69013138841df564d49a7d6a714d","authority":false},
+    {"rail":5,"code":"HOLD_CLOSE","status":"YES","artifact_id":"JQO-V0-HOLD_CLOSE","source_pointer":"github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9","checked_at":"2026-09-16T11:20:05Z","verifier_id":"JASONS_369_ACCOUNTABILITY_STACK_V0","receipt_hash":"7264b6617749a021311f60e46fda11b9a0fc44bf879c3a760c601c10c776b83a","authority":false},
+    {"rail":6,"code":"REVERSAL","status":"YES","artifact_id":"JQO-V0-REVERSAL","source_pointer":"github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9","checked_at":"2026-09-16T11:20:05Z","verifier_id":"JASONS_369_ACCOUNTABILITY_STACK_V0","receipt_hash":"70699a5ca34ac36bfd6c9217f119108314815104c678612c090e9c2cf5a79042","authority":false},
+    {"rail":7,"code":"DEFENSE","status":"YES","artifact_id":"JQO-V0-DEFENSE","source_pointer":"github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9","checked_at":"2026-09-16T11:20:05Z","verifier_id":"JASONS_369_ACCOUNTABILITY_STACK_V0","receipt_hash":"8d864c1d3aa1ca0d6a50e1e3734cf6015e84e9c41675e879ac368225c3f1649d","authority":false},
+    {"rail":8,"code":"RECEIPT","status":"YES","artifact_id":"JQO-V0-RECEIPT","source_pointer":"release://02182b5f4c40866e633c0b72214dfa8b046154339aad0adc322883d66be254f4","checked_at":"2026-09-16T11:20:05Z","verifier_id":"JASONS_369_ACCOUNTABILITY_STACK_V0","receipt_hash":"df8a2993de61910bc5ef1c4146fc9272772fce3fe61af9b4b7d11256aecf0fd4","authority":false},
+    {"rail":9,"code":"RENDER","status":"YES","artifact_id":"JQO-V0-RENDER","source_pointer":"github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9","checked_at":"2026-09-16T11:20:05Z","verifier_id":"JASONS_369_ACCOUNTABILITY_STACK_V0","receipt_hash":"15fd8d43a1e9f82b2280edc8718dbf46d44a15aaf58c25b4a6dc23d827a4c047","authority":false}
+  ],
+  "packet_receipt_hash": "23b1b0a14f055641cef4144dc69753ce58c7404be403e2c22a58492ac204acbd",
+  "render_ladder_used": "adult",
+  "run_timestamp": "2026-09-16T11:20:05Z",
+  "authority": false
+}

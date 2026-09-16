@@ -1,0 +1,94 @@
+{
+  "version": "V0",
+  "role": "Minimal executable Year Zero unit test",
+  "claim_id": "JASON_QUAD_ONION_CLAIM_V0",
+  "exact_claim": "Jason’s Quad Onion is a layered reasoning architecture in which each layer may feed the next, but no layer proves the next.",
+  "artifacts": {
+    "ASK": {
+      "artifact_id": "JQO-V0-ASK",
+      "content": "Exact claim received: Jason’s Quad Onion is a layered reasoning architecture in which each layer may feed the next, but no layer proves the next.",
+      "source_pointer": "github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9",
+      "created_at": "2026-09-16T11:20:05Z",
+      "hash": "9b6cf4da7b2234d6c6d89abf3488ed9d9f73a482874d7bb787fbdc039b4bb6e4"
+    },
+    "SOURCE": {
+      "artifact_id": "JQO-V0-SOURCE",
+      "content": "Primary source is the frozen public claim text at github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9. Evaluation is bound to release root 02182b5f4c40866e633c0b72214dfa8b046154339aad0adc322883d66be254f4. This source establishes what the architecture claims, not whether the architecture is externally effective.",
+      "source_pointer": "github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9",
+      "created_at": "2026-09-16T11:20:05Z",
+      "hash": "69987ddf4b0a11bf0b32bf431b859ea159fae26ccdf1d57853533922fd8d0432"
+    },
+    "CHALLENGE": {
+      "artifact_id": "JQO-V0-CHALLENGE",
+      "content": "Strongest challenge: the packet is a self-description of a proposed reasoning architecture. Internal separation rules can be checked for consistency, but the claim alone does not independently prove that implementations preserve those boundaries in practice, that scaling succeeds across contexts, or that any resulting receipt has legal or institutional authority.",
+      "source_pointer": "github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9",
+      "created_at": "2026-09-16T11:20:05Z",
+      "hash": "7579677d4bfcc4fe8215ef10f75114ef6cdb430dca147d18b1d6d94ec6716190"
+    },
+    "GAP": {
+      "artifact_id": "JQO-V0-GAP",
+      "content": "Unresolved inputs: no independent implementation corpus, adversarial replay suite, cross-version migration evidence, or institutional deployment record is supplied in this first run. Therefore external efficacy, adoption, and legal effect remain unresolved.",
+      "source_pointer": "github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9",
+      "created_at": "2026-09-16T11:20:05Z",
+      "hash": "018065d7b624407053ca43a9a20bfb165def69013138841df564d49a7d6a714d"
+    },
+    "HOLD_CLOSE": {
+      "artifact_id": "JQO-V0-HOLD_CLOSE",
+      "content": "Failure-closed result: structural/self-description checks may close, but claims of real-world effectiveness, cross-context scaling, or legal/institutional effect remain HOLD unless separately receipted. No unresolved material is promoted.",
+      "source_pointer": "github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9",
+      "created_at": "2026-09-16T11:20:05Z",
+      "hash": "7264b6617749a021311f60e46fda11b9a0fc44bf879c3a760c601c10c776b83a"
+    },
+    "REVERSAL": {
+      "artifact_id": "JQO-V0-REVERSAL",
+      "content": "Reconsideration trigger: authenticated evidence that an implementation collapses a declared membrane—for example RECEIPT becoming AUTHORITY, unresolved input being promoted to VERIFIED_RECEIPT, or prior state being silently overwritten—would require reopening the structural conclusion for that implementation/version.",
+      "source_pointer": "github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9",
+      "created_at": "2026-09-16T11:20:05Z",
+      "hash": "70699a5ca34ac36bfd6c9217f119108314815104c678612c090e9c2cf5a79042"
+    },
+    "DEFENSE": {
+      "artifact_id": "JQO-V0-DEFENSE",
+      "content": "Affirmative case: the claim explicitly defines four layers, eleven membrane inequalities, a replay rule, and a failure-closed state machine. Its own text repeatedly separates claim, proof, receipt, canon, authority, execution, and legal effect. On the supplied text, the root invariant is internally represented rather than contradicted.",
+      "source_pointer": "github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9",
+      "created_at": "2026-09-16T11:20:05Z",
+      "hash": "8d864c1d3aa1ca0d6a50e1e3734cf6015e84e9c41675e879ac368225c3f1649d"
+    },
+    "RECEIPT": {
+      "artifact_id": "JQO-V0-RECEIPT",
+      "content": "Receipt scope: freeze the exact claim source, nine rail artifacts, tally results, packet-receipt hash domain, sealed release root, and run timestamp. This receipt proves what was evaluated and how; it does not create authority.",
+      "source_pointer": "release://02182b5f4c40866e633c0b72214dfa8b046154339aad0adc322883d66be254f4",
+      "created_at": "2026-09-16T11:20:05Z",
+      "hash": "df8a2993de61910bc5ef1c4146fc9272772fce3fe61af9b4b7d11256aecf0fd4"
+    },
+    "RENDER": {
+      "artifact_id": "JQO-V0-RENDER",
+      "content": "Plain render: Quad Onion is a four-layer reasoning model. Experience can suggest things; continuity keeps versions apart; receipts bind evidence; the authority boundary stops verification from becoming power by accident. Each layer can hand work forward, but cannot prove the next layer. External effectiveness remains a separate question.",
+      "source_pointer": "github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9",
+      "created_at": "2026-09-16T11:20:05Z",
+      "hash": "15fd8d43a1e9f82b2280edc8718dbf46d44a15aaf58c25b4a6dc23d827a4c047"
+    }
+  },
+  "tally_marks": [
+    {"rail":1,"code":"ASK","status":"YES","artifact_id":"JQO-V0-ASK","source_pointer":"github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9","checked_at":"2026-09-16T11:20:05Z","verifier_id":"JASONS_369_ACCOUNTABILITY_STACK_V0","receipt_hash":"9b6cf4da7b2234d6c6d89abf3488ed9d9f73a482874d7bb787fbdc039b4bb6e4","authority":false},
+    {"rail":2,"code":"SOURCE","status":"YES","artifact_id":"JQO-V0-SOURCE","source_pointer":"github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9","checked_at":"2026-09-16T11:20:05Z","verifier_id":"JASONS_369_ACCOUNTABILITY_STACK_V0","receipt_hash":"69987ddf4b0a11bf0b32bf431b859ea159fae26ccdf1d57853533922fd8d0432","authority":false},
+    {"rail":3,"code":"CHALLENGE","status":"YES","artifact_id":"JQO-V0-CHALLENGE","source_pointer":"github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9","checked_at":"2026-09-16T11:20:05Z","verifier_id":"JASONS_369_ACCOUNTABILITY_STACK_V0","receipt_hash":"7579677d4bfcc4fe8215ef10f75114ef6cdb430dca147d18b1d6d94ec6716190","authority":false},
+    {"rail":4,"code":"GAP","status":"YES","artifact_id":"JQO-V0-GAP","source_pointer":"github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9","checked_at":"2026-09-16T11:20:05Z","verifier_id":"JASONS_369_ACCOUNTABILITY_STACK_V0","receipt_hash":"018065d7b624407053ca43a9a20bfb165def69013138841df564d49a7d6a714d","authority":false},
+    {"rail":5,"code":"HOLD_CLOSE","status":"YES","artifact_id":"JQO-V0-HOLD_CLOSE","source_pointer":"github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9","checked_at":"2026-09-16T11:20:05Z","verifier_id":"JASONS_369_ACCOUNTABILITY_STACK_V0","receipt_hash":"7264b6617749a021311f60e46fda11b9a0fc44bf879c3a760c601c10c776b83a","authority":false},
+    {"rail":6,"code":"REVERSAL","status":"YES","artifact_id":"JQO-V0-REVERSAL","source_pointer":"github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9","checked_at":"2026-09-16T11:20:05Z","verifier_id":"JASONS_369_ACCOUNTABILITY_STACK_V0","receipt_hash":"70699a5ca34ac36bfd6c9217f119108314815104c678612c090e9c2cf5a79042","authority":false},
+    {"rail":7,"code":"DEFENSE","status":"YES","artifact_id":"JQO-V0-DEFENSE","source_pointer":"github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9","checked_at":"2026-09-16T11:20:05Z","verifier_id":"JASONS_369_ACCOUNTABILITY_STACK_V0","receipt_hash":"8d864c1d3aa1ca0d6a50e1e3734cf6015e84e9c41675e879ac368225c3f1649d","authority":false},
+    {"rail":8,"code":"RECEIPT","status":"YES","artifact_id":"JQO-V0-RECEIPT","source_pointer":"release://02182b5f4c40866e633c0b72214dfa8b046154339aad0adc322883d66be254f4","checked_at":"2026-09-16T11:20:05Z","verifier_id":"JASONS_369_ACCOUNTABILITY_STACK_V0","receipt_hash":"df8a2993de61910bc5ef1c4146fc9272772fce3fe61af9b4b7d11256aecf0fd4","authority":false},
+    {"rail":9,"code":"RENDER","status":"YES","artifact_id":"JQO-V0-RENDER","source_pointer":"github://jsonwisdom/CITIZEN_ROOT/runs/JASON_QUAD_ONION_CLAIM_V0/CLAIM.md@7b42ecdb12300551adcc24de4e33671e4a5b82a9","checked_at":"2026-09-16T11:20:05Z","verifier_id":"JASONS_369_ACCOUNTABILITY_STACK_V0","receipt_hash":"15fd8d43a1e9f82b2280edc8718dbf46d44a15aaf58c25b4a6dc23d827a4c047","authority":false}
+  ],
+  "anti_mob_invariants": {
+    "TALLY_COUNT_NEQ_TRUTH": true,
+    "TALLY_MAJORITY_NEQ_AUTHORITY": true,
+    "TALLY_DISAGREEMENT_NEQ_FAILURE": true,
+    "TALLY_EQUALS_COUNT_OF_RECEIPTED_CHECK_RESULTS": true
+  },
+  "render_last_invariant": {
+    "RECEIPT_BEFORE_RENDER": true,
+    "RENDER_STATE_NEQ_EVIDENCE_STATE": true,
+    "SAME_PACKET_SAME_RECEIPT_MULTIPLE_RENDERINGS": true
+  },
+  "packet_receipt_hash": "23b1b0a14f055641cef4144dc69753ce58c7404be403e2c22a58492ac204acbd"
+}

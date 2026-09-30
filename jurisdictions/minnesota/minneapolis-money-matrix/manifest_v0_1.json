@@ -1,0 +1,20 @@
+{
+  "artifact": "MONEY_MATTERS_MINNEAPOLIS_MINNESOTA_MATH_MATRIX_ECONOMICS_CITIZEN_ROOT_V0_1",
+  "status": "NEW_JURISDICTION_EXPANSION_PACK",
+  "authority": false,
+  "no_fake_green": true,
+  "append_only": true,
+  "current_financial_findings": 0,
+  "jurisdiction_rule": "MINNEAPOLIS_CITY != MINNESOTA_STATE",
+  "source_rule": "POINTER != SOURCE",
+  "packs": [
+    "PACK_01_JURISDICTION_AND_SOURCE_V0_1",
+    "PACK_02_BUDGET_MATH_V0_1",
+    "PACK_03_REVENUE_TAX_FEE_TRANSFER_V0_1",
+    "PACK_04_REAL_NOMINAL_INFLATION_V0_1",
+    "PACK_05_DEBT_BONDS_TIME_VALUE_V0_1",
+    "PACK_06_PER_CAPITA_AND_UNIT_COST_V0_1",
+    "PACK_07_MEDIA_CLAIM_MONEY_MATRIX_V0_1",
+    "PACK_08_CITIZENROOT_REPLAY_PACKET_V0_1"
+  ]
+}

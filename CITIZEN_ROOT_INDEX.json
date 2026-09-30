@@ -94,7 +94,20 @@
   "jurisdiction_packs": {
     "description": "Overlays only. Never rewrite source bytes.",
     "rule": "SOURCE_ARTIFACT.sha256 stays primary; jurisdiction metadata is a separate leaf that references source_sha256",
-    "packs": []
+    "packs": [
+      {
+        "id": "MONEY_MATTERS_MINNEAPOLIS_MINNESOTA_MATH_MATRIX_ECONOMICS_CITIZEN_ROOT_V0_1",
+        "jurisdiction": [
+          "MINNEAPOLIS_CITY",
+          "MINNESOTA_STATE"
+        ],
+        "path": "jurisdictions/minnesota/minneapolis-money-matrix/manifest_v0_1.json",
+        "class": "PUBLIC_MONEY_MATH_AND_ECONOMICS_OVERLAY",
+        "source_bytes_rewritten": false,
+        "authority": false,
+        "no_fake_green": true
+      }
+    ]
   },
   "language_packs": {
     "description": "Translations are derived artifacts with their own hash + source_sha256 pointer.",

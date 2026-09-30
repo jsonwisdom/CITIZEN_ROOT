@@ -1,0 +1,45 @@
+# Pack 07 — Media Claim Money Matrix V0.1
+
+Status: MEDIA_LITERACY_SPEC
+Authority: false
+No Fake Green: true
+
+Pipeline:
+
+~~~text
+HEADLINE
+→ EXACT MONEY CLAIM
+→ MONEY TYPE
+→ JURISDICTION
+→ PERIOD
+→ SOURCE RECORD
+→ EQUATION
+→ STATUS
+→ SIMPLE EXPLANATION
+~~~
+
+Hard separations:
+
+~~~text
+HEADLINE != LEDGER
+PRESS_RELEASE != EXPENDITURE
+BUDGET_NUMBER != LOSS
+ROUND_NUMBER != EXACT_TOTAL
+CUMULATIVE_TOTAL != ANNUAL_TOTAL
+MEDIA_REPETITION != INDEPENDENT_CORROBORATION
+~~~
+
+If the claim requires an unsupported bridge:
+
+~~~text
+PROMOTION_STATUS = HOLD
+~~~
+
+Public explanation uses four boxes:
+
+~~~text
+WHAT THEY SAID
+WHAT THE SOURCE SHOWS
+WHAT THE MATH SHOWS
+WHAT IT DOES NOT PROVE
+~~~

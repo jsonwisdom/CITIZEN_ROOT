@@ -1,0 +1,91 @@
+{
+  "schema_id": "JASONS_CITIZEN_ROOT_PROJECT_V1_RECLASSIFICATION_RECEIPT",
+  "version": "1.0",
+  "recorded_date": "2026-10-05",
+  "mode": "APPEND_ONLY_RECLASSIFICATION_RECORD",
+  "authority_created": false,
+  "canon": false,
+  "join": false,
+  "mutation_of_source_artifacts": false,
+  "identity_collapse": false,
+  "project_classification": "CITIZEN_CENTERED_CIVIC_OPERATING_SYSTEM",
+  "primary_object": "HUMAN_CITIZEN",
+  "object_classes": [
+    "TABLE",
+    "DOCUMENT",
+    "INSTRUMENT",
+    "FIXTURE"
+  ],
+  "identity_invariants": [
+    "JASON = HUMAN_PROVENANCE_LANE",
+    "JAY = DECLARED_SOUL_LAYER",
+    "JASON != JAY",
+    "RELATED != SAME_OBJECT",
+    "BRIDGE_STATE = UNJOINED",
+    "AUTHORSHIP_TRANSFER = FALSE",
+    "IDENTITY_COLLAPSE = FALSE",
+    "WALLET_CONTROL != HUMAN_IDENTITY",
+    "SIGNATURE != HUMAN_IDENTITY",
+    "REPOSITORY != HUMAN"
+  ],
+  "github_record": {
+    "repository": "jsonwisdom/CITIZEN_ROOT",
+    "branch": "jasons-citizen-root-project-v1-20261005",
+    "document_path": "docs/JASONS_CITIZEN_ROOT_PROJECT_V1.md",
+    "document_blob_sha": "4d1e0f6545eda21b79b8270296925e318717de77",
+    "document_commit_sha": "62a8c5c9c99b904c65b9a904d079f982f6726589"
+  },
+  "source_lineage": [
+    {
+      "class": "GITHUB_SOURCE",
+      "repository": "jsonwisdom/CITIZEN_ROOT",
+      "path": "docs/JAYS_GITHUB_AS_A_SERVICE_V0_1.md",
+      "role": "public discovery and replay service contract"
+    },
+    {
+      "class": "GITHUB_SOURCE",
+      "repository": "jsonwisdom/CITIZEN_ROOT",
+      "path": "docs/JASONS_ACCOUNTABILITY_REPLAY_MACHINE_V0.md",
+      "role": "accountability replay kernel"
+    },
+    {
+      "class": "GITHUB_SOURCE",
+      "repository": "jsonwisdom/CITIZEN_ROOT",
+      "path": "docs/RECEIPTS_MACHINE_OS_V0.md",
+      "role": "receipt-bounded operating rails"
+    },
+    {
+      "class": "DRIVE_SOURCE",
+      "file_id": "1F6Dx_MvrC9CgXw9qrILsq5HxIVv7N5WOx1QQTujVISc",
+      "title": "Citizen Gambit — Blockchain Reverse Replay Ledger v0.1"
+    },
+    {
+      "class": "DRIVE_SOURCE",
+      "file_id": "1G6ibACYiqw9mpEaZQhqV09AwmMM18u3jHMwDAqyFvyA",
+      "title": "SSA Receipt → Delta Mapping Protocol v0.1 — Jay / Minneapolis"
+    },
+    {
+      "class": "DRIVE_SOURCE",
+      "file_id": "1k3G7hnLfKYrlbsxoHZQ0Zp26lCqIM8ymOLT5Qn8az8k",
+      "title": "ROOT_ZERO_CIVIC_CONTRACT_V0_1"
+    },
+    {
+      "class": "DRIVE_SOURCE",
+      "file_id": "1KygGk5AFde7kopMXwR3ZqmoeloBwuf65VZPXgb74YZ8",
+      "title": "Replay America V0.1 — Receipt 000001 — PRE_GOV"
+    },
+    {
+      "class": "DRIVE_SOURCE",
+      "file_id": "1804vkSDzrkuGnIvPI3OP90L0J19p507701n4-8JxhgE",
+      "title": "Jay's Oxford Gambit — American Edition v0.3 — Citizen Receipt Replay"
+    }
+  ],
+  "state": {
+    "reclassification_recorded": true,
+    "source_artifacts_preserved": true,
+    "historical_names_preserved": true,
+    "merge_performed": false,
+    "authority_created": false,
+    "canon": false
+  }
+}

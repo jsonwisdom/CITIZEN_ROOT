@@ -1,0 +1,77 @@
+{
+  "jason": "origin_and_corrective_record/0",
+  "state": "DRAFT_UNBOUND",
+  "authority_created": false,
+  "origin_milestones": [
+    {
+      "period": "2025-02",
+      "claim": "CWaaS concept initially described; origin date supported by prior conversation, not independent deployment history"
+    },
+    {
+      "period": "2026-06",
+      "claim": "Replay-oriented CWaaS receipts and deterministic verdict design"
+    },
+    {
+      "period": "2026-09",
+      "claim": "LivingLedger canon in CITIZEN_ROOT; append-only correction and distinct evidence clocks"
+    },
+    {
+      "period": "2026-11",
+      "claim": "Clock Membrane v0.8 draft separates byte integrity, chain, observer, content, historical/current authorization, time"
+    }
+  ],
+  "corrections": [
+    {
+      "issue": "SCALAR_API",
+      "decision": "No top-level match, verified, ok; field-scoped tuple and explicit policy",
+      "status": "SPECIFIED"
+    },
+    {
+      "issue": "N43_RENUMBER",
+      "decision": "Reserve N43a as published-preimage SHA256SUM replay; N43b as missing-root diagnostic",
+      "status": "SPECIFIED"
+    },
+    {
+      "issue": "ANCHOR_REFERENCE",
+      "decision": "Git commit 1d9cecc3... is SHA-1-length Git object identifier, not SHA256 content anchor or witness",
+      "status": "RECORDED"
+    },
+    {
+      "issue": "MANIFEST_V1_DELTA",
+      "decision": "Manifest/1 object shape unchanged; domain migration alone is insufficient schema-semantic rationale. Freeze HOLD pending explicit policy decision",
+      "status": "UNRESOLVED"
+    },
+    {
+      "issue": "TIMESTAMP",
+      "decision": "No trusted observed_at_utc supplied. Time provenance UNKNOWN(NEG-SUB-003).",
+      "status": "UNKNOWN"
+    },
+    {
+      "issue": "SCAFFOLD",
+      "decision": "No Worker src/hash.ts, src/jcs.ts, src/verify.ts or Wrangler/test fixtures committed in PR #9",
+      "status": "NOT_FOUND_ON_REVIEW_BRANCH"
+    }
+  ],
+  "expected_api_fields": [
+    "byte_integrity",
+    "chain_integrity",
+    "historical_authorized",
+    "current_authorized",
+    "content_verified",
+    "authority_established",
+    "observer_provenance",
+    "time_provenance",
+    "manifest_root",
+    "spec",
+    "anchor",
+    "anchor_provenance",
+    "negs",
+    "warns",
+    "verifier_build"
+  ],
+  "independence": "R2 preserves bytes; Git object ref is not independent witness; constant configurable by verifier is not external anchor",
+  "test_executions_this_record": 0,
+  "deployment": "NONE",
+  "dns_changed": false,
+  "signed_leaf": false
+}

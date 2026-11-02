@@ -1,0 +1,90 @@
+{
+  "jason": "vector_alias/0",
+  "state": "DRAFT_UNBOUND",
+  "authority_created": false,
+  "rule": "Historical vector identifiers are immutable; staging aliases are namespaced, never silently rebound",
+  "mapping": [
+    {
+      "historical": "N40",
+      "definition": "same file list different array order -> E_MANIFEST_ORDER",
+      "incorrect_staging_use": "N40 as valid manifest",
+      "staging_alias": "S-V00",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "historical": "N41",
+      "definition": "manifest root recomputation with JCS",
+      "incorrect_staging_use": "N41 as incorrect claimed root",
+      "staging_alias": "S-V01",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "historical": "N42a",
+      "definition": "root excluded from hash preimage",
+      "staging_alias": "S-V02",
+      "status": "LOCAL_REPLAY_PREVIOUSLY_REPORTED"
+    },
+    {
+      "historical": "N42b",
+      "definition": "required root missing -> E_SCHEMA",
+      "incorrect_staging_use": "N43 as missing root",
+      "staging_alias": "N43b",
+      "status": "SPECIFIED_NOT_EXECUTED_IN_THIS_PASS"
+    },
+    {
+      "historical": "N42c",
+      "definition": "verifier includes root in preimage -> D004_CANONICALIZATION / RUN_VOID",
+      "staging_alias": "S-V03",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "historical": "N43",
+      "definition": "published manifest/0 preimage with corrected .hash domain",
+      "staging_alias": "N43a",
+      "expected_root": "sha256:c08b435d43e77460498af48810eaf24cb211f2912fe5198394ac39b4a1a96831",
+      "status": "PENDING_EXPLICIT_SHA256SUM_RECEIPT"
+    },
+    {
+      "historical": "N46",
+      "definition": "domain correction delta replay",
+      "staging_alias": "S-V04",
+      "status": "WOLFRAM_REPLAY_PREVIOUSLY_REPORTED"
+    },
+    {
+      "historical": null,
+      "staging_alias": "S-V05",
+      "definition": "malformed JSON -> 400",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "historical": null,
+      "staging_alias": "S-V06",
+      "definition": "unordered object keys canonicalize to same root",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "historical": null,
+      "staging_alias": "N50",
+      "definition": "top-level match/verified/ok boolean -> D005_API_SCALAR RUN_VOID",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "historical": null,
+      "staging_alias": "N51",
+      "definition": "missing spec/anchor/verifier_build -> E_SELF_DESCRIPTION",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "historical": null,
+      "staging_alias": "N52",
+      "definition": "changing TRUSTED_MANIFEST_BASE constant must not be silently treated as independent anchor",
+      "status": "PRIORITY_SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "historical": null,
+      "staging_alias": "N53",
+      "definition": "caller-provided anchor -> CALLER_SUPPLIED and verdict limited",
+      "status": "SPECIFIED_NOT_EXECUTED"
+    }
+  ]
+}

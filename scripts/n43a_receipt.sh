@@ -9,7 +9,7 @@ command -v jq >/dev/null && command -v sha256sum >/dev/null || { echo "jq and sh
 if LC_ALL=C grep -q '[^ -~[:space:]]' "$M"; then echo 'D004_CANONICALIZATION: non-ASCII unsupported' >&2; exit 3; fi
 [ "$(jq -er '.jason' "$M")" = "manifest/0" ] || { echo 'E_SCHEMA' >&2; exit 4; }
 BODY=$(jq -Sc 'del(.root)' "$M")
-DIGEST=$( { printf '%s' "$DOMAIN"; printf '\\0'; printf '%s' "$BODY"; } | sha256sum | cut -d' ' -f1 )
+DIGEST=$( { printf '%s' "$DOMAIN"; printf '\0'; printf '%s' "$BODY"; } | sha256sum | cut -d' ' -f1 )
 CLAIMED=$(jq -r '.root // ""' "$M")
 jq -n --arg root "sha256:$DIGEST" --arg claimed "$CLAIMED" --arg domain "$DOMAIN" --arg src "$M" '{
   jason:"receipt/0", kind:"manifest_root_receipt", root:$root,

@@ -1,0 +1,17 @@
+{
+  "files": [
+    {
+      "bytes": 5009,
+      "path": "README.md",
+      "sha256": "4c0147e522d97bd825aa9743961d837365e147d1868785fcac9a18f8fd76d14c"
+    },
+    {
+      "bytes": 860,
+      "path": "decision_register.json",
+      "sha256": "9f3810d6db6b28fec7ba3192e66d59863802bc15b43e1ed7a51901014ec5c454"
+    }
+  ],
+  "jason": "manifest/1",
+  "manifest_type": "content",
+  "root": "sha256:b7d1e11c465af6c25b8cba84a98f6ba71a29860fce29a8a91febb59642d727fe"
+}

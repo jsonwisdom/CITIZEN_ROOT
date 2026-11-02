@@ -1,0 +1,26 @@
+{
+  "jason": "migration_log/0",
+  "state": "DRAFT_UNBOUND",
+  "authority_created": false,
+  "transition": "manifest/0 domain ambiguity => manifest/1 draft",
+  "prior_roots": [
+    "sha256:6c9587ed01fec3cb8a5f4f613fb47f6c2e25a018662c74233468b3a7c0a3252e",
+    "sha256:c08b435d43e77460498af48810eaf24cb211f2912fe5198394ac39b4a1a96831"
+  ],
+  "new_candidate_root": "sha256:b7d1e11c465af6c25b8cba84a98f6ba71a29860fce29a8a91febb59642d727fe",
+  "reason": "Schema ID must determine one hash domain; old draft reused schema for two domains",
+  "alternatives": [
+    "Keep ambiguous schema with external domain selector (rejected)",
+    "Overwrite historical root (rejected)"
+  ],
+  "decision": "Version bump; preserve old root history",
+  "observed_at_utc": null,
+  "clock_source": null,
+  "clock_id": null,
+  "n43": "WOLFRAM_REPLAYED_FOR_PUBLISHED_PREIMAGE",
+  "n46": "OLD_AND_NEW_DOMAIN_DELTA_VERIFIED",
+  "n40": "SPECIFIED_NOT_EXECUTED",
+  "n42": "SPECIFIED_NOT_EXECUTED",
+  "chain_position": null,
+  "author_signature": null
+}

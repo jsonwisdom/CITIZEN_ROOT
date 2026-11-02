@@ -1,0 +1,56 @@
+{
+  "jason": "domain_registry/0",
+  "status": "DRAFT_NON_NORMATIVE",
+  "authority_created": false,
+  "entries": [
+    {
+      "schema": "manifest/0",
+      "root_domain": "jason.manifest.v0",
+      "state": "DEPRECATED_DRAFT",
+      "example_root": "sha256:6c9587ed01fec3cb8a5f4f613fb47f6c2e25a018662c74233468b3a7c0a3252e"
+    },
+    {
+      "schema": "manifest/0",
+      "root_domain": "jason.manifest.v0.hash",
+      "state": "HISTORICAL_CORRECTION_DRAFT",
+      "example_root": "sha256:c08b435d43e77460498af48810eaf24cb211f2912fe5198394ac39b4a1a96831",
+      "note": "Historical draft ambiguity; requires explicit rule selection, not production schema mapping."
+    },
+    {
+      "schema": "manifest/1",
+      "root_domain": "jason.manifest.v1.hash",
+      "state": "PROPOSED_CURRENT",
+      "example_root": "sha256:b7d1e11c465af6c25b8cba84a98f6ba71a29860fce29a8a91febb59642d727fe"
+    },
+    {
+      "schema": "event/0",
+      "root_domain": "jason.event.v0.hash",
+      "state": "CONVERSATIONAL_BASELINE"
+    }
+  ],
+  "vocab": {
+    "fetch_status": [
+      "CLAIMED_UNVERIFIED",
+      "FETCHED_OK",
+      "FETCHED_MISMATCH",
+      "NOT_FOUND",
+      "INACCESSIBLE",
+      "REVOKED"
+    ],
+    "run_void": [
+      "D001_SCHEMA_DRIFT",
+      "D002_PARSE_NONDETERMINISM",
+      "D003_SIGNATURE_DOMAIN_MIXUP",
+      "D004_CANONICALIZATION"
+    ]
+  },
+  "required_timing": [
+    "verified_at",
+    "clock_source",
+    "clock_id",
+    "clock_description"
+  ],
+  "independent_replay": "PENDING",
+  "signed_leaf": false,
+  "anchored": false
+}

@@ -1,17 +1,20 @@
-import pathlib, re
+"""N52b static checks are scaffold-specific, NOT proof of independent anchoring.
+A TypeScript refactor may require updating the signature parser; that is not
+automatically an anchor regression. Missing scaffold is SKIP here only; the
+separate test_scaffold_present MUST hard fail.
+"""
+from pathlib import Path
+import re
 import pytest
-# N52b is a RED test by design: intended to identify future unsafe config.
-WRANGLER = pathlib.Path("wrangler.toml")
-SRC = pathlib.Path("src/verify.ts")
-def test_n52b_no_mutable_anchor_literal():
-    if not WRANGLER.exists():
-        pytest.fail("SCAFFOLD_NOT_PRESENT: wrangler.toml")
-    config=WRANGLER.read_text()
-    assert not re.search(r'TRUSTED_MANIFEST_BASE\s*=\s*"[^"]+"',config), "DRAFT_ANCHOR_CONFIG_MUTABLE"
-def test_n52b_anchor_explicitly_scoped():
-    if not SRC.exists():
-        pytest.fail("SCAFFOLD_NOT_PRESENT: src/verify.ts")
-    src=SRC.read_text()
-    assert "anchor" in src, "ANCHOR_SCOPE_MISSING"
-# This static test cannot demonstrate anchor independence. Only an external
-# trust-root witness and adversarial mutation test can do that.
+WRANGLER, SRC = Path("wrangler.toml"), Path("src/verify.ts")
+pytestmark = pytest.mark.skipif(
+    not (WRANGLER.is_file() and SRC.is_file()),
+    reason="scaffold absent — anchor untestable, see test_scaffold_present",
+)
+def test_n52b_no_mutable_anchor_constant():
+    assert not re.search(r'TRUSTED_MANIFEST_BASE\s*=\s*["\x27][^"\x27]+["\x27]', WRANGLER.read_text()), "N52b: config-defined trust root"
+def test_n52b_verify_explicit_anchor_scope():
+    """Specific to function verify(...) syntax: refactors require human review."""
+    m = re.search(r'\bfunction\s+verify\s*\(([^)]*)\)', SRC.read_text(), re.S)
+    assert m is not None, "signature parser no longer matches; review test"
+    assert re.search(r'\banchor\b', m.group(1)), "explicit anchor parameter missing"

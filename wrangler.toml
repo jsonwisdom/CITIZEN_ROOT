@@ -1,0 +1,8 @@
+# SCAFFOLD_NOT_YET_VERIFIED. No DNS or deployment authorized.
+name = "jason-verify-staging"
+main = "src/verify.ts"
+compatibility_date = "2026-11-02"
+workers_dev = true
+preview_urls = false
+[observability]
+enabled = true

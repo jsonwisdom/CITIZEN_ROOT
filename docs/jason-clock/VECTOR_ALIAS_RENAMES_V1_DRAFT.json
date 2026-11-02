@@ -1,0 +1,57 @@
+{
+  "jason": "vector_alias/1",
+  "status": "DRAFT_NON_NORMATIVE",
+  "authority_created": false,
+  "prior_registry": "docs/jason-clock/VECTOR_ALIAS_REGISTER_DRAFT.json",
+  "renames": [
+    {
+      "old_id": "N52",
+      "new_id": "N52a",
+      "reason": "Separate remote ref drift from local config trust changes; pinned commit stable versus moving main",
+      "effective_commit": null,
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "old_id": "N52",
+      "new_id": "N52b",
+      "reason": "Configuration-mutability and independently governed trust-root test",
+      "effective_commit": null,
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "old_id": "N43",
+      "new_id": "N43a",
+      "reason": "Preserve original published-preimage replay under corrected manifest/0 hash domain",
+      "effective_commit": null,
+      "status": "WOLFRAM_REPLAY_MATCH_SHELL_RECEIPT_PENDING"
+    },
+    {
+      "old_id": "N42b",
+      "new_id": "N43b",
+      "reason": "New diagnostic alias for missing-root case; historical N42b unchanged",
+      "effective_commit": null,
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "old_id": "N40",
+      "new_id": "S-V00",
+      "reason": "Staging 'valid manifest' example must not redefine historical N40 ordering failure",
+      "effective_commit": null,
+      "status": "SPECIFIED_NOT_EXECUTED"
+    },
+    {
+      "old_id": "N41",
+      "new_id": "S-V01",
+      "reason": "Staging incorrect-root example must not redefine historical JCS recomputation N41",
+      "effective_commit": null,
+      "status": "SPECIFIED_NOT_EXECUTED"
+    }
+  ],
+  "rule": "new_id is an alias, never a deletion/reassignment of old_id. effective_commit null until actual writing commit can be appended externally; cannot self-bind commit hash inside own commit.",
+  "provenance": {
+    "source": "user-proposed N52a/N52b split and existing PR #9",
+    "source_commit": "8eb8170a5719ff3c215572c1d60a42bfd34b0136",
+    "observed_at_utc": null,
+    "clock_status": "UNKNOWN(NEG-SUB-003)"
+  }
+}

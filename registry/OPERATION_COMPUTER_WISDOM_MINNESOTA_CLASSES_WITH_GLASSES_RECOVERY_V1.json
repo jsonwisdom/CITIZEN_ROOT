@@ -1,0 +1,110 @@
+{
+  "schema": "CITIZEN_ROOT_CLASSES_WITH_GLASSES_RECOVERY_V1",
+  "as_of": "2026-11-04",
+  "operation": "OPERATION_COMPUTER_WISDOM_MINNESOTA_EDITION",
+  "authority": false,
+  "hash_freeze": "HOLD",
+  "merkle_root": null,
+  "roles": {
+    "citizen_root": "DISCOVERY_POINTER_ONLY",
+    "computerwisdom": "SOURCE_ARTIFACTS_AND_LEARNING",
+    "seymour": "OPERATOR_RECOVERY_INDEX_SEPARATE",
+    "lakewood": "PRIVATE_EDUCATION_TRACK_NOT_PUBLISHED"
+  },
+  "verified_source_repository": "jsonwisdom/COMPUTERWISDOM",
+  "verified_branch": "master",
+  "learning_pages": [
+    {
+      "title": "Classes with Glasses",
+      "repo": "jsonwisdom/COMPUTERWISDOM",
+      "path": "docs/classes-with-glasses/index.html",
+      "git_blob_sha": "a0a545a9b71561066ca6c7d309fa499a12fa881b",
+      "url": "https://github.com/jsonwisdom/COMPUTERWISDOM/blob/master/docs/classes-with-glasses/index.html",
+      "verification": "GITHUB_BLOB_READ_PASS"
+    },
+    {
+      "title": "Positive Education",
+      "repo": "jsonwisdom/COMPUTERWISDOM",
+      "path": "docs/classes-with-glasses/positive-education/index.html",
+      "git_blob_sha": "99881f24c841e033fc932edc7086617ef689f560",
+      "url": "https://github.com/jsonwisdom/COMPUTERWISDOM/blob/master/docs/classes-with-glasses/positive-education/index.html",
+      "verification": "GITHUB_BLOB_READ_PASS"
+    },
+    {
+      "title": "Investigation Station",
+      "repo": "jsonwisdom/COMPUTERWISDOM",
+      "path": "docs/classes-with-glasses/investigation-station/index.html",
+      "git_blob_sha": "40407ef4bd85f316638f580bb78220fba3ead198",
+      "url": "https://github.com/jsonwisdom/COMPUTERWISDOM/blob/master/docs/classes-with-glasses/investigation-station/index.html",
+      "verification": "GITHUB_BLOB_READ_PASS"
+    },
+    {
+      "title": "x402 Learner's Permit",
+      "repo": "jsonwisdom/COMPUTERWISDOM",
+      "path": "docs/classes-with-glasses/x402-learners-permit/index.html",
+      "git_blob_sha": "945b04d250c5f0007b6c7e9913e01fef0e267ab0",
+      "url": "https://github.com/jsonwisdom/COMPUTERWISDOM/blob/master/docs/classes-with-glasses/x402-learners-permit/index.html",
+      "verification": "GITHUB_BLOB_READ_PASS"
+    },
+    {
+      "title": "Jason's Golden Fleece",
+      "repo": "jsonwisdom/COMPUTERWISDOM",
+      "path": "docs/classes-with-glasses/golden-fleece/index.html",
+      "git_blob_sha": "2efccd138c407883561f2900fe108435bfb4f57d",
+      "url": "https://github.com/jsonwisdom/COMPUTERWISDOM/blob/master/docs/classes-with-glasses/golden-fleece/index.html",
+      "verification": "GITHUB_BLOB_READ_PASS"
+    },
+    {
+      "title": "Grace Hopper Space Hopper",
+      "repo": "jsonwisdom/COMPUTERWISDOM",
+      "path": "docs/classes-with-glasses/grace-hopper-space-hopper/index.html",
+      "git_blob_sha": "a45df02d444b970dbb28b70441792cf6f5deb743",
+      "url": "https://github.com/jsonwisdom/COMPUTERWISDOM/blob/master/docs/classes-with-glasses/grace-hopper-space-hopper/index.html",
+      "verification": "GITHUB_BLOB_READ_PASS"
+    },
+    {
+      "title": "Minnesota Game Map v0.1",
+      "repo": "jsonwisdom/COMPUTERWISDOM",
+      "path": "docs/game/minnesota_map_v0_1.md",
+      "git_blob_sha": "51a81c50a0a0b15bb07c538cb1d3ae8410169560",
+      "url": "https://github.com/jsonwisdom/COMPUTERWISDOM/blob/master/docs/game/minnesota_map_v0_1.md",
+      "verification": "GITHUB_BLOB_READ_PASS"
+    }
+  ],
+  "private_coursework": {
+    "index_publicly": "WITHHELD",
+    "search_verified": "LIBRARY_ARTIFACTS_FOUND",
+    "academic_authority": "LAKEWOOD_UNVERIFIED_ENROLLMENT_IN_THIS_RUN",
+    "note": "Coursework drafts and student work are not copied into the public federation."
+  },
+  "adjacent_project_pointers": [
+    {
+      "repo": "jsonwisdom/COMPUTERWISDOM",
+      "path": "docs/staging/NEW_SCHOOL_SOPHIA_CROSS_v0.2_manifest.json",
+      "status": "FROZEN_STAGING_MANIFEST"
+    },
+    {
+      "repo": "jsonwisdom/CITIZEN_ROOT",
+      "path": "CITIZEN_ROOT_INDEX.json",
+      "status": "ROOT_HASH_PENDING"
+    },
+    {
+      "repo": "jsonwisdom/CITIZEN_ROOT",
+      "path": "registry/REPOSITORY_SERVICE_INDEX_V0_1.json",
+      "status": "HISTORICAL_2026_09_15"
+    }
+  ],
+  "math": {
+    "source_pages_verified": 7,
+    "historical_project_universe": null,
+    "coverage_ratio": null,
+    "search_miss_means_no_work": false
+  },
+  "security": {
+    "secrets_included": false,
+    "payment_actions": false,
+    "student_records_public": false,
+    "authority_created": false
+  },
+  "next_gate": "VERIFY_LAKEWOOD_SUBMISSIONS_PRIVATELY_AND_LINK_SEYMOUR_OPERATOR_RECOVERY_INDEX"
+}

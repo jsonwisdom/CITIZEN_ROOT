@@ -1,0 +1,63 @@
+{
+  "schema": "CITIZEN_ROOT_LISTENING_FIRST_PUBLIC_REPLAY_V0_1",
+  "operation": "CLASSES_WITH_GLASSES_LISTENING_FIRST",
+  "date": "2026-11-04",
+  "status": "PUBLIC_PROPOSAL",
+  "authority_created": false,
+  "origin": "Jason Wisdom / ZeroCool / JSONWisdom",
+  "design_principle": "LISTEN -> SOURCE -> TWO_INDEPENDENT_CHECKS -> CI -> HUMAN_REVIEW -> PUBLIC_RECEIPT",
+  "sacred_mary": {
+    "type": "USER_SYMBOLIC_FRAMING",
+    "label": "Sacred Mary is watching; silence means listen",
+    "claim_of_external_observation": false,
+    "publication_as_verified_fact": false
+  },
+  "number_13": {
+    "type": "USER_SELECTED_SYMBOLIC_CHECKPOINT",
+    "purpose": "Organize yesterday, today, and prior-day comparisons",
+    "calendar_meaning": "NOT_ESTABLISHED",
+    "daily_execution_proof": false
+  },
+  "two_f_phrase": {
+    "status": "UNRECOVERED_EXACT_WORDING",
+    "note": "Do not fill with a guessed phrase; preserve source gap until original retrieved."
+  },
+  "recovery_sequence": [
+    "PERSON",
+    "TIME",
+    "PROJECT",
+    "LAST_CHECKPOINT",
+    "VERIFIED_EVIDENCE",
+    "OPEN_DECISION",
+    "NEXT_ACTION"
+  ],
+  "hearing_questions": [
+    "What did the source actually say?",
+    "What do two independent reviewers agree or disagree on?",
+    "Which observations have primary-source receipts?",
+    "What remains silent, unknown, or disputed?",
+    "What may be safely published without disclosing private family or academic records?"
+  ],
+  "cadence": {
+    "target_hourly_audit_slots_per_day": 24,
+    "observed_hourly_audit_receipts": null,
+    "prior_ci_tests_passed": 22,
+    "tests_not_hourly_cycles": true,
+    "missing_cycle": "UNKNOWN",
+    "failed_cycle": "FAIL"
+  },
+  "public_clicks": {
+    "role": "PRIORITIZE_QUESTIONS",
+    "not": "LEGAL_VOTES_OR_PROOF_OF_CLAIMS",
+    "bot_resistance": "REQUIRED_BEFORE_PRODUCTION"
+  },
+  "publication_gates": [
+    "SOURCES_LINKED",
+    "CI_AT_EXACT_HEAD",
+    "PRIVACY_REVIEW",
+    "HUMAN_APPROVAL",
+    "CORRECTION_PATH"
+  ],
+  "scope": "CITIZEN_ROOT pointer and public-learning proposal only; does not initiate family messaging, government communication, wallet transactions, or deployment",
+  "next_action": "Implement clickable hearing-first daily view in Classes with Glasses; perform independent tests before deployment"
+}

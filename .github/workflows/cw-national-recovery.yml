@@ -25,6 +25,9 @@ on:
       - "jurisdictions/WI_CENSUS_2020_2026_BAS_SOURCE_MANIFEST_V0_1.json"
       - "verification/replay_wi_2020_2026_delta_bas.py"
       - "verification/test_replay_wi_2020_2026_delta_bas.py"
+      - "jurisdictions/WI_LAKE_HALLIE_ORD11315_ORIGINAL_PDF_SHA256_V0_1.json"
+      - "verification/verify_wi_lake_hallie_ordinance.py"
+      - "verification/test_verify_wi_lake_hallie_ordinance.py"
       - ".github/workflows/cw-national-recovery.yml"
   workflow_dispatch:
 permissions:
@@ -158,5 +161,24 @@ jobs:
         with:
           name: cw-wi-2020-2026-geographic-bas-candidates
           path: wi-2020-2026-delta-bas-candidates.json
+          retention-days: 30
+          if-no-files-found: error
+  wi-lake-hallie-pdf-byte-proof:
+    needs: national-discovery-check
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Test signed-source and legal-causation guards
+        run: python3 -B -m unittest verification.test_verify_wi_lake_hallie_ordinance -v
+      - name: Fetch and independently pin original WI 2021-002 ordinance PDF bytes
+        run: python3 -B -m verification.verify_wi_lake_hallie_ordinance > wi-lake-hallie-ordinance-byte-proof.json
+      - name: Preserve hash proof without uploading ordinance PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: cw-wi-lake-hallie-ordinance-original-byte-proof
+          path: wi-lake-hallie-ordinance-byte-proof.json
           retention-days: 30
           if-no-files-found: error

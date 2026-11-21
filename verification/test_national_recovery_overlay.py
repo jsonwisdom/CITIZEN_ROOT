@@ -70,7 +70,7 @@ class RecoveryOverlayTests(unittest.TestCase):
     def test_geography_does_not_assert_complete_coverage(self):
         self.assertTrue(self.m["geography"]["coverage_counts_are_targets_not_established"])
         self.assertFalse(self.m["inventory_complete_for_all_repositories"])
-        self.assertIn("emergency", self.m["missions"])
+        self.assertIn("emergency-information", self.m["missions"])
         self.assertIn("audit", self.m["missions"])
 
 if __name__ == "__main__":

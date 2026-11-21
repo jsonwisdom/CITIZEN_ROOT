@@ -11,6 +11,9 @@ on:
       - "jurisdictions/US_CENSUS_PLACE_BY_COUNTY_2020_SHA256_MANIFEST.json"
       - "verification/replay_census_national.py"
       - "verification/test_replay_census_national.py"
+      - "jurisdictions/MN_CENSUS_2020_2026_IDENTITY_COMPARISON_V0_1.json"
+      - "verification/verify_mn_2026_gazetteers.py"
+      - "verification/test_mn_2026_gazetteers.py"
       - ".github/workflows/cw-national-recovery.yml"
   workflow_dispatch:
 permissions:
@@ -29,6 +32,7 @@ jobs:
           python3 -B verification/test_mn_al_census_crosswalk.py -v
           python3 -B -m unittest verification.test_import_census_place_county -v
           python3 -B -m unittest verification.test_replay_census_national -v
+          python3 -B -m unittest verification.test_mn_2026_gazetteers -v
           python3 -B -m verification.replay_census_national --check-manifest
   nationwide-2020-pinned-source-replay:
     needs: national-discovery-check
@@ -47,3 +51,20 @@ jobs:
           path: census-national-2020-replay.json
           retention-days: 30
           if-no-files-found: error
+  mn-2026-gazetteer-id-replay:
+    needs: national-discovery-check
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Re-fetch 2026 official MN Gazetteer places and counties; verify pins and IDs
+        run: python3 -B -m verification.verify_mn_2026_gazetteers > mn-2026-identity-replay.json
+      - name: Store derived identity-only receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: cw-mn-2026-identity-replay
+          path: mn-2026-identity-replay.json
+          if-no-files-found: error
+          retention-days: 30

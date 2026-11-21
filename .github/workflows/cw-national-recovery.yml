@@ -4,6 +4,8 @@ on:
     paths:
       - "registry/CW_NATIONAL_RECOVERY_OVERLAY_2026_11_21_V0_1.json"
       - "verification/test_national_recovery_overlay.py"
+      - "jurisdictions/MN_AL_CENSUS_2026_CROSSWALK_V0_1.json"
+      - "verification/test_mn_al_census_crosswalk.py"
       - ".github/workflows/cw-national-recovery.yml"
   workflow_dispatch:
 permissions:
@@ -17,4 +19,6 @@ jobs:
         with:
           persist-credentials: false
       - name: Run registry safety and six-scale traversal fixture checks
-        run: python3 -B verification/test_national_recovery_overlay.py -v
+        run: |
+          python3 -B verification/test_national_recovery_overlay.py -v
+          python3 -B verification/test_mn_al_census_crosswalk.py -v

@@ -1,0 +1,464 @@
+{
+  "schema": "cw-census-place-by-county-national-source-set-v0.1",
+  "vintage": 2020,
+  "source_root": "https://www2.census.gov/geo/docs/reference/codes2020/place_by_cou/",
+  "source_discovery": "Official Census directory, independent per-file Wolfram URLRead exact byte SHA-256",
+  "file_count": 56,
+  "core_states_count": 50,
+  "district_and_territories_count": 6,
+  "source_hash_algorithm": "SHA-256",
+  "status": "SOURCE_BYTES_HASHED_IMPORTER_LIVE_CI_HOLD",
+  "observations": [
+    {
+      "filename": "st01_al_place_by_county2020.txt",
+      "state_fips": "01",
+      "postal": "AL",
+      "bytes": 51464,
+      "sha256": "20b12a91a56f157556f3e9700d5d412ed138340fa65d2d4654b70349f1ed5c1d",
+      "http": 200
+    },
+    {
+      "filename": "st02_ak_place_by_county2020.txt",
+      "state_fips": "02",
+      "postal": "AK",
+      "bytes": 32298,
+      "sha256": "61cfbcdc6fd6e08163e302c0bb7620229484cf80166c4518dbbb60bfcf720668",
+      "http": 200
+    },
+    {
+      "filename": "st04_az_place_by_county2020.txt",
+      "state_fips": "04",
+      "postal": "AZ",
+      "bytes": 39400,
+      "sha256": "c1b02f2a8d7d7c708fa6c6ada6af3706f848546c959083c980eeffc3344588ea",
+      "http": 200
+    },
+    {
+      "filename": "st05_ar_place_by_county2020.txt",
+      "state_fips": "05",
+      "postal": "AR",
+      "bytes": 51468,
+      "sha256": "eeed0f9976f16f597896ee0cf7be5adaad35032c4c89861f85561486747b757d",
+      "http": 200
+    },
+    {
+      "filename": "st06_ca_place_by_county2020.txt",
+      "state_fips": "06",
+      "postal": "CA",
+      "bytes": 135420,
+      "sha256": "6b9cac866782a983cbb4baad77768e65d1f2c54a6fc62cf7e3db1908a734726e",
+      "http": 200
+    },
+    {
+      "filename": "st08_co_place_by_county2020.txt",
+      "state_fips": "08",
+      "postal": "CO",
+      "bytes": 41161,
+      "sha256": "5ec8309511b966324fd789fdf7f41a485e2e359113e7cd426bfcd144e71b77a2",
+      "http": 200
+    },
+    {
+      "filename": "st09_ct_place_by_county2020.txt",
+      "state_fips": "09",
+      "postal": "CT",
+      "bytes": 18804,
+      "sha256": "827657971c31746e9b334b9999c9e8cbf53a2011297b85b32a37d4fbdd038818",
+      "http": 200
+    },
+    {
+      "filename": "st10_de_place_by_county2020.txt",
+      "state_fips": "10",
+      "postal": "DE",
+      "bytes": 6642,
+      "sha256": "fb26da6c8622a51bada1395b7f383d1e04a9ac9ae8f036f0b2e9d4bc0792b58a",
+      "http": 200
+    },
+    {
+      "filename": "st11_dc_place_by_county2020.txt",
+      "state_fips": "11",
+      "postal": "DC",
+      "bytes": 168,
+      "sha256": "1cb091d2ef980e06835533823ae2dc3b4ecb74c1c9679210cedec47b2070bcae",
+      "http": 200
+    },
+    {
+      "filename": "st12_fl_place_by_county2020.txt",
+      "state_fips": "12",
+      "postal": "FL",
+      "bytes": 81199,
+      "sha256": "5be5e0ef0fa085a2b88cc58c5c80033062cfc1bf60b964bfd8f9fcc472c0b919",
+      "http": 200
+    },
+    {
+      "filename": "st13_ga_place_by_county2020.txt",
+      "state_fips": "13",
+      "postal": "GA",
+      "bytes": 58242,
+      "sha256": "fea7ef6020f4feee73f560c29892a6bea55917173886c9fb43e0b4aef6c301df",
+      "http": 200
+    },
+    {
+      "filename": "st15_hi_place_by_county2020.txt",
+      "state_fips": "15",
+      "postal": "HI",
+      "bytes": 13497,
+      "sha256": "2205a4c2d879201748fa587b43d05fd5135664a0278a008004933c9993d57a13",
+      "http": 200
+    },
+    {
+      "filename": "st16_id_place_by_county2020.txt",
+      "state_fips": "16",
+      "postal": "ID",
+      "bytes": 19093,
+      "sha256": "bfbb3fbddc8891af3062befb68273c434dcab3f2332575924e4672386574c125",
+      "http": 200
+    },
+    {
+      "filename": "st17_il_place_by_county2020.txt",
+      "state_fips": "17",
+      "postal": "IL",
+      "bytes": 129172,
+      "sha256": "c9cac98b6a847206b03765c5f88d37c31db4a570b5a4a6ca1e6c5ad35f0d2b24",
+      "http": 200
+    },
+    {
+      "filename": "st18_in_place_by_county2020.txt",
+      "state_fips": "18",
+      "postal": "IN",
+      "bytes": 57439,
+      "sha256": "bbb53bae662d20e2b72ed2e68ff8a2b2a897f44a6535e435f4f0048f9eb47de8",
+      "http": 200
+    },
+    {
+      "filename": "st19_ia_place_by_county2020.txt",
+      "state_fips": "19",
+      "postal": "IA",
+      "bytes": 86181,
+      "sha256": "879b4e55cc0b092d5c787954ae2e8a10e274becd24cee42782e776d48b8254a7",
+      "http": 200
+    },
+    {
+      "filename": "st20_ks_place_by_county2020.txt",
+      "state_fips": "20",
+      "postal": "KS",
+      "bytes": 59753,
+      "sha256": "781c263d5a85524b69fa8a29291dee1e86620885d093102a28bed01030cd7277",
+      "http": 200
+    },
+    {
+      "filename": "st21_ky_place_by_county2020.txt",
+      "state_fips": "21",
+      "postal": "KY",
+      "bytes": 46746,
+      "sha256": "3b23e8bff3d3489c36d7b6097f3dc5e54e717c32aafc6737abfa60c3ce8256a8",
+      "http": 200
+    },
+    {
+      "filename": "st22_la_place_by_county2020.txt",
+      "state_fips": "22",
+      "postal": "LA",
+      "bytes": 41658,
+      "sha256": "215274aef11b123f5fae93289ac213e09c0ef3e5f5206fe0b4750f09141a87b1",
+      "http": 200
+    },
+    {
+      "filename": "st23_me_place_by_county2020.txt",
+      "state_fips": "23",
+      "postal": "ME",
+      "bytes": 13126,
+      "sha256": "4e5573613791ea4fe97369ded99dd15e4c16519d18dfc2cc800a73c414aabeaa",
+      "http": 200
+    },
+    {
+      "filename": "st24_md_place_by_county2020.txt",
+      "state_fips": "24",
+      "postal": "MD",
+      "bytes": 46742,
+      "sha256": "8e9336ac0f98454bfc87df15a61139e7af57fc937313172c09793083bcee9aa4",
+      "http": 200
+    },
+    {
+      "filename": "st25_ma_place_by_county2020.txt",
+      "state_fips": "25",
+      "postal": "MA",
+      "bytes": 21069,
+      "sha256": "b6e27b0cdabe0f1c3e3b6b937fe309592c74c1dc2216b9fe4484aa59d51b7a6e",
+      "http": 200
+    },
+    {
+      "filename": "st26_mi_place_by_county2020.txt",
+      "state_fips": "26",
+      "postal": "MI",
+      "bytes": 63015,
+      "sha256": "98e772e78694537cdfd000eb1b1d4e7869f8c0895bf8b510feed19581216c3b5",
+      "http": 200
+    },
+    {
+      "filename": "st27_mn_place_by_county2020.txt",
+      "state_fips": "27",
+      "postal": "MN",
+      "bytes": 75945,
+      "sha256": "0dae02710c8ee1e39f426cb84c47a7eab25ca26c692f24784f89b20d3655e886",
+      "http": 200
+    },
+    {
+      "filename": "st28_ms_place_by_county2020.txt",
+      "state_fips": "28",
+      "postal": "MS",
+      "bytes": 35834,
+      "sha256": "007ffb479c64f405677768f745d579e88f65ac9954098aa8ff0ba1cba0695db1",
+      "http": 200
+    },
+    {
+      "filename": "st29_mo_place_by_county2020.txt",
+      "state_fips": "29",
+      "postal": "MO",
+      "bytes": 92303,
+      "sha256": "e1c2625d071325fb63c121b39d6ecbb9027931e76201d34cdac4e88960df0371",
+      "http": 200
+    },
+    {
+      "filename": "st30_mt_place_by_county2020.txt",
+      "state_fips": "30",
+      "postal": "MT",
+      "bytes": 41681,
+      "sha256": "d873f945fa5b66b7e191a0aa716fd4bce4bc935fa456d8aafe9f1427e34e534a",
+      "http": 200
+    },
+    {
+      "filename": "st31_ne_place_by_county2020.txt",
+      "state_fips": "31",
+      "postal": "NE",
+      "bytes": 47605,
+      "sha256": "1f7723d3f8010fadcddee8cbe3bd071fe87b32a99db4e519f53b47ae6627ad29",
+      "http": 200
+    },
+    {
+      "filename": "st32_nv_place_by_county2020.txt",
+      "state_fips": "32",
+      "postal": "NV",
+      "bytes": 10995,
+      "sha256": "6cf8b79060f35432252de12051fbeddc208680b8ab0b0ae47c374b84dd0a432c",
+      "http": 200
+    },
+    {
+      "filename": "st33_nh_place_by_county2020.txt",
+      "state_fips": "33",
+      "postal": "NH",
+      "bytes": 8594,
+      "sha256": "39389d25bdc4aacf292f5ec93c581d812bb65c5935a4969ab6b0ded16e5d7b4c",
+      "http": 200
+    },
+    {
+      "filename": "st34_nj_place_by_county2020.txt",
+      "state_fips": "34",
+      "postal": "NJ",
+      "bytes": 59835,
+      "sha256": "7e6ef719a8aa8a835bdcfde89aa1b31e5451b797bf931bb569138a989b21b161",
+      "http": 200
+    },
+    {
+      "filename": "st35_nm_place_by_county2020.txt",
+      "state_fips": "35",
+      "postal": "NM",
+      "bytes": 44973,
+      "sha256": "49813db4e506614f14e9173156964ba17f960f64ea40a38309ebf3f52882fda6",
+      "http": 200
+    },
+    {
+      "filename": "st36_ny_place_by_county2020.txt",
+      "state_fips": "36",
+      "postal": "NY",
+      "bytes": 110111,
+      "sha256": "371e5c8f48d71d8c7c7886dc0d7113169890dd8e35a360ce551f259d952715e9",
+      "http": 200
+    },
+    {
+      "filename": "st37_nc_place_by_county2020.txt",
+      "state_fips": "37",
+      "postal": "NC",
+      "bytes": 67595,
+      "sha256": "9928f963cf04bb2b9f865c9d4b10169910ddcf269fae2a171e28d4d7e03294e3",
+      "http": 200
+    },
+    {
+      "filename": "st38_nd_place_by_county2020.txt",
+      "state_fips": "38",
+      "postal": "ND",
+      "bytes": 32021,
+      "sha256": "239788346b5db980a0b3a3bebe6d3acfb832a96caa85c56d1c152df40ff1642e",
+      "http": 200
+    },
+    {
+      "filename": "st39_oh_place_by_county2020.txt",
+      "state_fips": "39",
+      "postal": "OH",
+      "bytes": 111341,
+      "sha256": "3ab9f47b45f547b9597a5b707f59d3f91fac92d278fb50deb5ac00cbf5233604",
+      "http": 200
+    },
+    {
+      "filename": "st40_ok_place_by_county2020.txt",
+      "state_fips": "40",
+      "postal": "OK",
+      "bytes": 70611,
+      "sha256": "27a2b282ad17c6190381e7490d60cae82ffee555b1cc404fa94b62a5435d2a80",
+      "http": 200
+    },
+    {
+      "filename": "st41_or_place_by_county2020.txt",
+      "state_fips": "41",
+      "postal": "OR",
+      "bytes": 35988,
+      "sha256": "a97a8ab349142d957c6e22af9867c5b5305eadc33a032cf87f2d8fcbce192b0e",
+      "http": 200
+    },
+    {
+      "filename": "st42_pa_place_by_county2020.txt",
+      "state_fips": "42",
+      "postal": "PA",
+      "bytes": 160804,
+      "sha256": "bbc6e676f7353c561899c358197390e8bc6a0e6a565fec0b41698bacd9794566",
+      "http": 200
+    },
+    {
+      "filename": "st44_ri_place_by_county2020.txt",
+      "state_fips": "44",
+      "postal": "RI",
+      "bytes": 3161,
+      "sha256": "48bf5919c1e5ac4f632b09e4c40539854286f64fa27581cc97424bdcbec89ac9",
+      "http": 200
+    },
+    {
+      "filename": "st45_sc_place_by_county2020.txt",
+      "state_fips": "45",
+      "postal": "SC",
+      "bytes": 41243,
+      "sha256": "2ceae5fbc4b5ea69ab31ff248385e449cc2b3fe1050e740cc6fd1c1be0ab03b4",
+      "http": 200
+    },
+    {
+      "filename": "st46_sd_place_by_county2020.txt",
+      "state_fips": "46",
+      "postal": "SD",
+      "bytes": 39962,
+      "sha256": "cfe764d0c076b64fa286f068d704ba178fee00e0bbc23707ed7ad9de56ed3373",
+      "http": 200
+    },
+    {
+      "filename": "st47_tn_place_by_county2020.txt",
+      "state_fips": "47",
+      "postal": "TN",
+      "bytes": 44232,
+      "sha256": "3ed5ad91f5f7864e0e7a12b19d57106e2052847dea4a1b551b8ed6dbbc42cad4",
+      "http": 200
+    },
+    {
+      "filename": "st48_tx_place_by_county2020.txt",
+      "state_fips": "48",
+      "postal": "TX",
+      "bytes": 164439,
+      "sha256": "c82ab0853e67390b78d01ccb7682c7b3d576e412b550bb0d1e64b4e59058a745",
+      "http": 200
+    },
+    {
+      "filename": "st49_ut_place_by_county2020.txt",
+      "state_fips": "49",
+      "postal": "UT",
+      "bytes": 26719,
+      "sha256": "20457172b8330b1cf70309f4da9fdfad4d9be6f586f9c5869be53c4007edaffc",
+      "http": 200
+    },
+    {
+      "filename": "st50_vt_place_by_county2020.txt",
+      "state_fips": "50",
+      "postal": "VT",
+      "bytes": 15439,
+      "sha256": "24cee4bc55da04a9cb9e0e835a8f32cc6683dc9724d59ca21f830d8c06d26a69",
+      "http": 200
+    },
+    {
+      "filename": "st51_va_place_by_county2020.txt",
+      "state_fips": "51",
+      "postal": "VA",
+      "bytes": 58164,
+      "sha256": "7ec74f276ad84da31ad5e9d2a88e72ae3b255788374f4047b00443de8717f9ed",
+      "http": 200
+    },
+    {
+      "filename": "st53_wa_place_by_county2020.txt",
+      "state_fips": "53",
+      "postal": "WA",
+      "bytes": 52756,
+      "sha256": "c7a23cfa1d7d5bcf249301b527495f1aca89485ddcd54d14f2230466fdd90252",
+      "http": 200
+    },
+    {
+      "filename": "st54_wv_place_by_county2020.txt",
+      "state_fips": "54",
+      "postal": "WV",
+      "bytes": 36247,
+      "sha256": "60c547c21fc623ff539a05a326ba829a36e88eeb1c14e4351feb7c26511625cb",
+      "http": 200
+    },
+    {
+      "filename": "st55_wi_place_by_county2020.txt",
+      "state_fips": "55",
+      "postal": "WI",
+      "bytes": 70406,
+      "sha256": "5e321b0251a71fe14b807093ec57a4e4db4d8c9c64fd207f3227c76f97d26e25",
+      "http": 200
+    },
+    {
+      "filename": "st56_wy_place_by_county2020.txt",
+      "state_fips": "56",
+      "postal": "WY",
+      "bytes": 16730,
+      "sha256": "a3176a95df207f0328bf3711c231deec9d6b48754c446ab43e4783e2a3031a3b",
+      "http": 200
+    },
+    {
+      "filename": "st60_as_place_by_county2020.txt",
+      "state_fips": "60",
+      "postal": "AS",
+      "bytes": 6519,
+      "sha256": "1f49fc88de37a5570c4d3d395eb5f8685a1dd0a5856acf96903115d23f852c69",
+      "http": 200
+    },
+    {
+      "filename": "st66_gu_place_by_county2020.txt",
+      "state_fips": "66",
+      "postal": "GU",
+      "bytes": 4232,
+      "sha256": "c5a3c62ae86867e7e25aa43ac4759b0d858f121ce9bf334aae43036be8e5ba9f",
+      "http": 200
+    },
+    {
+      "filename": "st69_mp_place_by_county2020.txt",
+      "state_fips": "69",
+      "postal": "MP",
+      "bytes": 11952,
+      "sha256": "266ce2d721be856636233668776d3968c4b08d423b6e047d5bafaf825c51de04",
+      "http": 200
+    },
+    {
+      "filename": "st72_pr_place_by_county2020.txt",
+      "state_fips": "72",
+      "postal": "PR",
+      "bytes": 28277,
+      "sha256": "51ae9821c790a7a7c7922bad654979d01a1c3d4d4a081f95643a11d2bbe353be",
+      "http": 200
+    },
+    {
+      "filename": "st78_vi_place_by_county2020.txt",
+      "state_fips": "78",
+      "postal": "VI",
+      "bytes": 967,
+      "sha256": "de53d0055fc91108f19930dfbfa7adbcba1334bee35d07aad281dadce6acc7d8",
+      "http": 200
+    }
+  ],
+  "legal_authority": false,
+  "cryptographic_release_status": "HOLD",
+  "wallet_signing": "HOLD"
+}

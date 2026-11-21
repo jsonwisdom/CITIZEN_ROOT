@@ -1,0 +1,231 @@
+{
+  "schema": "cw-national-recovery-overlay-v0.1",
+  "scope": "US state county community city municipality emergency and public-audit evidence graph",
+  "inventory_source": "Authenticated GitHub repository listing and file reads; names/paths/public blob objects only",
+  "inventory_date": "2026-11-21",
+  "repository_owner": "jsonwisdom",
+  "repository_inventory_count_observed": 89,
+  "inventory_complete_for_all_repositories": false,
+  "preexisting_registry_count": "87 as claimed in CITIZEN_ROOT repository index dated 2026-09-15; not an independently replayed count",
+  "policy": {
+    "source_bytes_rewrite_forbidden": true,
+    "archive_contents_copied": false,
+    "private_repository_names_and_paths_redacted": true,
+    "secrets_and_wallet_keys_forbidden": true,
+    "identity_legal_authority_inferred": false,
+    "source_git_sha1_is_not_sha256": true,
+    "all_import_statuses_default": "HOLD",
+    "signing_status": "HOLD",
+    "zero_knowledge_status": "NOT_IMPLEMENTED",
+    "government_emergency_authority": false
+  },
+  "geography": {
+    "national_root": "US",
+    "state_identifier": "official current state identifiers with authority/date and effective periods",
+    "county_identifier": "US Census county GEOID / FIPS; account for county-equivalents and independent cities",
+    "place_identifier": "US Census place GEOID, GNIS feature ID, or a declared authoritative local ID",
+    "edges": "explicit many-to-many jurisdiction graph; not all places map to exactly one county; avoid treating a population place as incorporated government",
+    "aggregation": "City/place ↔ county equivalent ↔ state/territory ↔ national; preserve horizontal interstate and cross-county links",
+    "coverage_counts_are_targets_not_established": true
+  },
+  "missions": [
+    "audit",
+    "emergency-information"
+  ],
+  "sources": [
+    {
+      "repo": "jsonwisdom/CITIZEN_ROOT",
+      "path": "CITIZEN_ROOT_INDEX.json",
+      "git_blob_sha1": "c1d1de0ac600feb49f5438f200e59950f23c6b21",
+      "role": "discovery_root",
+      "mission": "registry",
+      "status": "POINTER_VERIFIED_CONTENT_REPLAY_HOLD",
+      "authority": false
+    },
+    {
+      "repo": "jsonwisdom/CITIZEN_ROOT",
+      "path": "registry/REPOSITORY_SERVICE_INDEX_V0_1.json",
+      "git_blob_sha1": "6be39fe08a1f45dbfe44fe4fd3a5abbe686a66ee",
+      "role": "repository_inventory",
+      "mission": "registry",
+      "status": "POINTER_VERIFIED_CONTENT_REPLAY_HOLD",
+      "authority": false
+    },
+    {
+      "repo": "jsonwisdom/CITIZEN_ROOT",
+      "path": "jurisdictions/README.md",
+      "git_blob_sha1": "be6963f9d656c338920fc413c527cdd5d63821c3",
+      "role": "jurisdiction_overlay_rule",
+      "mission": "registry",
+      "status": "POINTER_VERIFIED_CONTENT_REPLAY_HOLD",
+      "authority": false
+    },
+    {
+      "repo": "jsonwisdom/CITIZEN_ROOT",
+      "path": "verification/merkle.py",
+      "git_blob_sha1": "8ab5299bf590e6d7351aa8012715fa79e93c9b4d",
+      "role": "existing_merkle_verifier",
+      "mission": "cryptography",
+      "status": "POINTER_VERIFIED_CONTENT_REPLAY_HOLD",
+      "authority": false
+    },
+    {
+      "repo": "jsonwisdom/CITIZEN_ROOT",
+      "path": "verification/README.md",
+      "git_blob_sha1": "738b244ba55289c74357385653285a97cfd309e0",
+      "role": "canonicalization_contract",
+      "mission": "cryptography",
+      "status": "POINTER_VERIFIED_CONTENT_REPLAY_HOLD",
+      "authority": false
+    },
+    {
+      "repo": "jsonwisdom/AL",
+      "path": "data/mn_jurisdictions.json",
+      "git_blob_sha1": "32065d9740988e017e612ee6664ee083656f9aa5",
+      "role": "minnesota_jurisdiction_candidates",
+      "mission": "audit",
+      "status": "POINTER_VERIFIED_CONTENT_REPLAY_HOLD",
+      "authority": false
+    },
+    {
+      "repo": "jsonwisdom/AL",
+      "path": "README.md",
+      "git_blob_sha1": "5b745f70b375824ed0bfb0af0bf65c28b5ffd241",
+      "role": "audit_replay_charter",
+      "mission": "audit",
+      "status": "POINTER_VERIFIED_CONTENT_REPLAY_HOLD",
+      "authority": false
+    },
+    {
+      "repo": "jsonwisdom/COMPUTERWISDOM",
+      "path": "scripts/ooda_emergency_probe.py",
+      "git_blob_sha1": "1cdf3687d73eec71babd6ea123f371d47e7e004f",
+      "role": "emergency_monitoring_probe",
+      "mission": "emergency",
+      "status": "POINTER_VERIFIED_CONTENT_REPLAY_HOLD",
+      "authority": false
+    },
+    {
+      "repo": "jsonwisdom/COMPUTERWISDOM",
+      "path": "docs/ooda-emergency/PURPOSE_FUNCTION_JOY_MONITOR_V0_2.md",
+      "git_blob_sha1": "960d116f3ff6519cd0f2cac02ce797e826c3a5e4",
+      "role": "emergency_continuity_design",
+      "mission": "emergency",
+      "status": "POINTER_VERIFIED_CONTENT_REPLAY_HOLD",
+      "authority": false
+    },
+    {
+      "repo": "jsonwisdom/COMPUTERWISDOM",
+      "path": "receipts/cloudflare/CW_OODA_EMERGENCY_50STATE_PUBLIC_REACHABILITY_2026-11-14.md",
+      "git_blob_sha1": "e01830c2f05f67d8c60e51c952933441bd356e19",
+      "role": "historical_public_reachability_claim",
+      "mission": "emergency",
+      "status": "POINTER_VERIFIED_CONTENT_REPLAY_HOLD",
+      "authority": false
+    },
+    {
+      "repo": "jsonwisdom/COMPUTERWISDOM",
+      "path": "docs/CITIZEN_ROOT_AUDIT_2026-11-05.md",
+      "git_blob_sha1": "835d67ae376ae1c255c128a7ff9ddf8c2dcda1f4",
+      "role": "historical_deployment_audit",
+      "mission": "governance",
+      "status": "POINTER_VERIFIED_CONTENT_REPLAY_HOLD",
+      "authority": false
+    },
+    {
+      "repo": "jsonwisdom/RMT",
+      "path": "README.md",
+      "git_blob_sha1": "9eadd15c0615494ba23dca5e05cdde0fd11d1467",
+      "role": "merkle_claim_prototype",
+      "mission": "cryptography",
+      "status": "POINTER_VERIFIED_CONTENT_REPLAY_HOLD",
+      "authority": false
+    },
+    {
+      "repo": "jsonwisdom/GENESIS",
+      "path": "README.md",
+      "git_blob_sha1": "c8fb01270dfd62bc880e40fb166cb61ed0718080",
+      "role": "artifact_lifecycle",
+      "mission": "governance",
+      "status": "POINTER_VERIFIED_CONTENT_REPLAY_HOLD",
+      "authority": false
+    },
+    {
+      "repo": "jsonwisdom/public-proof",
+      "path": "scripts/cw_ci.py",
+      "git_blob_sha1": "7d855a4341967e4c10759d9fa53f60f91e29e7c1",
+      "role": "published_page_integrity_pipeline",
+      "mission": "publication",
+      "status": "POINTER_VERIFIED_CONTENT_REPLAY_HOLD",
+      "authority": false
+    },
+    {
+      "repo": "jsonwisdom/public-proof",
+      "path": ".github/workflows/cw-ci-first.yml",
+      "git_blob_sha1": "537dd0625f90d5a66f0bf0357a5c7f509cf81781",
+      "role": "publication_ci",
+      "mission": "publication",
+      "status": "POINTER_VERIFIED_CONTENT_REPLAY_HOLD",
+      "authority": false
+    }
+  ],
+  "further_repositories_discovered": [
+    {
+      "repo": "jsonwisdom/JOY",
+      "status": "REPO_LISTED_FILE_LEVEL_REPLAY_REQUIRED"
+    },
+    {
+      "repo": "jsonwisdom/ReceiptOS",
+      "status": "REPO_LISTED_FILE_LEVEL_REPLAY_REQUIRED"
+    },
+    {
+      "repo": "jsonwisdom/receiptos-base",
+      "status": "REPO_LISTED_FILE_LEVEL_REPLAY_REQUIRED"
+    },
+    {
+      "repo": "jsonwisdom/receipts-engine-v1",
+      "status": "REPO_LISTED_FILE_LEVEL_REPLAY_REQUIRED"
+    },
+    {
+      "repo": "jsonwisdom/provenance-audit-kit",
+      "status": "REPO_LISTED_FILE_LEVEL_REPLAY_REQUIRED"
+    },
+    {
+      "repo": "jsonwisdom/flywheel-of-wisdom",
+      "status": "REPO_LISTED_FILE_LEVEL_REPLAY_REQUIRED"
+    },
+    {
+      "repo": "jsonwisdom/jason-parallel-drift-auditor",
+      "status": "REPO_LISTED_FILE_LEVEL_REPLAY_REQUIRED"
+    },
+    {
+      "repo": "jsonwisdom/mn-ago-entropy-ledger",
+      "status": "REPO_LISTED_FILE_LEVEL_REPLAY_REQUIRED"
+    },
+    {
+      "repo": "jsonwisdom/layered-proofing-state-level-alms",
+      "status": "REPO_LISTED_FILE_LEVEL_REPLAY_REQUIRED"
+    },
+    {
+      "repo": "jsonwisdom/master-room-registry",
+      "status": "REPO_LISTED_FILE_LEVEL_REPLAY_REQUIRED"
+    },
+    {
+      "repo": "jsonwisdom/ENS",
+      "status": "REPO_LISTED_FILE_LEVEL_REPLAY_REQUIRED"
+    },
+    {
+      "repo": "jsonwisdom/JSONWisdom-Control-Center",
+      "status": "REPO_LISTED_FILE_LEVEL_REPLAY_REQUIRED"
+    }
+  ],
+  "next_tests": [
+    "Recompute exact source SHA-256 from fetched raw bytes; do not infer it from Git blob SHA-1",
+    "Compare existing CITIZEN_ROOT Merkle convention versus the newly proposed CW Genesis Merkle convention: they differ on hash framing and odd-leaf handling",
+    "Resolve national state/county/place IDs with official date-stamped source tables and independent citations",
+    "Reconcile AL jurisdiction placeholder URLs with authoritative fiscal sources; keep unverified claims HOLD",
+    "Verify emergency Worker current state and compare to recorded historical reachability receipt",
+    "Keep wallet signing, EIP-1271, ZK proof claims, and public/government authority separately gated"
+  ],
+  "disposition": "DISCOVERY_OVERLAY_ONLY_NO_SOURCE_PROMOTION"
+}

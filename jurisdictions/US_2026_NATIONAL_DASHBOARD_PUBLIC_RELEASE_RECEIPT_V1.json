@@ -1,0 +1,56 @@
+{
+  "schema": "cw-public-national-evidence-dashboard-release-v1",
+  "date_utc": "2026-11-21",
+  "authorization": "User explicitly approved publication and deployment of read-only national evidence dashboard in current conversation",
+  "scope": "Public Census geographic evidence only; 50 states, excluding D.C. and territories",
+  "repository": "jsonwisdom/CITIZEN_ROOT",
+  "pr_number": 10,
+  "pr_draft": true,
+  "merge_authorized": false,
+  "github_dashboard_source": "site/national-evidence-dashboard/worker.js",
+  "github_source_commit": "ca47df1901da27d6a975180a6d93c48207935f4e",
+  "github_release_test_commit": "148d5d36914557411359c9197b6ccb2869a68862",
+  "github_release_ci": {
+    "run_id": 44875240759,
+    "conclusion": "success",
+    "tests": "Node syntax check and receipt/hash/Merkle/readonly HTTP checks passed"
+  },
+  "cloudflare": {
+    "script": "cw-national-evidence-dashboard-v1",
+    "endpoint": "https://cw-national-evidence-dashboard-v1.jaywisdom44.workers.dev/",
+    "deployment_id": "4e7f504c-55c9-4d48-ae66-a08379d215e2",
+    "version_id": "5975a0bc-70e6-439c-bc56-d35869ee001d",
+    "workers_dev_enabled": true,
+    "previews_enabled": false,
+    "method": "Cloudflare API module worker upload, auto-deploy at 100 percent",
+    "other_workers_unchanged": [
+      "cw-ooda-emergency-50state-v01",
+      "cw-ooda-emergency-50state-replica-v01"
+    ]
+  },
+  "live_independent_wolfram_http_check": {
+    "root_page": {
+      "status": 200,
+      "sha256": "8fa44b164d7efc8e2fd7786538791111dae9f37448b0a24a97573fa8733bbf89"
+    },
+    "health": {
+      "status": 200,
+      "sha256": "bf4fb773e0094e1b57f779630c2d44a1f7da65faae71bc695eaea8af042001f1"
+    },
+    "manifest": {
+      "status": 200,
+      "sha256": "6255fddb2f35b3b59ec87c5b38081b4a9da20c861ed892e933da2f1d38a5f47d"
+    },
+    "minnesota": {
+      "status": 200,
+      "sha256": "df9f410743ab8adc0fa47595840cd1079a47f6f0b5346210d6626a41557a4d1a"
+    }
+  },
+  "national_merkle_root_sha256": "85c1c9e8bf6ca6245a4c5966213508a168a25e9a766fd2798bd1f3ac44a86b7b",
+  "public_data_only": true,
+  "government_authority": false,
+  "legal_causation": "HOLD",
+  "wallet_signing": "HOLD",
+  "emergency_activation": false,
+  "other_production_systems_untouched": true
+}

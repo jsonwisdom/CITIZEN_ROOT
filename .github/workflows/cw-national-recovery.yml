@@ -22,6 +22,9 @@ on:
       - "jurisdictions/MN_BAS_2021_2025_SHA256_SOURCE_MANIFEST.json"
       - "verification/match_mn_bas_2021_2025.py"
       - "verification/test_match_mn_bas_2021_2025.py"
+      - "jurisdictions/WI_CENSUS_2020_2026_BAS_SOURCE_MANIFEST_V0_1.json"
+      - "verification/replay_wi_2020_2026_delta_bas.py"
+      - "verification/test_replay_wi_2020_2026_delta_bas.py"
       - ".github/workflows/cw-national-recovery.yml"
   workflow_dispatch:
 permissions:
@@ -134,5 +137,26 @@ jobs:
         with:
           name: cw-mn-bas-2021-2025-eight-geoid-candidates
           path: mn-bas-2021-2025-eight-geoid-candidates.json
+          retention-days: 30
+          if-no-files-found: error
+  wi-2020-2026-geographic-delta-bas:
+    needs: national-discovery-check
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install pinned geometry-only dependencies
+        run: python3 -m pip install --disable-pip-version-check shapely==2.1.2 pyshp==2.3.1
+      - name: Test Wisconsin multi-county edges and BAS evidence guard
+        run: python3 -B -m unittest verification.test_replay_wi_2020_2026_delta_bas -v
+      - name: Independently replay Wisconsin 2020 and 2026 Census and BAS source hashes
+        run: python3 -B -m verification.replay_wi_2020_2026_delta_bas
+      - name: Preserve Wisconsin geographic difference and BAS candidate receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: cw-wi-2020-2026-geographic-bas-candidates
+          path: wi-2020-2026-delta-bas-candidates.json
           retention-days: 30
           if-no-files-found: error

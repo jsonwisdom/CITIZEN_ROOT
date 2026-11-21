@@ -8,7 +8,7 @@
     "sha256_observed_prior": "05e0cc7aed74003781ac642fe6165c32bb1806d6cf4a8324816bae6f09fc8aa1",
     "source_bytes_modified": false
   },
-  "status": "DRAFT_CROSSWALK_PENDING_INDEPENDENT_RELATIONSHIP_REPLAY",
+  "status": "DRAFT_CROSSWALK_BAS26_COUNTY_SUBDIVISION_EDGE_VERIFIED_PLACE_COUNTY_RELATIONSHIP_FILE_HOLD",
   "authority": false,
   "geographic_ids_are_not_legal_entity_authority": true,
   "geographic_relationships_can_be_many_to_many": true,
@@ -20,6 +20,16 @@
     {
       "id": "census_place",
       "url": "https://www.census.gov/quickfacts/fact/table/minneapoliscityminnesota/POP060220"
+    },
+    {
+      "id": "census_bas26_mn_cousub",
+      "url": "https://tigerweb.geo.census.gov/tigerwebmain/Files/bas26/tigerweb_bas26_cousub_mn.html",
+      "as_of": "2025-11-30",
+      "source_row_geoid": "2705343000",
+      "source_row_state": "27",
+      "source_row_county": "053",
+      "source_row_county_subdivision": "43000",
+      "source_row_name": "Minneapolis city"
     }
   ],
   "mapping": [
@@ -89,7 +99,7 @@
       "place_fips": "43000",
       "id_status": "MATCH_BY_NAME_WITH_SOURCE",
       "source_id": "census_place",
-      "relationship_status": "PLACE_COUNTY_RELATIONSHIP_HOLD"
+      "relationship_status": "HENNEPIN_COUNTY_SUBDIVISION_EDGE_BAS26_VERIFIED_PLACE_RELATIONSHIP_FILE_HOLD"
     }
   ],
   "edges": [
@@ -116,10 +126,19 @@
       "to": "27",
       "edge": "place_in_state",
       "status": "CENSUS_VERIFIED"
+    },
+    {
+      "from": "2743000",
+      "to": "27053",
+      "edge": "place_to_county_inferred_from_matching_incorporated_city_county_subdivision",
+      "status": "BAS26_COUNTY_SUBDIVISION_ROW_VERIFIED_PLACE_RELATIONSHIP_FILE_HOLD",
+      "source_id": "census_bas26_mn_cousub",
+      "source_row_geoid": "2705343000",
+      "vintage": "2026 BAS; geographic data as of 2025-11-30"
     }
   ],
   "unresolved": [
-    "2026 official place-to-county relationship file must be fetched and verified before place-to-county assertions",
+    "Separate official place-to-county relationship file still required to independently verify place geometry membership; BAS26 separately documents county subdivision Minneapolis city in Hennepin",
     "Potential AL code-to-FIPS false equivalences: 027 != 053, 019 != 037, 062 != 123",
     "No source PDF contents authenticated by this crosswalk",
     "No emergency authority created or geography-derived"

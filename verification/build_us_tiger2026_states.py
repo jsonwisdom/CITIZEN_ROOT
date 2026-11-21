@@ -24,13 +24,14 @@ def load_pins():
     hist=json.loads(HISTFILE.read_text())
     if (pins["schema"]!="cw-us-tiger2026-pinned-place-source-coverage-v0.1"
         or pins["vintage"]!=2026 or pins["expected_states"]!=50
-        or pins["not_nationwide_complete"] is not True
+        or pins["not_nationwide_complete"] is not False
         or pins["authority_created"] is not False
         or hist["file_count"]!=56):
         raise ValueError("UNTRUSTED_COVERAGE_SCHEMA")
     entries=pins["pinned_states"]
     fips=[e["state_fips"] for e in entries]
     if (len(set(fips))!=len(fips) or not set(fips).issubset(STATES)
+        or pins["not_nationwide_complete"] is not (len(entries)<50)
         or pins["coverage_state_count"]!=len(entries)
         or pins["remaining_unpinned_states"]!=50-len(entries)):
         raise ValueError("INCOMPLETE_OR_FALSE_COVERAGE")

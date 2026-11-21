@@ -1,0 +1,29 @@
+{
+  "schema": "cw-tiger-2026-mn-geometric-source-set-v0.1",
+  "vintage": 2026,
+  "agency": "U.S. Census Bureau",
+  "scope": "Minnesota place polygons and national county polygons; state 27 county polygons only",
+  "sources": [
+    {
+      "kind": "place",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_27_place.zip",
+      "bytes": 2560853,
+      "sha256": "3a95ade81d565fe326f512790cdd32d4db44de0f0e6d7729043a067a1659580f"
+    },
+    {
+      "kind": "county",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/COUNTY/tl_2026_us_county.zip",
+      "bytes": 83378454,
+      "sha256": "b527c9ba7aeb8f17ef118f026eae5e5a938aa1d00b873bc32342d0dce59321c0"
+    }
+  ],
+  "pin_observation": "Wolfram URLRead ByteArray, official HTTPS exact response, 2026-11-21 UTC",
+  "expected_minneapolis_place_geoid": "2743000",
+  "expected_hennepin_county_geoid": "27053",
+  "authority": false,
+  "source_date": "TIGER2026",
+  "historical_2020_source_modified": false,
+  "replay_gate": "NOT_YET_EXECUTED",
+  "wallet_signing": "HOLD",
+  "government_emergency_authority": false
+}

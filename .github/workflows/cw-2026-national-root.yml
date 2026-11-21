@@ -1,0 +1,57 @@
+name: CW 50-State National Merkle Evidence Root (DRAFT ONLY)
+on:
+  pull_request:
+    paths:
+      - "verification/aggregate_us_2026_state_receipts.py"
+      - "verification/test_aggregate_us_2026_state_receipts.py"
+      - "jurisdictions/US_2026_STATE_RECEIPTS_ORIGINAL_LOG_SHA256_V0_1.json"
+      - ".github/workflows/cw-2026-national-root.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  aggregate-verified-50-state-receipts:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Test independent Merkle arithmetic, exact byte hash and legal HOLD
+        run: python3 -B -m unittest verification.test_aggregate_us_2026_state_receipts -v
+      - name: Validate source run ID, immutable commit and completed success
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: jsonwisdom/CITIZEN_ROOT
+        run: |
+          set -euo pipefail
+          gh api repos/jsonwisdom/CITIZEN_ROOT/actions/runs/44873748371 > source-run.json
+          python3 - <<'PY'
+          import json
+          run=json.load(open('source-run.json'))
+          if run.get('id')!=44873748371 or run.get('status')!='completed' or run.get('conclusion')!='success' or run.get('head_sha')!='da992f4a902757409a29379794354b8d873d4559':
+              raise SystemExit('SOURCE_RUN_UNVERIFIED_HOLD')
+          print("ORIGINAL_50_STATE_GITHUB_RUN_VERIFIED",run['id'],run['head_sha'])
+          PY
+      - name: Re-download the FIFTY original state receipt artifacts from the pinned run
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: jsonwisdom/CITIZEN_ROOT
+        run: |
+          set -euo pipefail
+          gh run download 44873748371 --repo jsonwisdom/CITIZEN_ROOT --pattern 'cw-state-2026-geography-*' --dir original-state-receipts
+          count=$(find original-state-receipts -type f -name 'state-??-2026-geography.json' | wc -l)
+          test "$count" -eq 50 || { echo "INCOMPLETE_ARTIFACT_DOWNLOAD count=$count"; exit 1; }
+      - name: Independently SHA-256 rehash, cross-validate and compute deterministic national root
+        run: |
+          python3 -B -m verification.aggregate_us_2026_state_receipts --artifacts original-state-receipts --output cw-us-2026-national-merkle-root.json
+      - name: Preserve immutable national root receipt; no production release
+        uses: actions/upload-artifact@v4
+        with:
+          name: cw-us-2026-national-50state-merkle-root
+          path: cw-us-2026-national-merkle-root.json
+          retention-days: 90
+          if-no-files-found: error

@@ -1,0 +1,322 @@
+{
+  "schema": "cw-us-tiger2026-pinned-place-source-coverage-v0.1",
+  "vintage": 2026,
+  "expected_states": 50,
+  "source_root": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/",
+  "county": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/COUNTY/tl_2026_us_county.zip",
+    "bytes": 83378454,
+    "sha256": "b527c9ba7aeb8f17ef118f026eae5e5a938aa1d00b873bc32342d0dce59321c0"
+  },
+  "pinned_states": [
+    {
+      "state_fips": "01",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_01_place.zip",
+      "bytes": 5292481,
+      "sha256": "b47351eb605640dc81ab7fa569be9a0d9e0500fc51d58f26230586805c8f6219"
+    },
+    {
+      "state_fips": "02",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_02_place.zip",
+      "bytes": 2856510,
+      "sha256": "141091e71bf8e593b7d4be6f2815e36a133a94b83b6c2c6ebc69ba131515349c"
+    },
+    {
+      "state_fips": "04",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_04_place.zip",
+      "bytes": 2823203,
+      "sha256": "ef72502cf1c4cb3537c89fa855b124ee2432f35f0d07b1ad2b2138118e5e175c"
+    },
+    {
+      "state_fips": "05",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_05_place.zip",
+      "bytes": 2455776,
+      "sha256": "8a5af8be4f644ee1c72aa702bf538338b5ad4f1c02d0291522f7e40c3dfaba92"
+    },
+    {
+      "state_fips": "06",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_06_place.zip",
+      "bytes": 9914946,
+      "sha256": "4f1475be8db892b1d4894011846c5c857fe445bf876e470003170cd333d68032"
+    },
+    {
+      "state_fips": "08",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_08_place.zip",
+      "bytes": 2802569,
+      "sha256": "92cecb137f658528c3b33010e853c46415d9ead682a087de71cfe656fab16db5"
+    },
+    {
+      "state_fips": "09",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_09_place.zip",
+      "bytes": 885964,
+      "sha256": "83308c4da971082ea3a90a1abd73c1bd682024c4d908668dac97785ea7a90265"
+    },
+    {
+      "state_fips": "10",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_10_place.zip",
+      "bytes": 452896,
+      "sha256": "edd5dce77c578d799e251ca445943bd3e07c2e142f776cfaa1438c12d4186473"
+    },
+    {
+      "state_fips": "12",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_12_place.zip",
+      "bytes": 7126286,
+      "sha256": "38a86feeb17300f9991d5c89b5fb1d61c42823cc4bacb1f7f0738605a22ed8ec"
+    },
+    {
+      "state_fips": "13",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_13_place.zip",
+      "bytes": 5267929,
+      "sha256": "1325e424664f8c0f517c0aa155e3806ca299785ccca4e1badc9fe4f3f4173e09"
+    },
+    {
+      "state_fips": "15",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_15_place.zip",
+      "bytes": 758810,
+      "sha256": "7cc09a4b1ddae08fed3a3df1e487290bf3f3c40d8142314aa5d669c4f46d7a36"
+    },
+    {
+      "state_fips": "16",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_16_place.zip",
+      "bytes": 1057756,
+      "sha256": "2fb1bf85f3ce90f38f1b1141c57a3743524a0098f8a876fd3c1f63657d0150e8"
+    },
+    {
+      "state_fips": "17",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_17_place.zip",
+      "bytes": 6176356,
+      "sha256": "ef964f31bcc58bf0f2772951348308baba7a3a1c0283bba8119e7d95319214db"
+    },
+    {
+      "state_fips": "18",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_18_place.zip",
+      "bytes": 2439734,
+      "sha256": "459568c61726b0fbeba8dba7435eff0a9ae20d33f196320754e4615257b8e015"
+    },
+    {
+      "state_fips": "19",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_19_place.zip",
+      "bytes": 1903511,
+      "sha256": "c9747376eac46a86c5c77d61f04812cac37c391d38a8c4fa57852cd5ffe77a33"
+    },
+    {
+      "state_fips": "20",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_20_place.zip",
+      "bytes": 1678130,
+      "sha256": "e154312852b91faf8f51c886123ca3c02322a2716a07d44a09414bb757dcfd56"
+    },
+    {
+      "state_fips": "21",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_21_place.zip",
+      "bytes": 2804341,
+      "sha256": "52e6b6876f49991d366936715a9251f7128734ed189376620f2543d41a87dbfd"
+    },
+    {
+      "state_fips": "22",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_22_place.zip",
+      "bytes": 1955358,
+      "sha256": "35e71b1c69c5a4fc089b1af7e6affc93790b31aacca1c81316b9ba0d5229943e"
+    },
+    {
+      "state_fips": "23",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_23_place.zip",
+      "bytes": 679550,
+      "sha256": "ae29f3fb7451c04b26e5da4b94139316e9434d3b25060a0773216fdc25ccf2ea"
+    },
+    {
+      "state_fips": "24",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_24_place.zip",
+      "bytes": 2743995,
+      "sha256": "55fe4f40bfed7141fe9a683354918e26813833abf4d9602cf9c938b852c55c30"
+    },
+    {
+      "state_fips": "25",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_25_place.zip",
+      "bytes": 1191528,
+      "sha256": "875091e775ef79569299b69a448e57d9f8fe606ac5d49285722b34648b073b7c"
+    },
+    {
+      "state_fips": "26",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_26_place.zip",
+      "bytes": 1484959,
+      "sha256": "189fa800e0e3104129cddc03faa7d48b2dd2e6ddb54c4bb8ebe92cbe1683d57a"
+    },
+    {
+      "state_fips": "27",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_27_place.zip",
+      "bytes": 2560853,
+      "sha256": "3a95ade81d565fe326f512790cdd32d4db44de0f0e6d7729043a067a1659580f"
+    },
+    {
+      "state_fips": "28",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_28_place.zip",
+      "bytes": 1511574,
+      "sha256": "46c2945ff4ac58db2583f019e57574a96e76ced9fe0d02e81c165a632025de57"
+    },
+    {
+      "state_fips": "29",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_29_place.zip",
+      "bytes": 3099569,
+      "sha256": "be9b13d02046854c1e7900243191f0bc123a88a0be965c4f4b60008ad5b642e6"
+    },
+    {
+      "state_fips": "30",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_30_place.zip",
+      "bytes": 2262364,
+      "sha256": "bb6c08a43ff30bdbc8675242798284b8640ec99bd51a8f901f556dffd314bf02"
+    },
+    {
+      "state_fips": "31",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_31_place.zip",
+      "bytes": 829720,
+      "sha256": "6b89138f3f29f86ec4681b2ed4afa196b47679611eea34d671a5cc24f5f01f8c"
+    },
+    {
+      "state_fips": "32",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_32_place.zip",
+      "bytes": 850132,
+      "sha256": "f8ee4d236bb335cc41daf0156ea7684825d084f3cf769ec70fb5ffa00770f624"
+    },
+    {
+      "state_fips": "33",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_33_place.zip",
+      "bytes": 378912,
+      "sha256": "b9377887de9ffa78f875eaf46cd3fc2fb194d48a2fbc53ab1f7a442bfb7d66ad"
+    },
+    {
+      "state_fips": "34",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_34_place.zip",
+      "bytes": 2942440,
+      "sha256": "03457086b4e4d957d2a445a56164dc256308845a6e0d4f84181238881b7e42ed"
+    },
+    {
+      "state_fips": "35",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_35_place.zip",
+      "bytes": 2363839,
+      "sha256": "5a2421f00a8fc9cfad6cddc94281e5e2e007417a53c3b12793aac089327a80b0"
+    },
+    {
+      "state_fips": "36",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_36_place.zip",
+      "bytes": 3381954,
+      "sha256": "4a78264f9d15d6b827ed48f18242074d35836873d63a0c05f18af85c28f8a564"
+    },
+    {
+      "state_fips": "37",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_37_place.zip",
+      "bytes": 8853690,
+      "sha256": "d309e8969e5535c3c66245fdd2ba194af9210128e4ab6e0716ec238bfb180328"
+    },
+    {
+      "state_fips": "38",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_38_place.zip",
+      "bytes": 538929,
+      "sha256": "4d08d73a1da6e1fec6135d67510a128a58ed2076585c3ec5e2eb5074a493a36e"
+    },
+    {
+      "state_fips": "39",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_39_place.zip",
+      "bytes": 4095091,
+      "sha256": "5572b5fd06552c0e293ce019b66d5389b25278d59cd2dff4193f36bbaed17dfe"
+    },
+    {
+      "state_fips": "40",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_40_place.zip",
+      "bytes": 2945260,
+      "sha256": "f54da470cce075bf68cbfefc0022de16e7e3d7acc4fde8a3af0fb0ce65bf1b6f"
+    },
+    {
+      "state_fips": "41",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_41_place.zip",
+      "bytes": 2371332,
+      "sha256": "48ae57d6e8f6760d24438ef66fbf06b6f1955fde884c8d89beb24db9818ce659"
+    },
+    {
+      "state_fips": "42",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_42_place.zip",
+      "bytes": 4578880,
+      "sha256": "08216e494fd68baf6e3147598d8874681ba06138a15a29ce87c9afd596b3d633"
+    },
+    {
+      "state_fips": "44",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_44_place.zip",
+      "bytes": 295074,
+      "sha256": "00770983a913c0858b356da42897dbf3a32c4d4db086b53a18fe451e2e3b2c42"
+    },
+    {
+      "state_fips": "45",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_45_place.zip",
+      "bytes": 5244877,
+      "sha256": "6311fd1255b1658f6f06de096840c6f121530d8922c63eadc035f55a49b6a579"
+    },
+    {
+      "state_fips": "46",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_46_place.zip",
+      "bytes": 818571,
+      "sha256": "39ee4b6df689e48df8a164332b9f06a25f363a90e8232c02b4118dad319c2605"
+    },
+    {
+      "state_fips": "47",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_47_place.zip",
+      "bytes": 5076262,
+      "sha256": "c35ab60215badbb0e10e1ad2c5893e87497e20b98ea75c5a8473936513c4e3a0"
+    },
+    {
+      "state_fips": "48",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_48_place.zip",
+      "bytes": 9811278,
+      "sha256": "d6bbad505fd9b6b2e2c35512d05bf30858dfdfdf3dabf037537e28f0fbbc5269"
+    },
+    {
+      "state_fips": "49",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_49_place.zip",
+      "bytes": 1654105,
+      "sha256": "bbd0eaede1fef9db90a4e16157d5b5ea32fe6bcedf1ba5888195fecb004d6846"
+    },
+    {
+      "state_fips": "50",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_50_place.zip",
+      "bytes": 589050,
+      "sha256": "1b4623df82165686ac97610b4ac4d92070a7fe554cf69ded71ec5b731f9154f4"
+    },
+    {
+      "state_fips": "51",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_51_place.zip",
+      "bytes": 3874793,
+      "sha256": "ef4b56daff25a287e57583c4c24e934a25ba7e3430f25defbe21c13754883a40"
+    },
+    {
+      "state_fips": "53",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_53_place.zip",
+      "bytes": 2858130,
+      "sha256": "fe3dc6033e2bfcd8b023be7fb12c7859eb88d1ad6794e9be430f29f3a6b83462"
+    },
+    {
+      "state_fips": "54",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_54_place.zip",
+      "bytes": 1656297,
+      "sha256": "6b8f78aaefb47b1bf0cb64abdaebb99be62c99b7c55a6a29ef79c02e2505d5d8"
+    },
+    {
+      "state_fips": "55",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_55_place.zip",
+      "bytes": 3494669,
+      "sha256": "f4cce0f2cb8e3351b699f868f2c7943fc700f6c791147c29974ed0a50ae3e9ee"
+    },
+    {
+      "state_fips": "56",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_56_place.zip",
+      "bytes": 898629,
+      "sha256": "edbd018d9e55d21fc158dcf022e26e55efd0a9c5db48ac386b05f8fa67f7eac4"
+    }
+  ],
+  "coverage_state_count": 50,
+  "remaining_unpinned_states": 0,
+  "source_hash_observer": "Wolfram exact raw BodyByteArray SHA-256 per source (HTTP 200); independent GitHub re-fetch/replay required for nationwide PASS",
+  "not_nationwide_complete": false,
+  "authority_created": false,
+  "signing_authorized": false,
+  "deployment_authorized": false,
+  "ci_replay": "PENDING",
+  "legal_causation": "HOLD"
+}

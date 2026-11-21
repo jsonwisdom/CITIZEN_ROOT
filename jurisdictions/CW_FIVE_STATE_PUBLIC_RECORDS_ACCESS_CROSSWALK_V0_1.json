@@ -1,0 +1,78 @@
+{
+  "schema": "cw-public-records-rights-jurisdiction-crosswalk-v0.1",
+  "as_of": "2026-11-20",
+  "purpose": "Separately record the controlling public-records access law for each 2026 geography pilot; identify eligible requester, public-data presumptions, exemptions and primary official citations before any conclusion of noncompliance.",
+  "geography_evidence_boundary": "Census place/county edges do not show governmental wrongdoing, establish agency jurisdiction for a disputed record, or automatically create record-access rights.",
+  "jurisdictions": [
+    {
+      "fips": "27",
+      "name": "Minnesota",
+      "statute": "Minnesota Statutes Chapter 13; §13.03",
+      "official_url": "https://www.revisor.mn.gov/statutes/cite/13.03",
+      "access_rule": "Government data presumptively public unless classified otherwise by applicable state/federal law",
+      "requester_rule": "Public-data access protections; verify exceptions and request procedures",
+      "scope_caveat": "Subject-specific nonpublic classifications and separate government-entity exclusions need review",
+      "evidence_status": "PRIMARY_OFFICIAL_STATUTE_LOCATED"
+    },
+    {
+      "fips": "55",
+      "name": "Wisconsin",
+      "statute": "Wisconsin Statutes §§19.31–19.39",
+      "official_url": "https://www.wisdoj.gov/Open%20Government/2026_Q3_CORR_Summ.pdf",
+      "supporting_url": "https://docs.legis.wisconsin.gov/statutes/statutes/19/ii/35",
+      "access_rule": "Strong public-access presumption; applicable statutory, common-law, and public-interest exceptions",
+      "requester_rule": "Record requesters generally do not need to state a purpose; confirm precise rule for requested record",
+      "scope_caveat": "Do not treat Census geography as proof the municipality has the requested record",
+      "evidence_status": "OFFICIAL_DOJ_GUIDANCE_AND_STATUTE_LINK_IDENTIFIED_STATUTE_ACCESS_RECHECK"
+    },
+    {
+      "fips": "19",
+      "name": "Iowa",
+      "statute": "Iowa Code Chapter 22",
+      "official_url": "https://ipib.iowa.gov/public-records/chapter-22-examination-public-records-open-records",
+      "access_rule": "Public examination of government records, subject to confidentiality exceptions",
+      "requester_rule": "Verify request process under §§22.2–22.3",
+      "scope_caveat": "Chapter 22.7 and other statutes exclude confidential material",
+      "evidence_status": "PRIMARY_OFFICIAL_CODE_LOCATED"
+    },
+    {
+      "fips": "17",
+      "name": "Illinois",
+      "statute": "5 ILCS 140, Illinois Freedom of Information Act",
+      "official_url": "https://www.ilga.gov/legislation/ILCS/Articles?ActID=85&ChapterID=2",
+      "access_rule": "Public-body records accessible subject to statutory exemptions",
+      "requester_rule": "Written request to public-body FOIA officer where applicable",
+      "scope_caveat": "Act-specific scope, timelines and exemptions must be applied",
+      "evidence_status": "PRIMARY_OFFICIAL_STATUTE_LOCATED"
+    },
+    {
+      "fips": "01",
+      "name": "Alabama",
+      "statute": "Alabama Code §§36-12-40–46; Act 2024-278",
+      "official_url": "https://alison.legislature.state.al.us/code-of-alabama?section=36-12-40",
+      "procedure_url": "https://alison.legislature.state.al.us/code-of-alabama?section=36-12-44",
+      "access_rule": "Residents generally may inspect and copy public records subject to exceptions",
+      "requester_rule": "Resident eligibility and agency procedure must be checked",
+      "scope_caveat": "Certain sensitive/security records and judicial-branch procedure exceptions apply; no universal FOIA claim",
+      "evidence_status": "PRIMARY_OFFICIAL_STATUTE_LOCATED"
+    }
+  ],
+  "checks": [
+    "Identify agency holding requested record and responsible records custodian",
+    "Determine whether the record is public, confidential, exempt or mixed",
+    "Preserve current statutory URL and version with observation date; record access rights independently of Census maps",
+    "Request precise record, scope, date range and format; do not assume records exist",
+    "Record agency response, refusal basis, redactions and appeal route using applicable state's statutes",
+    "No public-records rights violations are inferred from Census geographic changes",
+    "No active government enforcement authority, adjudicated claim, or election outcome asserted"
+  ],
+  "findings": {
+    "verified_government_misconduct": 0,
+    "legal_violations": "NONE_ESTABLISHED",
+    "legislative_change_caused_by_census_delta": "NONE_ESTABLISHED"
+  },
+  "execution": "READ_ONLY_DISCOVERY_NO_REQUESTS_SENT",
+  "publication": "DRAFT",
+  "wallet": "HOLD",
+  "deploy": "HOLD"
+}

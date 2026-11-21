@@ -1,0 +1,184 @@
+name: CW National Recovery Overlay (synthetic only)
+on:
+  pull_request:
+    paths:
+      - "registry/CW_NATIONAL_RECOVERY_OVERLAY_2026_11_21_V0_1.json"
+      - "verification/test_national_recovery_overlay.py"
+      - "jurisdictions/MN_AL_CENSUS_2026_CROSSWALK_V0_1.json"
+      - "verification/test_mn_al_census_crosswalk.py"
+      - "verification/import_census_place_county.py"
+      - "verification/test_import_census_place_county.py"
+      - "jurisdictions/US_CENSUS_PLACE_BY_COUNTY_2020_SHA256_MANIFEST.json"
+      - "verification/replay_census_national.py"
+      - "verification/test_replay_census_national.py"
+      - "jurisdictions/MN_CENSUS_2020_2026_IDENTITY_COMPARISON_V0_1.json"
+      - "verification/verify_mn_2026_gazetteers.py"
+      - "verification/test_mn_2026_gazetteers.py"
+      - "jurisdictions/MN_TIGER2026_PINNED_ZIP_SOURCE_MANIFEST.json"
+      - "verification/replay_mn_tiger2026_spatial.py"
+      - "verification/test_mn_tiger2026_spatial.py"
+      - "verification/mn_2020_2026_delta.py"
+      - "verification/test_mn_2020_2026_delta.py"
+      - "jurisdictions/MN_BAS_2021_2025_SHA256_SOURCE_MANIFEST.json"
+      - "verification/match_mn_bas_2021_2025.py"
+      - "verification/test_match_mn_bas_2021_2025.py"
+      - "jurisdictions/WI_CENSUS_2020_2026_BAS_SOURCE_MANIFEST_V0_1.json"
+      - "verification/replay_wi_2020_2026_delta_bas.py"
+      - "verification/test_replay_wi_2020_2026_delta_bas.py"
+      - "jurisdictions/WI_LAKE_HALLIE_ORD11315_ORIGINAL_PDF_SHA256_V0_1.json"
+      - "verification/verify_wi_lake_hallie_ordinance.py"
+      - "verification/test_verify_wi_lake_hallie_ordinance.py"
+      - ".github/workflows/cw-national-recovery.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  national-discovery-check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Run registry safety and six-scale traversal fixture checks
+        run: |
+          python3 -B verification/test_national_recovery_overlay.py -v
+          python3 -B verification/test_mn_al_census_crosswalk.py -v
+          python3 -B -m unittest verification.test_import_census_place_county -v
+          python3 -B -m unittest verification.test_replay_census_national -v
+          python3 -B -m unittest verification.test_mn_2026_gazetteers -v
+          python3 -B -m unittest verification.test_match_mn_bas_2021_2025 -v
+          python3 -B -m verification.replay_census_national --check-manifest
+  nationwide-2020-pinned-source-replay:
+    needs: national-discovery-check
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Re-fetch every official source and verify 56 pinned SHA-256 digests
+        run: python3 -B -m verification.replay_census_national --live --out census-national-2020-replay.json
+      - name: Save derived nationwide receipt only, never raw sources
+        uses: actions/upload-artifact@v4
+        with:
+          name: cw-census-national-2020-historical-replay
+          path: census-national-2020-replay.json
+          retention-days: 30
+          if-no-files-found: error
+  mn-2026-gazetteer-id-replay:
+    needs: national-discovery-check
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Re-fetch 2026 official MN Gazetteer places and counties; verify pins and IDs
+        run: python3 -B -m verification.verify_mn_2026_gazetteers > mn-2026-identity-replay.json
+      - name: Store derived identity-only receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: cw-mn-2026-identity-replay
+          path: mn-2026-identity-replay.json
+          if-no-files-found: error
+          retention-days: 30
+  mn-2026-tiger-spatial-overlap:
+    needs: national-discovery-check
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install test-only spatial dependencies
+        run: python3 -m pip install --disable-pip-version-check shapely==2.1.2 pyshp==2.3.1
+      - name: Verify synthetic multi-county geometry and source-pin rejections
+        run: python3 -B -m unittest verification.test_mn_tiger2026_spatial -v
+      - name: Download exact Census TIGER2026 ZIP bytes and replay spatial overlaps
+        run: python3 -B -m verification.replay_mn_tiger2026_spatial
+      - name: Preserve derived historical geographic receipt only
+        uses: actions/upload-artifact@v4
+        with:
+          name: cw-mn-tiger2026-spatial-replay
+          path: mn-tiger2026-spatial-replay.json
+          retention-days: 30
+          if-no-files-found: error
+  mn-2020-2026-geographic-delta:
+    needs: national-discovery-check
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install pinned geometry-only dependencies
+        run: python3 -m pip install --disable-pip-version-check shapely==2.1.2 pyshp==2.3.1
+      - name: Test provenance, multi-county membership and delta classifications
+        run: python3 -B -m unittest verification.test_mn_2020_2026_delta -v
+      - name: Recompute pinned 2020 and 2026 sources and emit geographic delta ledger
+        run: python3 -B -m verification.mn_2020_2026_delta
+      - name: Preserve change ledger without claiming BAS legal causation
+        uses: actions/upload-artifact@v4
+        with:
+          name: cw-mn-2020-2026-geographic-deltas
+          path: mn-2020-2026-geographic-deltas.json
+          retention-days: 30
+          if-no-files-found: error
+  mn-bas-eight-place-candidate-evidence:
+    needs: national-discovery-check
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Re-fetch and SHA-256 verify official Minnesota BAS 2021-2025
+        run: python3 -B -m verification.match_mn_bas_2021_2025
+      - name: Save read-only BAS candidate report; legal causation remains HOLD
+        uses: actions/upload-artifact@v4
+        with:
+          name: cw-mn-bas-2021-2025-eight-geoid-candidates
+          path: mn-bas-2021-2025-eight-geoid-candidates.json
+          retention-days: 30
+          if-no-files-found: error
+  wi-2020-2026-geographic-delta-bas:
+    needs: national-discovery-check
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install pinned geometry-only dependencies
+        run: python3 -m pip install --disable-pip-version-check shapely==2.1.2 pyshp==2.3.1
+      - name: Test Wisconsin multi-county edges and BAS evidence guard
+        run: python3 -B -m unittest verification.test_replay_wi_2020_2026_delta_bas -v
+      - name: Independently replay Wisconsin 2020 and 2026 Census and BAS source hashes
+        run: python3 -B -m verification.replay_wi_2020_2026_delta_bas
+      - name: Preserve Wisconsin geographic difference and BAS candidate receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: cw-wi-2020-2026-geographic-bas-candidates
+          path: wi-2020-2026-delta-bas-candidates.json
+          retention-days: 30
+          if-no-files-found: error
+  wi-lake-hallie-pdf-byte-proof:
+    needs: national-discovery-check
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Test signed-source and legal-causation guards
+        run: python3 -B -m unittest verification.test_verify_wi_lake_hallie_ordinance -v
+      - name: Fetch and independently pin original WI 2021-002 ordinance PDF bytes
+        run: python3 -B -m verification.verify_wi_lake_hallie_ordinance > wi-lake-hallie-ordinance-byte-proof.json
+      - name: Preserve hash proof without uploading ordinance PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: cw-wi-lake-hallie-ordinance-original-byte-proof
+          path: wi-lake-hallie-ordinance-byte-proof.json
+          retention-days: 30
+          if-no-files-found: error

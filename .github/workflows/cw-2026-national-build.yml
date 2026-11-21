@@ -1,0 +1,71 @@
+name: CW 2026 Nationwide Geography Build (DRAFT; no deployment)
+on:
+  pull_request:
+    paths:
+      - "verification/build_us_tiger2026_states.py"
+      - "verification/test_build_us_tiger2026_states.py"
+      - "jurisdictions/US_TIGER2026_PLACE_SOURCE_PIN_COVERAGE_V0_1.json"
+      - ".github/workflows/cw-2026-national-build.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  national-coverage-plan:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    outputs:
+      matrix: ${{ steps.plan.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Test fail-closed coverage and national build source pins
+        run: python3 -B -m unittest verification.test_build_us_tiger2026_states -v
+      - name: Generate exact source-pinned state matrix; never claim 50 until all 50 pass
+        id: plan
+        shell: bash
+        run: |
+          python3 -B -m verification.build_us_tiger2026_states --plan > state-plan.json
+          python3 - <<'PY'
+          import json,os
+          p=json.load(open('state-plan.json'))
+          if p['buildable_states']+len(p['pending_source_pins'])!=50:
+              raise SystemExit('NATIONAL_STATE_COUNT_MISMATCH')
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:
+              f.write('matrix='+json.dumps(p['build_matrix'],separators=(',',':'))+'\n')
+          print('CI_FIRST_PINNED_STATE_PLAN='+json.dumps({
+              'buildable_states':p['buildable_states'],
+              'pending_source_pins':len(p['pending_source_pins']),
+              'disposition':p['disposition']},sort_keys=True))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cw-2026-state-coverage-plan
+          path: state-plan.json
+          retention-days: 30
+  build-pinned-state:
+    needs: national-coverage-plan
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix: ${{ fromJSON(needs.national-coverage-plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install version-pinned geometry dependencies
+        run: python3 -m pip install --disable-pip-version-check shapely==2.1.2 pyshp==2.3.1
+      - name: Independently verify 2020/2026 source hashes, build polygon edges and 2020→2026 delta
+        env:
+          STATE_FIPS: ${{ matrix.state }}
+        run: |
+          python3 -B -m verification.build_us_tiger2026_states --state "$STATE_FIPS" --out "state-$STATE_FIPS-2026-geography.json"
+      - name: Publish READ-ONLY draft-build receipt artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cw-state-2026-geography-${{ matrix.state }}
+          path: state-${{ matrix.state }}-2026-geography.json
+          retention-days: 30
+          if-no-files-found: error

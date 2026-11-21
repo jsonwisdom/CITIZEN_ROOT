@@ -1,0 +1,74 @@
+{
+  "schema": "cw-wi-census-2020-2026-bas-source-pins-v0.1",
+  "state_fips": "55",
+  "vintages": [
+    2020,
+    2021,
+    2022,
+    2023,
+    2024,
+    2025,
+    2026
+  ],
+  "observations": "Wolfram URLRead exact body bytes independent of GitHub; HTTP 200 for each source",
+  "sources": [
+    {
+      "kind": "2020_place_by_county",
+      "url": "https://www2.census.gov/geo/docs/reference/codes2020/place_by_cou/st55_wi_place_by_county2020.txt",
+      "bytes": 70406,
+      "sha256": "5e321b0251a71fe14b807093ec57a4e4db4d8c9c64fd207f3227c76f97d26e25"
+    },
+    {
+      "kind": "2026_places",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_55_place.zip",
+      "bytes": 3494669,
+      "sha256": "f4cce0f2cb8e3351b699f868f2c7943fc700f6c791147c29974ed0a50ae3e9ee"
+    },
+    {
+      "kind": "2026_counties",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/COUNTY/tl_2026_us_county.zip",
+      "bytes": 83378454,
+      "sha256": "b527c9ba7aeb8f17ef118f026eae5e5a938aa1d00b873bc32342d0dce59321c0"
+    },
+    {
+      "kind": "bas",
+      "year": 2021,
+      "url": "https://www2.census.gov/geo/pvs/bas/annexation/55/55WI_bas2021.txt",
+      "bytes": 16958,
+      "sha256": "9422808a14f35bc9bc1ba0b3672ecd1ebb5e4717d77e2af127132c55b0dc2351"
+    },
+    {
+      "kind": "bas",
+      "year": 2022,
+      "url": "https://www2.census.gov/geo/pvs/bas/annexation/55/55WI_bas2022.txt",
+      "bytes": 20455,
+      "sha256": "80d07eb0a13d06555db84b5edd4f82b047186bc9889d0b0afefb262d63c81ff8"
+    },
+    {
+      "kind": "bas",
+      "year": 2023,
+      "url": "https://www2.census.gov/geo/pvs/bas/annexation/55/55WI_bas2023.txt",
+      "bytes": 18280,
+      "sha256": "7445b88ca00c7ddddb7a9fef29f2ccac56ed772acaa7f4990f566c0c81acbf12"
+    },
+    {
+      "kind": "bas",
+      "year": 2024,
+      "url": "https://www2.census.gov/geo/pvs/bas/annexation/55/55WI_bas2024.txt",
+      "bytes": 18602,
+      "sha256": "64f34b571d7af4379cf8d66bea04c35d75b0cb7ebecb0fd8ff0f2f3683a73b1d"
+    },
+    {
+      "kind": "bas",
+      "year": 2025,
+      "url": "https://www2.census.gov/geo/pvs/bas/annexation/55/55WI_bas2025.txt",
+      "bytes": 15996,
+      "sha256": "1cfafdea5689565bbcb66906700c11e73adfccbb3bee658aa91b5e7df55f376a"
+    }
+  ],
+  "legacy_sources_unchanged": true,
+  "geometric_differences_are_not_legal_events": true,
+  "bas_legal_causation": "HOLD",
+  "emergency_authority": false,
+  "wallet_signing": "HOLD"
+}

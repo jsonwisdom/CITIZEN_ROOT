@@ -1,0 +1,60 @@
+{
+  "schema": "cw-wi-legal-candidate-source-links-v0.1",
+  "source_of_record": "Wisconsin Department of Administration Municipal Data System (MDS)",
+  "reviewed_on": "2026-11-20",
+  "scope": "County-set delta records in Wisconsin 2020 to 2026 census replay",
+  "evidence": [
+    {
+      "geoid": "5541525",
+      "municipality": "Lake Hallie village",
+      "status": "PRIMARY_STATE_ORDINANCE_STRONG_CAUSAL_CANDIDATE",
+      "observed_delta": "2020 vs 2026 Census county-set change; exact before/after sets in CI artifact",
+      "ord_number": "2021-002",
+      "state_mds_ordinance_id": "11315",
+      "ordinance_url": "https://mds.wi.gov/View/Ordinance?ID=11230",
+      "petition_url": "https://mds.wi.gov/View/Petition?ID=2454&MODE=0",
+      "effective_date": "2021-06-08",
+      "area_acres": "64.08",
+      "source_statement": "MDS comments state first Lake Hallie annexation into Eau Claire County from Town of Seymour; prior jurisdiction only in Chippewa County",
+      "documented_legal_event": true,
+      "exact_polygon_reconciled": false,
+      "full_causation_status": "HOLD"
+    },
+    {
+      "geoid": "5526982",
+      "municipality": "Fox Crossing village",
+      "status": "STATE_ORDINANCE_FOUND_NO_DIRECT_COUNTY_SET_CAUSATION",
+      "ordinance_url": "https://mds.wi.gov/View/Ordinance?ID=11427&MODE=0",
+      "other_official_link": "https://mds.wi.gov/View/Documents?ID=11520&Type=OrdinanceFile",
+      "limitation": "2022 Menasha-to-Fox-Crossing transfer in Winnebago County does not itself prove separate new county edge; match exact changed county and ordinance geometry",
+      "documented_legal_event": true,
+      "exact_polygon_reconciled": false,
+      "full_causation_status": "HOLD"
+    },
+    {
+      "geoid": "5532790",
+      "municipality": "Harrison village",
+      "status": "STATE_BOUNDARY_EVENT_FOUND_CAUSAL_LINK_UNESTABLISHED",
+      "ordinance_url": "https://mds.wi.gov/View/Ordinance?ID=11544",
+      "number": "103-20",
+      "effective_date": "2020-10-13",
+      "location": "Calumet County",
+      "limitation": "Road right-of-way / detachment-attachment records require independent polygon and timing check before comparing 2020 and 2026 county sets",
+      "documented_legal_event": true,
+      "exact_polygon_reconciled": false,
+      "full_causation_status": "HOLD"
+    }
+  ],
+  "rules": [
+    "Only official state MDS HTML records were evaluated in this pass",
+    "MDS record validates reported legal event; source accuracy and legal effect require detailed document verification",
+    "Do not infer causation from shared GEOID or presence of ordinance alone",
+    "No polygon geometry overlay of legal description to Census boundary in this checkpoint",
+    "Source page URLs are evidence pointers, not exact-byte SHA256 for the ordinance PDFs",
+    "Never equate Wisconsin MDS annexor and annexee labels with Census place-to-county mapping without verification"
+  ],
+  "source_document_sha256": "NOT_YET_COMPUTED",
+  "authority_created": false,
+  "production_release": "HOLD",
+  "wallet_signing": "HOLD"
+}

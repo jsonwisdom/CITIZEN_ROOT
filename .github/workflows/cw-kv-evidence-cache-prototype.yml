@@ -1,0 +1,22 @@
+name: CW KV Immutable Evidence Cache Prototype (NO DEPLOY)
+on:
+  pull_request:
+    paths:
+      - "verification/kv_public_evidence_cache_v01.mjs"
+      - "verification/test_kv_public_evidence_cache_v01.mjs"
+      - ".github/workflows/cw-kv-evidence-cache-prototype.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test-readonly-kv-prototype:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Syntax-check read-only cache helper
+        run: node --check verification/kv_public_evidence_cache_v01.mjs
+      - name: Run synthetic pinned-hash and fail-closed KV mock tests
+        run: node verification/test_kv_public_evidence_cache_v01.mjs

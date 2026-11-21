@@ -1,0 +1,33 @@
+{
+  "schema": "cw-wi-lake-hallie-ordinance-byte-proof-v0.1",
+  "state": "Wisconsin",
+  "municipality": "Village of Lake Hallie",
+  "place_geoid": "5541525",
+  "source": "Wisconsin Department of Administration Municipal Data System",
+  "record_url": "https://mds.wi.gov/View/Ordinance?ID=11230",
+  "original_document_url": "https://mds.wi.gov/View/Documents?ID=11315&Type=OrdinanceFile",
+  "ordinance_number": "2021-002",
+  "ordinance_id": "11315",
+  "effective_date": "2021-06-08",
+  "amendment_adoption_date": "2021-06-07",
+  "reported_acres": 64.08,
+  "county": "Eau Claire",
+  "town": "Seymour",
+  "stated_first_cross_county_annexation": true,
+  "ordinance_exact_bytes": {
+    "status": "INDEPENDENT_WOLFRAM_BYTE_HASH_PASS_GITHUB_REPLAY_HOLD",
+    "observed_http": 200,
+    "content_type": "application/pdf",
+    "length_bytes": 2841313,
+    "sha256": "abf514ca0040c9759177e457ca7101426a95481ab621859d860544771c8ee2f9",
+    "method": "Wolfram URLRead BodyByteArray"
+  },
+  "document_contents_limited_to": "Amendment first page plus MDS metadata evaluated; full seven-page map/survey attachment not fully inspected; web screenshot attempts failed with cache miss",
+  "legal_description_excerpt": "Part of the fractional north half of the north quarter of Section 1, Township 27 North, Range 9 West, Town of Seymour, Eau Claire County, Wisconsin",
+  "boundary_parcel_georeferencing": "HOLD",
+  "ordinance_polygon_area_intersection_with_2026": "HOLD",
+  "legal_event_documentation": "PRIMARY_STATE_RECORD_AND_PDF_HASH_PASS",
+  "legal_causation": "STRONG_CANDIDATE_NOT_FULL_GEOMETRIC_RECONCILIATION",
+  "wallet_signing": "HOLD",
+  "production_deployment": "HOLD"
+}

@@ -1,0 +1,45 @@
+{
+  "schema": "cw-census-source-observation-v0.1",
+  "source_url": "https://www2.census.gov/geo/docs/reference/codes2020/place_by_cou/st27_mn_place_by_county2020.txt",
+  "source_agency": "U.S. Census Bureau",
+  "source_product": "2020 place-by-county geographic codes listing",
+  "vintage": "2020",
+  "download_observation": "Wolfram URLRead; HTTP 200; exact response BodyByteArray; Accept-Encoding identity",
+  "sha256": "0dae02710c8ee1e39f426cb84c47a7eab25ca26c692f24784f89b20d3655e886",
+  "size_bytes": 75945,
+  "data_rows_observed": 964,
+  "multicounty_places_observed": 49,
+  "geographic_examples": [
+    {
+      "place_geoid": "2743000",
+      "name": "Minneapolis city",
+      "county_geoids": [
+        "27053"
+      ]
+    },
+    {
+      "place_geoid": "2706382",
+      "name": "Blaine city",
+      "county_geoids": [
+        "27003",
+        "27123"
+      ]
+    },
+    {
+      "place_geoid": "2756950",
+      "name": "St. Francis city",
+      "county_geoids": [
+        "27003",
+        "27059"
+      ]
+    }
+  ],
+  "cross_vintage_warning": "2020 reference only; does not establish all current 2026 place-to-county relationships",
+  "privacy": "No private person-level records",
+  "authority": false,
+  "signing_status": "HOLD",
+  "live_emergency_alerts_established": false,
+  "independent_github_ci_download": "NOT_CHECKED",
+  "evidence_status": "SOURCE_BYTES_HASHED_OFFICIAL_LISTING",
+  "source_embedded_in_repository": false
+}

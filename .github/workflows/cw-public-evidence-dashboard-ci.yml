@@ -1,0 +1,22 @@
+name: CW Public Evidence Dashboard Release Gate (NO DEPLOY)
+on:
+  pull_request:
+    paths:
+      - "site/national-evidence-dashboard/**"
+      - "verification/test_national_evidence_dashboard.mjs"
+      - ".github/workflows/cw-public-evidence-dashboard-ci.yml"
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-public-dashboard:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Check dashboard module grammar
+        run: node --input-type=module --check < site/national-evidence-dashboard/worker.js
+      - name: Test pinned original 50 receipts, Merkle, API and read-only controls
+        run: node verification/test_national_evidence_dashboard.mjs

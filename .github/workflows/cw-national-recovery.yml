@@ -6,6 +6,8 @@ on:
       - "verification/test_national_recovery_overlay.py"
       - "jurisdictions/MN_AL_CENSUS_2026_CROSSWALK_V0_1.json"
       - "verification/test_mn_al_census_crosswalk.py"
+      - "verification/import_census_place_county.py"
+      - "verification/test_import_census_place_county.py"
       - ".github/workflows/cw-national-recovery.yml"
   workflow_dispatch:
 permissions:
@@ -22,3 +24,4 @@ jobs:
         run: |
           python3 -B verification/test_national_recovery_overlay.py -v
           python3 -B verification/test_mn_al_census_crosswalk.py -v
+          python3 -B -m unittest verification.test_import_census_place_county -v

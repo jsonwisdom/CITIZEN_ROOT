@@ -95,5 +95,6 @@ if __name__=="__main__":
     if path.exists():
         raise SystemExit("OUTPUT_EXISTS_FAIL_CLOSED")
     path.write_bytes(raw)
+    print("CW_MN_DELTA_REVIEW_GEOIDS="+json.dumps([{"place_geoid":x["place_geoid"],"historical_name":x["historical_name"],"classification":x["classification"],"before":x["before_county_geoids"],"after":x["after_county_geoids"]} for x in result["deltas"] if x["classification"]!="UNCHANGED_COUNTY_SET"],sort_keys=True,separators=(",",":")))
     print("CW_MN_2020_2026_GEOGRAPHIC_DELTA_PASS counts=%s sha256=%s"%
           (json.dumps(result["counts"],sort_keys=True,separators=(",",":")),hashlib.sha256(raw).hexdigest()))

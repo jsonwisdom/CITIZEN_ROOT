@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """National build source-set and 2026 geography release-guard tests (offline)."""
 import unittest
-from verification.build_us_tiger2026_states import STATES,load_pins,plan,build_one
+from verification.build_us_tiger2026_states import STATES,load_pins,plan,build_one,diff_state
 
 class NationalBuildTests(unittest.TestCase):
     def test_coverage_is_explicit_partial(self):
@@ -22,6 +22,18 @@ class NationalBuildTests(unittest.TestCase):
         pins,h=load_pins()
         with self.assertRaisesRegex(ValueError,"STATE_2026_PIN_MISSING_HOLD"):
             build_one("02",pins,h,fetcher=lambda _: (_ for _ in ()).throw(AssertionError("No network")))
+    def test_state_parameterized_diff_for_alabama_and_illinois(self):
+        for fips in ("01","17","19","27","55"):
+            place=fips+"00001"
+            county=fips+"001"
+            baseline=[{"place_geoid":place,"county_geoid":county}]
+            updated=baseline+[{"place_geoid":place,"county_geoid":fips+"003"}]
+            counts,changed=diff_state(baseline,updated,fips)
+            self.assertEqual(counts["COUNTY_SET_CHANGED"],1)
+            self.assertEqual(changed[0]["added_counties"],[fips+"003"])
+        with self.assertRaisesRegex(ValueError,"STATE_EDGE_INVALID"):
+            diff_state([{"place_geoid":"5500001","county_geoid":"55001"}],[],"01")
+
     def test_malformed_coverage_fails(self):
         pins,h=load_pins()
         pins["coverage_state_count"]=50

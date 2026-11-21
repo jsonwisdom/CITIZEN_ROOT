@@ -12,7 +12,7 @@ from collections import defaultdict
 
 from verification.import_census_place_county import import_bytes
 from verification.replay_mn_tiger2026_spatial import shapefile_records,intersection_receipt
-from verification.replay_wi_2020_2026_delta_bas import download as fetch_pinned, diff
+from verification.replay_wi_2020_2026_delta_bas import download as fetch_pinned
 
 ROOT=Path(__file__).resolve().parents[1]
 PINFILE=ROOT/"jurisdictions/US_TIGER2026_PLACE_SOURCE_PIN_COVERAGE_V0_1.json"
@@ -46,6 +46,39 @@ def load_pins():
         raise ValueError("HISTORICAL_50_STATE_COVERAGE_MISSING")
     return pins,h
 
+def diff_state(old_edges,current_edges,fips):
+    def to_sets(edges):
+        result=defaultdict(set)
+        for e in edges:
+            p,c=e["place_geoid"],e["county_geoid"]
+            if (not isinstance(p,str) or not isinstance(c,str)
+                or len(p)!=7 or len(c)!=5 or not p.isascii() or not c.isascii()
+                or not p.isdigit() or not c.isdigit()
+                or not p.startswith(fips) or not c.startswith(fips)):
+                raise ValueError("STATE_EDGE_INVALID:"+fips)
+            if c in result[p]:
+                raise ValueError("DUPLICATE_EDGE")
+            result[p].add(c)
+        return result
+    old=to_sets(old_edges)
+    new=to_sets(current_edges)
+    counts={k:0 for k in ("UNCHANGED_COUNTY_SET","COUNTY_SET_CHANGED",
+         "NEW_IN_2026_EXTRACT","ABSENT_FROM_2026_EXTRACT")}
+    changed=[]
+    for geoid in sorted(set(old)|set(new)):
+        a=old.get(geoid,set())
+        b=new.get(geoid,set())
+        label=("NEW_IN_2026_EXTRACT" if geoid not in old else
+               "ABSENT_FROM_2026_EXTRACT" if geoid not in new else
+               "UNCHANGED_COUNTY_SET" if a==b else "COUNTY_SET_CHANGED")
+        counts[label]+=1
+        if label!="UNCHANGED_COUNTY_SET":
+            changed.append({"place_geoid":geoid,"classification":label,
+                "before_counties":sorted(a),"after_counties":sorted(b),
+                "added_counties":sorted(b-a),"removed_counties":sorted(a-b),
+                "bas_legal_causation":"HOLD"})
+    return counts,changed
+
 def build_one(fips, pins=None,historical=None, fetcher=fetch_pinned):
     if pins is None or historical is None:
         pins,historical=load_pins()
@@ -74,7 +107,7 @@ def build_one(fips, pins=None,historical=None, fetcher=fetch_pinned):
                 raise ValueError("INVALID_2026_COUNTY_ID")
             counties.append((d["GEOID"],rec.shape.__geo_interface__))
     edges=intersection_receipt(cities,counties)
-    counts,changes=diff(baseline["edges"],edges)
+    counts,changes=diff_state(baseline["edges"],edges,fips)
     counts_total=sum(counts.values())
     if counts_total != len({x["place_geoid"] for x in baseline["edges"]}|{x["place_geoid"] for x in edges}):
         raise ValueError("NON_DETERMINISTIC_DIFF_COVERAGE")

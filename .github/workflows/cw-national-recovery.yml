@@ -17,6 +17,8 @@ on:
       - "jurisdictions/MN_TIGER2026_PINNED_ZIP_SOURCE_MANIFEST.json"
       - "verification/replay_mn_tiger2026_spatial.py"
       - "verification/test_mn_tiger2026_spatial.py"
+      - "verification/mn_2020_2026_delta.py"
+      - "verification/test_mn_2020_2026_delta.py"
       - ".github/workflows/cw-national-recovery.yml"
   workflow_dispatch:
 permissions:
@@ -90,5 +92,26 @@ jobs:
         with:
           name: cw-mn-tiger2026-spatial-replay
           path: mn-tiger2026-spatial-replay.json
+          retention-days: 30
+          if-no-files-found: error
+  mn-2020-2026-geographic-delta:
+    needs: national-discovery-check
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Install pinned geometry-only dependencies
+        run: python3 -m pip install --disable-pip-version-check shapely==2.1.2 pyshp==2.3.1
+      - name: Test provenance, multi-county membership and delta classifications
+        run: python3 -B -m unittest verification.test_mn_2020_2026_delta -v
+      - name: Recompute pinned 2020 and 2026 sources and emit geographic delta ledger
+        run: python3 -B -m verification.mn_2020_2026_delta
+      - name: Preserve change ledger without claiming BAS legal causation
+        uses: actions/upload-artifact@v4
+        with:
+          name: cw-mn-2020-2026-geographic-deltas
+          path: mn-2020-2026-geographic-deltas.json
           retention-days: 30
           if-no-files-found: error

@@ -1,0 +1,60 @@
+{
+  "schema": "cw-national-2026-merkle-root-checkpoint-v0.1",
+  "date_utc": "2026-11-21",
+  "scope": "50 U.S. states (not DC or territories)",
+  "original_geographic_run": {
+    "id": 44873748371,
+    "commit": "da992f4a902757409a29379794354b8d873d4559",
+    "jobs_success": 51,
+    "states_success": 50
+  },
+  "state_sha256_pins": "jurisdictions/US_2026_STATE_RECEIPTS_ORIGINAL_LOG_SHA256_V0_1.json",
+  "source_pin_manifest": "jurisdictions/US_TIGER2026_PLACE_SOURCE_PIN_COVERAGE_V0_1.json",
+  "national_aggregate_run": {
+    "id": 44874417589,
+    "commit": "15c68d1a5929969d7f45521672e7e90ae51f0cea",
+    "result": "SUCCESS",
+    "test_count": 6,
+    "artifact_name": "cw-us-2026-national-50state-merkle-root",
+    "artifact_id": 14695725485
+  },
+  "state_receipt_count": 50,
+  "source_integrity": "ALL_50_ORIGINAL_STATE_JOB_LOG_SHA256_MATCH_DOWNLOADED_JSON_BYTES",
+  "merkle_algorithm": {
+    "leaf": "sha256(UTF8('cw-us26-leaf-v1')+NUL+two_ascii_fips_bytes+32_raw_receipt_sha256_bytes)",
+    "parent": "sha256(UTF8('cw-us26-node-v1')+NUL+32_raw_left_child+32_raw_right_child)",
+    "sort": "two-digit state FIPS ascending ASCII",
+    "odd": "duplicate last node at each odd level"
+  },
+  "national_merkle_root_sha256": "85c1c9e8bf6ca6245a4c5966213508a168a25e9a766fd2798bd1f3ac44a86b7b",
+  "aggregate_receipt_sha256": "82ba7f0413b1309cf79dd8e22985c1131b86883d7e2f3675fb82e13bd76da6b3",
+  "totals": {
+    "states": 50,
+    "county_records": 3143,
+    "places_2026": 32070,
+    "place_county_edges_2026": 33531,
+    "places_in_multiple_counties_2026": 1330,
+    "changed_place_records_2020_to_2026": 834,
+    "historical_place_county_edges_2020_in_50states": 33036
+  },
+  "wolfram_independent_root_check": {
+    "status": "PASS",
+    "method": "Wolfram Language separately imported SHA256 pin JSON from pinned GitHub commit, independently evaluated domain-separated SHA256 Merkle tree with 50 states and duplicate-odd rule",
+    "root": "85c1c9e8bf6ca6245a4c5966213508a168a25e9a766fd2798bd1f3ac44a86b7b",
+    "match": true
+  },
+  "cloudflare_readonly_observation": {
+    "existing_worker_scripts": [
+      "cw-ooda-emergency-50state-v01",
+      "cw-ooda-emergency-50state-replica-v01"
+    ],
+    "scripts_modified_last": "2026-11-15",
+    "no_write": true
+  },
+  "legal_causation": "HOLD",
+  "public_records_violation_findings": "NONE_ESTABLISHED",
+  "government_authority": false,
+  "production_merge": "HOLD",
+  "cloudflare_deploy": "HOLD",
+  "wallet_signing": "HOLD"
+}

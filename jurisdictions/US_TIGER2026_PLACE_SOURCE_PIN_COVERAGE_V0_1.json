@@ -1,0 +1,50 @@
+{
+  "schema": "cw-us-tiger2026-pinned-place-source-coverage-v0.1",
+  "vintage": 2026,
+  "expected_states": 50,
+  "source_root": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/",
+  "county": {
+    "url": "https://www2.census.gov/geo/tiger/TIGER2026/COUNTY/tl_2026_us_county.zip",
+    "bytes": 83378454,
+    "sha256": "b527c9ba7aeb8f17ef118f026eae5e5a938aa1d00b873bc32342d0dce59321c0"
+  },
+  "pinned_states": [
+    {
+      "state_fips": "01",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_01_place.zip",
+      "bytes": 5292481,
+      "sha256": "b47351eb605640dc81ab7fa569be9a0d9e0500fc51d58f26230586805c8f6219"
+    },
+    {
+      "state_fips": "17",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_17_place.zip",
+      "bytes": 6176356,
+      "sha256": "ef964f31bcc58bf0f2772951348308baba7a3a1c0283bba8119e7d95319214db"
+    },
+    {
+      "state_fips": "19",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_19_place.zip",
+      "bytes": 1903511,
+      "sha256": "c9747376eac46a86c5c77d61f04812cac37c391d38a8c4fa57852cd5ffe77a33"
+    },
+    {
+      "state_fips": "27",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_27_place.zip",
+      "bytes": 2560853,
+      "sha256": "3a95ade81d565fe326f512790cdd32d4db44de0f0e6d7729043a067a1659580f"
+    },
+    {
+      "state_fips": "55",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2026/PLACE/tl_2026_55_place.zip",
+      "bytes": 3494669,
+      "sha256": "f4cce0f2cb8e3351b699f868f2c7943fc700f6c791147c29974ed0a50ae3e9ee"
+    }
+  ],
+  "coverage_state_count": 5,
+  "remaining_unpinned_states": 45,
+  "source_hash_observer": "Wolfram exact raw BodyByteArray sha256; live CI replay required",
+  "not_nationwide_complete": true,
+  "authority_created": false,
+  "signing_authorized": false,
+  "deployment_authorized": false
+}

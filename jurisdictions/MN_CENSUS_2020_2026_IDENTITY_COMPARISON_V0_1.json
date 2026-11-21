@@ -1,0 +1,66 @@
+{
+  "schema": "cw-census-2020-to-2026-mn-identity-check-v0.1",
+  "status": "PINNED_2026_IDENTIFIER_OBSERVATION_SPATIAL_INTERSECTION_HOLD",
+  "authority": false,
+  "as_of": "2026-11-21",
+  "source_agency": "US Census Bureau",
+  "reference_vintage": 2020,
+  "current_vintage": 2026,
+  "sources": [
+    {
+      "type": "2026-places",
+      "url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2026_Gazetteer/2026_gaz_place_27.txt",
+      "sha256": "2bbf05304674613592bcece3f6b9291f9e034a354274eb8ab505f27426b0c077",
+      "bytes": 92227,
+      "header": "USPS|GEOID|GEOIDFQ|ANSICODE|NAME|LSAD|FUNCSTAT|ALAND|AWATER|ALAND_SQMI|AWATER_SQMI|INTPTLAT|INTPTLONG",
+      "observed_row": {
+        "USPS": "MN",
+        "GEOID": "2743000",
+        "GEOIDFQ": "1600000US2743000",
+        "ANSICODE": "02395345",
+        "NAME": "Minneapolis city"
+      }
+    },
+    {
+      "type": "2026-counties",
+      "url": "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2026_Gazetteer/2026_gaz_counties_27.txt",
+      "sha256": "7960e3d686afb59a56a055b04a07225f8d0ecf4c3dbba754f930fa4d12778354",
+      "bytes": 9121,
+      "header": "USPS|GEOID|GEOIDFQ|ANSICODE|NAME|ALAND|AWATER|ALAND_SQMI|AWATER_SQMI|INTPTLAT|INTPTLONG",
+      "observed_row": {
+        "USPS": "MN",
+        "GEOID": "27053",
+        "GEOIDFQ": "0500000US27053",
+        "ANSICODE": "00659472",
+        "NAME": "Hennepin County"
+      }
+    }
+  ],
+  "historical_provenance": {
+    "product": "2020 Place-by-County Codes",
+    "url": "https://www2.census.gov/geo/docs/reference/codes2020/place_by_cou/st27_mn_place_by_county2020.txt",
+    "sha256": "0dae02710c8ee1e39f426cb84c47a7eab25ca26c692f24784f89b20d3655e886",
+    "place_geoid": "2743000",
+    "county_geoid": "27053"
+  },
+  "comparison": [
+    {
+      "geoid": "2743000",
+      "type": "place",
+      "result": "2020_ID_PRESENT_IN_2026_GAZETTEER"
+    },
+    {
+      "geoid": "27053",
+      "type": "county",
+      "result": "2020_ID_PRESENT_IN_2026_GAZETTEER"
+    }
+  ],
+  "limitations": [
+    "Matching identifiers do not guarantee boundaries unchanged",
+    "Gazetteers carry internal points but not place-to-county membership edges",
+    "2026 relationship requires verified 2026 TIGER/Line geometry or equivalent authoritative mapping",
+    "Neither Census identity nor geography establishes local legal or emergency-response authority"
+  ],
+  "wallet_signing": "HOLD",
+  "production_merge": "HOLD"
+}

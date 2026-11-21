@@ -1,0 +1,62 @@
+{
+  "schema": "cw-mn-bas-2021-2025-legal-source-pins-v0.1",
+  "agency": "U.S. Census Bureau",
+  "product": "BAS voluntary participant-reported legal boundary change annexation data",
+  "source_listing": "https://www2.census.gov/geo/pvs/bas/annexation/27/",
+  "files": [
+    {
+      "year": 2021,
+      "filename": "27MN_bas2021.txt",
+      "url": "https://www2.census.gov/geo/pvs/bas/annexation/27/27MN_bas2021.txt",
+      "bytes": 11409,
+      "sha256": "cf27689c4a4ba94520e2e6ed18152662129d551e83ff27678ac77632e0ce2d77"
+    },
+    {
+      "year": 2022,
+      "filename": "27MN_bas2022.txt",
+      "url": "https://www2.census.gov/geo/pvs/bas/annexation/27/27MN_bas2022.txt",
+      "bytes": 18107,
+      "sha256": "938c831fb4fe28cfbb900d5f640ddad96b30a900538462be012a3004a322a896"
+    },
+    {
+      "year": 2023,
+      "filename": "27MN_bas2023.txt",
+      "url": "https://www2.census.gov/geo/pvs/bas/annexation/27/27MN_bas2023.txt",
+      "bytes": 9373,
+      "sha256": "729ac98e710833de4e36e6ebeb79b343d3af58aa510264e24855f2d974148e10"
+    },
+    {
+      "year": 2024,
+      "filename": "27MN_bas2024.txt",
+      "url": "https://www2.census.gov/geo/pvs/bas/annexation/27/27MN_bas2024.txt",
+      "bytes": 11593,
+      "sha256": "131e08aae6e743654db00649984d217391415d26aa8663d3d443f87a5a77f419"
+    },
+    {
+      "year": 2025,
+      "filename": "27MN_bas2025.txt",
+      "url": "https://www2.census.gov/geo/pvs/bas/annexation/27/27MN_bas2025.txt",
+      "bytes": 10014,
+      "sha256": "d5a1a8817f0b13b30dcf87451a27b31f96537d1c62b19f3972828ea74da89166"
+    }
+  ],
+  "source_vintage_years": [
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "source_2026_status": "NOT_LISTED_AT_OBSERVATION",
+  "observation_method": "Independent Wolfram URLRead exact response ByteArray and SHA256",
+  "limitations": [
+    "BAS is voluntary and Census disclaims completeness",
+    "BAS reporting year may be later than action effective date",
+    "Presence of a record by entity GEOID is not proof it caused a county set transition",
+    "BAS annexation files do not include all nonlegal geographic or code corrections",
+    "Absence of a record does not establish absence of legal change"
+  ],
+  "legal_causation": "HOLD",
+  "wallet": "HOLD",
+  "production": "HOLD"
+}

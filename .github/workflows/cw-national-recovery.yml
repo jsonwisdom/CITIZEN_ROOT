@@ -19,6 +19,9 @@ on:
       - "verification/test_mn_tiger2026_spatial.py"
       - "verification/mn_2020_2026_delta.py"
       - "verification/test_mn_2020_2026_delta.py"
+      - "jurisdictions/MN_BAS_2021_2025_SHA256_SOURCE_MANIFEST.json"
+      - "verification/match_mn_bas_2021_2025.py"
+      - "verification/test_match_mn_bas_2021_2025.py"
       - ".github/workflows/cw-national-recovery.yml"
   workflow_dispatch:
 permissions:
@@ -38,6 +41,7 @@ jobs:
           python3 -B -m unittest verification.test_import_census_place_county -v
           python3 -B -m unittest verification.test_replay_census_national -v
           python3 -B -m unittest verification.test_mn_2026_gazetteers -v
+          python3 -B -m unittest verification.test_match_mn_bas_2021_2025 -v
           python3 -B -m verification.replay_census_national --check-manifest
   nationwide-2020-pinned-source-replay:
     needs: national-discovery-check
@@ -113,5 +117,22 @@ jobs:
         with:
           name: cw-mn-2020-2026-geographic-deltas
           path: mn-2020-2026-geographic-deltas.json
+          retention-days: 30
+          if-no-files-found: error
+  mn-bas-eight-place-candidate-evidence:
+    needs: national-discovery-check
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Re-fetch and SHA-256 verify official Minnesota BAS 2021-2025
+        run: python3 -B -m verification.match_mn_bas_2021_2025
+      - name: Save read-only BAS candidate report; legal causation remains HOLD
+        uses: actions/upload-artifact@v4
+        with:
+          name: cw-mn-bas-2021-2025-eight-geoid-candidates
+          path: mn-bas-2021-2025-eight-geoid-candidates.json
           retention-days: 30
           if-no-files-found: error

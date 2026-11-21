@@ -8,6 +8,9 @@ on:
       - "verification/test_mn_al_census_crosswalk.py"
       - "verification/import_census_place_county.py"
       - "verification/test_import_census_place_county.py"
+      - "jurisdictions/US_CENSUS_PLACE_BY_COUNTY_2020_SHA256_MANIFEST.json"
+      - "verification/replay_census_national.py"
+      - "verification/test_replay_census_national.py"
       - ".github/workflows/cw-national-recovery.yml"
   workflow_dispatch:
 permissions:
@@ -25,3 +28,22 @@ jobs:
           python3 -B verification/test_national_recovery_overlay.py -v
           python3 -B verification/test_mn_al_census_crosswalk.py -v
           python3 -B -m unittest verification.test_import_census_place_county -v
+          python3 -B -m unittest verification.test_replay_census_national -v
+          python3 -B -m verification.replay_census_national --check-manifest
+  nationwide-2020-pinned-source-replay:
+    needs: national-discovery-check
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Re-fetch every official source and verify 56 pinned SHA-256 digests
+        run: python3 -B -m verification.replay_census_national --live --out census-national-2020-replay.json
+      - name: Save derived nationwide receipt only, never raw sources
+        uses: actions/upload-artifact@v4
+        with:
+          name: cw-census-national-2020-historical-replay
+          path: census-national-2020-replay.json
+          retention-days: 30
+          if-no-files-found: error

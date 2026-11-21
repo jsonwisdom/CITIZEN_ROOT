@@ -49,11 +49,17 @@ class MinnesotaCrosswalkTests(unittest.TestCase):
     def test_minneapolis_edge_not_falsely_attested(self):
         mpls = self.items["MNCI_MPLS"]
         self.assertEqual(mpls["census_geoid"], "2743000")
-        self.assertEqual(mpls["relationship_status"], "PLACE_COUNTY_RELATIONSHIP_HOLD")
+        self.assertEqual(mpls["relationship_status"], "HENNEPIN_COUNTY_SUBDIVISION_EDGE_BAS26_VERIFIED_PLACE_RELATIONSHIP_FILE_HOLD")
         edges = self.data["edges"]
         self.assertTrue(any(x["from"] == "2743000" and x["to"] == "27" for x in edges))
-        self.assertFalse(any(x["from"] == "2743000" and x["to"] in ("27053", "27037", "27123") for x in edges))
-        self.assertTrue(all(x["status"] == "CENSUS_VERIFIED" for x in edges))
+        bas = [x for x in edges if x["from"] == "2743000" and x["to"] == "27053"]
+        self.assertEqual(len(bas), 1)
+        self.assertEqual(bas[0]["source_id"], "census_bas26_mn_cousub")
+        self.assertEqual(bas[0]["source_row_geoid"], "2705343000")
+        self.assertIn("RELATIONSHIP_FILE_HOLD", bas[0]["status"])
+        self.assertFalse(any(x["from"] == "2743000" and x["to"] in ("27037", "27123") for x in edges))
+        self.assertEqual(len([x for x in self.data["official_sources"] if x["id"] == "census_bas26_mn_cousub"]), 1)
+        self.assertTrue(all(x["status"] == "CENSUS_VERIFIED" for x in edges if x["from"] != "2743000" or x["to"] == "27"))
 
 if __name__ == "__main__":
     unittest.main()

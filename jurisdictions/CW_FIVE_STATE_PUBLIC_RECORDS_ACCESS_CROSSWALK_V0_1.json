@@ -18,12 +18,12 @@
       "fips": "55",
       "name": "Wisconsin",
       "statute": "Wisconsin Statutes §§19.31–19.39",
-      "official_url": "https://legis.wisconsin.gov/lrb/pubs/consthi/04.pdf",
-      "supporting_url": "https://www.doj.state.wi.us/office-open-government/office-open-government",
+      "official_url": "https://www.wisdoj.gov/Open%20Government/2026_Q3_CORR_Summ.pdf",
+      "supporting_url": "https://docs.legis.wisconsin.gov/statutes/statutes/19/ii/35",
       "access_rule": "Strong public-access presumption; applicable statutory, common-law, and public-interest exceptions",
       "requester_rule": "Record requesters generally do not need to state a purpose; confirm precise rule for requested record",
       "scope_caveat": "Do not treat Census geography as proof the municipality has the requested record",
-      "evidence_status": "LEGAL_REFERENCE_OFFICIAL_GUIDANCE_SECONDARY_STATUTE_REVIEW_REQUIRED"
+      "evidence_status": "OFFICIAL_DOJ_GUIDANCE_AND_STATUTE_LINK_IDENTIFIED_STATUTE_ACCESS_RECHECK"
     },
     {
       "fips": "19",
